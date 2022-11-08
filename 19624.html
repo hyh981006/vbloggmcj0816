@@ -1,0 +1,771 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Unity热更新-Lua基础语法 | 七鳄の学习格</title><meta name="keywords" content="Unity"><meta name="author" content="爱吃大饼的小虎"><meta name="copyright" content="爱吃大饼的小虎"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="此文章部分内容和思维导图来源于唐老狮相关Lua课程，通过Vistual Studio Code语法测试，如有问题，请在以下留言  一.Lua相关注释这里需要注意的是在C#中单行注释是使用”&#x2F;&#x2F;“，多行注释是”&#x2F;%内容%&#x2F;“，在lua中的单行注释和多行注释相关格式如下图 单行注释多行注释1--单行注释123--[[多行注释]] 二.数据类型写在最前面 在lua中无需定义数据的类型，在使用中会自动识别">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Unity热更新-Lua基础语法">
+<meta property="og:url" content="https://blog.gmcj0816.top/19624.html">
+<meta property="og:site_name" content="七鳄の学习格">
+<meta property="og:description" content="此文章部分内容和思维导图来源于唐老狮相关Lua课程，通过Vistual Studio Code语法测试，如有问题，请在以下留言  一.Lua相关注释这里需要注意的是在C#中单行注释是使用”&#x2F;&#x2F;“，多行注释是”&#x2F;%内容%&#x2F;“，在lua中的单行注释和多行注释相关格式如下图 单行注释多行注释1--单行注释123--[[多行注释]] 二.数据类型写在最前面 在lua中无需定义数据的类型，在使用中会自动识别">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.gmcj0816.top/img/wz/wz006.png">
+<meta property="article:published_time" content="2022-09-03T12:02:20.000Z">
+<meta property="article:modified_time" content="2022-11-06T13:07:36.914Z">
+<meta property="article:author" content="爱吃大饼的小虎">
+<meta property="article:tag" content="Unity">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.gmcj0816.top/img/wz/wz006.png"><link rel="shortcut icon" href="/img/sevenefavicon.png"><link rel="canonical" href="https://blog.gmcj0816.top/19624"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: {"appId":"UXHVO1X85U","apiKey":"9625252aeb08590c8d6b48d195842cc0","indexName":"my-hexo-blog","hits":{"per_page":6},"languages":{"input_placeholder":"搜索文章","hits_empty":"找不到您查询的内容：${query}","hits_stats":"找到 ${hits} 条结果，用时 ${time} 毫秒"}},
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#49b1f5","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Unity热更新-Lua基础语法',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2022-11-06 21:07:36'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><svg aria-hidden="true" style="position:absolute; overflow:hidden; width:0; height:0"><symbol id="icon-sun" viewBox="0 0 1024 1024"><path d="M960 512l-128 128v192h-192l-128 128-128-128H192v-192l-128-128 128-128V192h192l128-128 128 128h192v192z" fill="#FFD878" p-id="8420"></path><path d="M736 512a224 224 0 1 0-448 0 224 224 0 1 0 448 0z" fill="#FFE4A9" p-id="8421"></path><path d="M512 109.248L626.752 224H800v173.248L914.752 512 800 626.752V800h-173.248L512 914.752 397.248 800H224v-173.248L109.248 512 224 397.248V224h173.248L512 109.248M512 64l-128 128H192v192l-128 128 128 128v192h192l128 128 128-128h192v-192l128-128-128-128V192h-192l-128-128z" fill="#4D5152" p-id="8422"></path><path d="M512 320c105.888 0 192 86.112 192 192s-86.112 192-192 192-192-86.112-192-192 86.112-192 192-192m0-32a224 224 0 1 0 0 448 224 224 0 0 0 0-448z" fill="#4D5152" p-id="8423"></path></symbol><symbol id="icon-moon" viewBox="0 0 1024 1024"><path d="M611.370667 167.082667a445.013333 445.013333 0 0 1-38.4 161.834666 477.824 477.824 0 0 1-244.736 244.394667 445.141333 445.141333 0 0 1-161.109334 38.058667 85.077333 85.077333 0 0 0-65.066666 135.722666A462.08 462.08 0 1 0 747.093333 102.058667a85.077333 85.077333 0 0 0-135.722666 65.024z" fill="#FFB531" p-id="11345"></path><path d="M329.728 274.133333l35.157333-35.157333a21.333333 21.333333 0 1 0-30.165333-30.165333l-35.157333 35.157333-35.114667-35.157333a21.333333 21.333333 0 0 0-30.165333 30.165333l35.114666 35.157333-35.114666 35.157334a21.333333 21.333333 0 1 0 30.165333 30.165333l35.114667-35.157333 35.157333 35.157333a21.333333 21.333333 0 1 0 30.165333-30.165333z" fill="#030835" p-id="11346"></path></symbol></svg><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Jayhrn/fontawesome-pro/css/all.min.css"><link rel="stylesheet" href="https://npm.elemecdn.com/remixicon@2.5.0/fonts/remixicon.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"><script src="https://cdn.jsdelivr.net/gh/Jayhrn/CDN/waterfall.min.js"></script><link rel="stylesheet" href="/css/iconfont/iconfont.css?version=0.0.3"><link rel="stylesheet" href="/css/custom_mg/fcircle_set.css"><link rel="stylesheet" href="/css/custom_mg/bb_set.css?version=0.0.5" type="text/css"<link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-swiper-anzhiyu@1.0.4/lib/swiper.min.css"><link rel="stylesheet" href="/css/custom_mg/rightmenu.css"><link rel="stylesheet" href="/css/custom_mg/copyright.css"><link rel="stylesheet" href="/css/custom_mg/blur_configuration.css?version=0.0.1" type="text/css"><link rel="stylesheet" href="/css/custom_mg/ca_and_tag.css"><link rel="stylesheet" href="/css/custom_mg/progress_bar.css"><link rel="stylesheet" href="/css/custom_mg/aboutset.css?version=0.0.5" type="text/css"><link rel="stylesheet" href="/css/custom_mg/bber.css"><link rel="stylesheet" href="/css/custom_mg/readNum.css"><script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script> LA.init({id:"JqUMk0uS8zNT6ygG",ck:"JqUMk0uS8zNT6ygG"})</script><script>new LingQue.Monitor().init({id:"JqUMc2TMBbRxJwE0",sendSuspicious:true});</script><script src="https://npm.elemecdn.com/echarts@4.9.0/dist/echarts.min.js"></script><script src="https://cdn.bootcdn.net/ajax/libs/clipboard.js/2.0.11/clipboard.min.js"></script><script src="https://at.alicdn.com/t/c/font_3570527_dthoqrrv2tv.css"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/mainColor/heoMainColor.css"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.css"><!-- hexo injector head_end start --><link rel="stylesheet" href="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.css" /><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="七鳄の学习格" type="application/atom+xml">
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://blog.gmcj0816.top/img/SeriousWission_TouXiangPic.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">21</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">9</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-yongquan1"></i><span> 文章标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-zhifeiji"></i><span> 文章分类</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw iconfont icon-feiji"></i><span> 即刻短文</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw iconfont icon-huojian"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/webcollect/"><i class="fa-fw iconfont icon-jiangbei"></i><span> 网站收藏</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-erji"></i><span> 音乐库</span></a></li><li><a class="site-page child" href="/movie/"><i class="fa-fw iconfont icon-kafei"></i><span> 电影推荐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 友链</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-zhifengche"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw iconfont icon-diqiuyi"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-cunqianguan"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/resume/"><i class="fa-fw iconfont icon-feidie"></i><span> 个人简历</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 博客更新</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="not-top-img" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon fas fa-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://gmcj0816.top/" rel="external nofollow" title="前往七鳄主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="https://blog.gmcj0816.top/img/tubiao001.png"/><span class="back-menu-item-text">主页          </span></a><a class="back-menu-item" href="https://pan.gmcj0816.top/" rel="external nofollow" title="前往云盘主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="https://blog.gmcj0816.top/img/tubiao002.png"/><span class="back-menu-item-text">个人云盘</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">博客</div><div class="back-menu-list"><a class="back-menu-item" href="/" title="前往博客主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="https://blog.gmcj0816.top/img/tubiao003.png"/><span class="back-menu-item-text">主线路</span></a><a class="back-menu-item" href="https://vblog.gmcj0816.top/" title="前往博客主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="https://blog.gmcj0816.top/img/tubiao004.png"/><span class="back-menu-item-text">vercel线路</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">我的作品</div><div class="back-menu-list"><a class="back-menu-item" href="https://blog.gmcj0816.top/sw/MyServer/" title="前往博客主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="https://blog.gmcj0816.top/img/tubiao005.png"/><span class="back-menu-item-text">车模展示</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span>SEVENE</span></a></span><span id="page_name"><a id="page-name-text" title="回到顶部" onclick="btf.scrollToDest(0,500)"><span>七鳄の学习格</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 文库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-yongquan1"></i><span> 文章标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-zhifeiji"></i><span> 文章分类</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw iconfont icon-feiji"></i><span> 即刻短文</span></a></li><li><a class="site-page child" href="/charts/"><i class="fa-fw iconfont icon-huojian"></i><span> 文章统计</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 我的</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/webcollect/"><i class="fa-fw iconfont icon-jiangbei"></i><span> 网站收藏</span></a></li><li><a class="site-page child" href="/music/"><i class="fa-fw iconfont icon-erji"></i><span> 音乐库</span></a></li><li><a class="site-page child" href="/movie/"><i class="fa-fw iconfont icon-kafei"></i><span> 电影推荐</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 友链</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-zhifengche"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw iconfont icon-diqiuyi"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><span> 关于</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-cunqianguan"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/resume/"><i class="fa-fw iconfont icon-feidie"></i><span> 个人简历</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 博客更新</span></a></li></ul></div></div></div><div id="hotkey"><div id="search-button"><a class="site-page social-icon search" title="搜索"><i class="ri-search-eye-line"></i></a></div><div id="randompost-button"><a class="site-page social-icon search" href="javascript:;" onclick="randomPost()" title="随便看看 - 随机访问一篇本站文章"><i class="fas fa-splotch fa-fw"></i></a></div><div id="travellings"><a class="site-page social-icon search" target="_blank" rel="noopener" href="https://travellings.link/" title="开往 - 随机跳转到另一个加入开往的网页"><i class="ri-subway-fill"></i></a></div><div id="mode-button"><a class="site-page" title="浅色和深色模式转换" onclick="rmf.switchDarkMode()"><i class="ri-sun-fill"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></div></nav></header><main class="layout" id="content-inner"><div id="post"><div id="post-info"><h1 class="post-title">Unity热更新-Lua基础语法</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2022-09-03T12:02:20.000Z" title="发表于 2022-09-03 20:02:20">2022-09-03</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2022-11-06T13:07:36.914Z" title="更新于 2022-11-06 21:07:36">2022-11-06</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%A6%8B%E7%83%AD%E6%9B%B4%E6%96%B0/">🦋热更新</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Unity热更新-Lua基础语法"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div><article class="post-content" id="article-container"><div class="tip bolt"><p>此文章部分内容和思维导图来源于唐老狮相关Lua课程，通过Vistual Studio Code语法测试，如有问题，请在以下留言</p>
+</div>
+<h1 id="一-Lua相关注释"><a href="#一-Lua相关注释" class="headerlink" title="一.Lua相关注释"></a>一.Lua相关注释</h1><p>这里需要注意的是在C#中单行注释是使用”//“，多行注释是”/%内容%/“，在lua中的单行注释和多行注释相关格式如下图</p>
+<div class="tabs" id="注释"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#注释-1">单行注释</button></li><li class="tab"><button type="button" data-href="#注释-2">多行注释</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="注释-1"><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--单行注释</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="注释-2"><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--[[</span></span><br><span class="line"><span class="comment">多行注释</span></span><br><span class="line"><span class="comment">]]</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h1 id="二-数据类型"><a href="#二-数据类型" class="headerlink" title="二.数据类型"></a>二.数据类型</h1><h2 id="写在最前面"><a href="#写在最前面" class="headerlink" title="写在最前面"></a>写在最前面</h2><div class="tip home"><ul>
+<li><p>在lua中<wavy>无需定义数据</wavy>的类型，在使用中会自动识别</p>
+</li>
+<li><p>lua当中的基本数据类型：</p>
+<p>（1）nil（类似于c#中null）</p>
+<p>（2）number（所有的数值都是number==&gt;number包括int float double）</p>
+<p>（3）string （lua中没有char，字符串的声明使用单引号或者双引号包裹）</p>
+<p>（4）boolean（返回的是true或false）</p>
+</li>
+<li><p>lua当中的复杂数据类型：</p>
+<p>（1）函数（function）</p>
+<p>（2）表（table）【表需要特别学习，特别的重要】</p>
+<p>（3）数据结构（userdata）</p>
+<p>（4）协同程序（thread（线程））</p>
+</li>
+<li><p>lua中带 <emp>所有的变量申明，都不需要申明变量类型</emp>，同理可以随便赋值，可以自动判断类型==&gt;类似c#中的var</p>
+</li>
+<li><p>lua中使用<wavy>没有声明过的变量并不会报错，默认返回的是nil</wavy></p>
+</li>
+<li><p>lua<wavy>默认是没有 面向对象的 ，需要自己实现</wavy></p>
+</li>
+<li><p>在lua中的”数组” <wavy>起始位置与c#不同，从1开始</wavy>；</p>
+</li>
+<li><p><wavy>当对变量多赋值时,会将后面多赋的值自动省略</wavy>；</p>
+</li>
+<li><wavy>当对变量少赋值时，会将后面不够的值直接自动赋为空值</wavy>
+</li>
+<li><wavy>多返回值时，用几个变量接就会有多少个值</wavy>
+</li>
+<li><p>如果<wavy>变量数大于方法返回的值数量，则会进行补空处理</wavy></p>
+</li>
+<li><p>如果 <wavy>变量数小于方法返回的值数量，则会根据变量数量进行接取</wavy></p>
+</li>
+</ul>
+</div>
+<h2 id="1-基本数据类型"><a href="#1-基本数据类型" class="headerlink" title="1.基本数据类型"></a>1.基本数据类型</h2><details class="folding-tag" green><summary> 为了方便阅读和页面美观，请点击下拉框进行阅读 </summary>
+              <div class='content'>
+              <h3 id="nil的使用"><a href="#nil的使用" class="headerlink" title="nil的使用"></a>nil的使用</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="literal">nil</span>  <span class="comment">--定义a这个变量的值为nil</span></span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment">--这里是输出a这个变量，输出值也同样是nil，不过输出的是字符串类型</span></span><br></pre></td></tr></table></figure><h3 id="number（数值类型）"><a href="#number（数值类型）" class="headerlink" title="number（数值类型）"></a>number（数值类型）</h3><ul><li><font color=red>这里需要注意一点：在上面赋过值得变量，可以重复使用，在下面依然可以重新赋值，也同样会根据相关赋值的类型转化为相对应的类型</font></li></ul><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">1</span> b=<span class="number">1.25</span></span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment">--输出的值是1</span></span><br><span class="line"><span class="built_in">print</span>(b) <span class="comment">--输出的值是1.25</span></span><br></pre></td></tr></table></figure><h3 id="string（字符串类型）"><a href="#string（字符串类型）" class="headerlink" title="string（字符串类型）"></a>string（字符串类型）</h3><ul><li><font color=red>在lua中是没有字符的，在定义字符串时可以使用以下三种方式：<br/>（1）单引号 'SeveneStudio'   <br/>（2）双引号 "SeveneStudio"  <br/>（3）中括号 [[SeveneStudio]]</font></li></ul><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="string">&quot;SeveneStudio_Logo&quot;</span> </span><br><span class="line"><span class="built_in">print</span>(a)  <span class="comment">--输出的值是SeveneStudio_Logo</span></span><br><span class="line">a=<span class="string">&#x27;SeveneStudio——Company&#x27;</span></span><br><span class="line"><span class="built_in">print</span>(a)  <span class="comment">--输出的值是SeveneStudio——Company</span></span><br><span class="line">a=<span class="string">[[SevenStuido_KaiFa]]</span></span><br><span class="line"><span class="built_in">print</span>(a)  <span class="comment">--输出的值是SevenStuido_KaiFa</span></span><br></pre></td></tr></table></figure><h3 id="boolean（Boolean类型）"><a href="#boolean（Boolean类型）" class="headerlink" title="boolean（Boolean类型）"></a>boolean（Boolean类型）</h3><ul><li><font color=red>在lua中只有true和false代表真与假，这个与c#有着区别</font></li></ul><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="literal">true</span></span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment">-- 输出的值是true</span></span><br><span class="line">a=<span class="literal">false</span></span><br><span class="line"><span class="built_in">print</span>(a) <span class="comment">-- 输出的值是false</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h2 id="2-type-的使用和字符串扩展"><a href="#2-type-的使用和字符串扩展" class="headerlink" title="2.type()的使用和字符串扩展"></a>2.type()的使用和字符串扩展</h2><h3 id="type-获取变量类型"><a href="#type-获取变量类型" class="headerlink" title="type() 获取变量类型"></a>type() 获取变量类型</h3><ul>
+<li><font color=red>通过type()可以获取变量类型==>返回值是变量的数据类型，属于string类型</font>
+
+</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">123</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))  <span class="comment">--因为a的类型是number，所以通过type()获取的输出的是number</span></span><br><span class="line">a=<span class="string">&quot;123&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(a))  <span class="comment">--因为a的类型是string，所以通过type()获取的输出的是string</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-字符串的相关使用"><a href="#3-字符串的相关使用" class="headerlink" title="3.字符串的相关使用"></a>3.字符串的相关使用</h2><h3 id="1-字符串长度的计算"><a href="#1-字符串长度的计算" class="headerlink" title="(1).字符串长度的计算"></a>(1).字符串长度的计算</h3><details class="folding-tag" cyan open><summary> 计算字符串的长度 </summary>
+              <div class='content'>
+              <p>相关方法：print(#变量名)</p><div class="table-container"><table><thead><tr><th>注意点</th></tr></thead><tbody><tr><td><font color=red>1.一个汉字占3个长度</font></td></tr><tr><td><font color=red>2.英文字符占1个长度</font></td></tr></tbody></table></div><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&quot;aBcDEfG字符串&quot;</span></span><br><span class="line"><span class="built_in">print</span>(#s)</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="2-字符串的换行"><a href="#2-字符串的换行" class="headerlink" title="(2).字符串的换行"></a>(2).字符串的换行</h3><details class="folding-tag" green open><summary> 字符串的换行 </summary>
+              <div class='content'>
+              <p>说明：字符串的换行/字符串多行打印在lua中是与c#一样，是<font color=red>支持转义字符的</font>  </p><p>相关格式：可以使用\n或者[[字符串]]</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;123\n123&quot;</span>)</span><br><span class="line">s=<span class="string">[[</span></span><br><span class="line"><span class="string">这里</span></span><br><span class="line"><span class="string">是</span></span><br><span class="line"><span class="string">SeveneStudio</span></span><br><span class="line"><span class="string">]]</span></span><br><span class="line"><span class="built_in">print</span>(s)</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="3-字符串的拼接"><a href="#3-字符串的拼接" class="headerlink" title="(3).字符串的拼接"></a>(3).字符串的拼接</h3><details class="folding-tag" cyan open><summary> 字符串的拼接 </summary>
+              <div class='content'>
+              <p>相关格式：</p><p>（1）在lua中字符串的拼接通过..实现，字符串..字符串</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;HaXinXi&quot;</span>..<span class="string">&quot;XueYuan&quot;</span>)  <span class="comment">-- HaXinXiXueYuan</span></span><br><span class="line">s1=<span class="string">&quot;Wang&quot;</span></span><br><span class="line">s2=<span class="string">&quot;Li&quot;</span></span><br><span class="line"><span class="built_in">print</span>(s1..s2)   <span class="comment">-- HaXinXiXueYuan</span></span><br></pre></td></tr></table></figure><p>（2）string.format(）</p><div class="table-container"><table><thead><tr><th style="text-align:left">注意点</th></tr></thead><tbody><tr><td style="text-align:left"><span class='p red'>%d 与数字进行拼接</span></td></tr><tr><td style="text-align:left"><span class='p red'>%a 与任何字符拼接</span></td></tr><tr><td style="text-align:left"><span class='p red'>%s 与字符配对</span></td></tr></tbody></table></div><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">&quot;我是哈信息%d级学生&quot;</span>,<span class="number">18</span>))   <span class="comment">--我是哈信息18级学生</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">format</span>(<span class="string">&quot;我的家乡是%s市&quot;</span>,<span class="string">&quot;承德&quot;</span>))   <span class="comment">--我的家乡是承德市</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="4-字符串的转化"><a href="#4-字符串的转化" class="headerlink" title="(4).字符串的转化"></a>(4).字符串的转化</h3><details class="folding-tag" yellow open><summary> 字符串的转化 </summary>
+              <div class='content'>
+              <p>格式：string.upper(字符串)</p><div class="table-container"><table><thead><tr><th style="text-align:left">注意点</th></tr></thead><tbody><tr><td style="text-align:left"><span class='p red'><strong>string.upper(argument):</strong> 字符串全部转为大写字母，</span></td></tr><tr><td style="text-align:left"><span class='p red'><strong>string.lower(argument):</strong>字符串全部转为小写字母</span></td></tr></tbody></table></div><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&quot;SeveneStudio&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">upper</span>(s))  <span class="comment">--SEVENESTUDIO</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">lower</span>(s))  <span class="comment">--sevenestudio</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="5-字符串的翻转"><a href="#5-字符串的翻转" class="headerlink" title="(5).字符串的翻转"></a>(5).字符串的翻转</h3><details class="folding-tag" blue open><summary> 字符串翻转 </summary>
+              <div class='content'>
+              <p>格式：string.reverse(arg)</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">reverse</span>(s)) <span class="comment">--oidutSeneveS</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="6-字符串的查找"><a href="#6-字符串的查找" class="headerlink" title="(6).字符串的查找"></a>(6).字符串的查找</h3><details class="folding-tag" red open><summary> 字符串查找 </summary>
+              <div class='content'>
+              <p>格式：string.find (str, substr, [init, [plain]])</p><p><strong>init</strong> 指定了搜索的起始位置，默认为 1，可以一个负数，表示从后往前数的字符个数。<br/><strong>plain</strong> 表示是否以正则表达式匹配。</p><div class="table-container"><table><thead><tr><th>注意点</th></tr></thead><tbody><tr><td><font color=red>（1）lua的起始位置与c#不同，从1开始；</font></td></tr><tr><td><font color=red>（2）string.find (）会返回起始位置和结束位置</font></td></tr></tbody></table></div><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&quot;SeveneStudio&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">find</span>(s,<span class="string">&quot;eve&quot;</span>)) <span class="comment">--2       4</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="7-字符串的截取"><a href="#7-字符串的截取" class="headerlink" title="(7).字符串的截取"></a>(7).字符串的截取</h3><details class="folding-tag" open><summary> 字符串截取 </summary>
+              <div class='content'>
+              <p>格式：string.sub(s, i [, j])</p><p>s：要截取的字符串；</p><p>i：截取开始位置； </p><p>j：截取结束位置，默认为 -1，最后一个字符。</p><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span>.<span class="built_in">sub</span>(s, i [, j])</span><br><span class="line">s=<span class="string">&quot;SeveneStudio&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">sub</span>(s,<span class="number">2</span>,<span class="number">6</span>)) <span class="comment">--evene</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="8-字符串的拷贝"><a href="#8-字符串的拷贝" class="headerlink" title="(8).字符串的拷贝"></a>(8).字符串的拷贝</h3><details class="folding-tag" cyan open><summary> 字符串拷贝 </summary>
+              <div class='content'>
+              <p>格式：string.rep(string, n)</p><div class="table-container"><table><thead><tr><th style="text-align:left">注意点</th></tr></thead><tbody><tr><td style="text-align:left"><font color=red>返回字符串String的n个拷贝，即将字符串复制n个返回</font></td></tr></tbody></table></div><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&quot;SeveneStudio&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">rep</span>(s,<span class="number">3</span>)) <span class="comment">--SeveneStudioSeveneStudioSeveneStudio</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="9-字符串的替换"><a href="#9-字符串的替换" class="headerlink" title="(9).字符串的替换"></a>(9).字符串的替换</h3><details class="folding-tag" green open><summary> 字符串替换 </summary>
+              <div class='content'>
+              <p>格式：string.gsub(mainString,findString,replaceString,num)</p><p><strong>mainString</strong> 为要操作的字符串；</p><p><strong>replaceString</strong> 要替换的字符；</p><p><strong>findString</strong> 为被替换的字符；</p><p><strong>num</strong> 替换次数（可以忽略，则全部替换）;</p><font color=red>这里会返回两个：1.替换后的字符串，2.替换次数</font><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">s=<span class="string">&quot;SeveneStudio&quot;</span></span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">gsub</span>(s,<span class="string">&quot;e&quot;</span>,<span class="string">&quot;*&quot;</span>))  <span class="comment">--S*v*n*Studio    3</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h3 id="10-字符串的字符和ASCII相互转换"><a href="#10-字符串的字符和ASCII相互转换" class="headerlink" title="(10).字符串的字符和ASCII相互转换"></a>(10).字符串的字符和ASCII相互转换</h3><details class="folding-tag" yellow open><summary> 字符串的字符和ASCII相互转换 </summary>
+              <div class='content'>
+              <p>格式：字符转ASCII码：string.byte(string,int)</p><p>​            ASCII码转字符：string.char(int)</p><div class="table-container"><table><thead><tr><th style="text-align:left">注意点</th></tr></thead><tbody><tr><td style="text-align:left"><strong>string.byte(string,int)</strong> 字符转ASCII码 ==&gt;string是指字符串，int是需要转换的位置</td></tr><tr><td style="text-align:left"><strong>string.char(int)</strong> ASCII码转字符==&gt;int指需要ASCII码转化为字符</td></tr></tbody></table></div><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;字符转ASCII码&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">byte</span>(s,<span class="number">1</span>))  <span class="comment">-- 83</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ASCII码转字符&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">string</span>.<span class="built_in">char</span>(<span class="built_in">string</span>.<span class="built_in">byte</span>(s,<span class="number">1</span>)))  <span class="comment">--S</span></span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h2 id="4-复杂数据类型"><a href="#4-复杂数据类型" class="headerlink" title="4.复杂数据类型"></a>4.复杂数据类型</h2><ul>
+<li><p>函数（function）</p>
+</li>
+<li><p>表（table）【表需要特别学习，特别的重要】</p>
+</li>
+<li><p>数据结构（userdata）</p>
+</li>
+<li><p>协同程序（thread（线程））</p>
+</li>
+</ul>
+<div class="tabs" id="循环语句"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#循环语句-1">函数（function）</button></li><li class="tab"><button type="button" data-href="#循环语句-2">表（table）</button></li><li class="tab"><button type="button" data-href="#循环语句-3">迭代器遍历</button></li><li class="tab"><button type="button" data-href="#循环语句-4">字典</button></li><li class="tab"><button type="button" data-href="#循环语句-5">类和结构体</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="循环语句-1"><p><span class='p red'>注意：</span></p>
+<p><span class='p red'>（1）lua函数的使用与c#不同，需要在函数创建后调用</span></p>
+<p><span class='p red'>（2）在lua中当你传入的参数和函数中的参数个数不匹配时，并不会报错，而是少于参数个数补空或者多余参数个数丢失</span></p>
+<p><span class='p red'>（3）多返回值时，在前面申明多个变量来接取即可，如果变量不够，不会影响结果，值会根据实际接取对应位置的返回值</span></p>
+<p><span class='p red'>（4）在lua中并不支持函数的重载，如果函数名相同，参数不同时，则会执行最后声明的函数</span></p>
+<p>基本语法</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">function 函数名（）</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line">a=function()</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+<p>1.无参数无返回值的函数</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;**********无参数无返回值**********&quot;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F1</span><span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;f1函数&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">F1()</span><br><span class="line">F2=<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;F2函数&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">F2()</span><br></pre></td></tr></table></figure>
+<p>2.有参数无返回值</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;**********有参数无返回值**********&quot;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F3</span><span class="params">(a)</span></span></span><br><span class="line">    <span class="built_in">print</span>(a)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">F3(<span class="number">1</span>)</span><br><span class="line">F3(<span class="string">&quot;SeveneStudio&quot;</span>)</span><br><span class="line">F3(<span class="literal">true</span>)</span><br><span class="line">F3(<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>)</span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">**********有参数无返回值**********</span><br><span class="line">1</span><br><span class="line">SeveneStudio</span><br><span class="line">true</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<p>3.有参数有返回值</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">temp=F4(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;只有一个变量:&quot;</span>,temp)</span><br><span class="line">temp,temp2=F4(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;只有两个变量（1）:&quot;</span>,temp)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;只有两个变量（1）:&quot;</span>,temp2)</span><br><span class="line">temp,temp2,temp3=F4(<span class="string">&quot;1&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;有三个变量（1）:&quot;</span>,temp)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;有三个变量（2）:&quot;</span>,temp2)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;有三个变量（3）:&quot;</span>,temp3)</span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">只有一个变量:   1</span><br><span class="line">只有两个变量（1）:      1</span><br><span class="line">只有两个变量（1）:      123</span><br><span class="line">有三个变量（1）:        1</span><br><span class="line">有三个变量（2）:        123</span><br><span class="line">有三个变量（3）:        true</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<p>4.变长参数</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;**********变长参数**********&quot;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F7</span><span class="params">(...)</span></span></span><br><span class="line">    <span class="comment">--变长参数使用一个表存起来</span></span><br><span class="line">    <span class="comment">--这里需要注意变长参数以...代表</span></span><br><span class="line">    <span class="built_in">arg</span> = &#123;...&#125;</span><br><span class="line">    <span class="keyword">for</span> i = <span class="number">1</span>, #<span class="built_in">arg</span>, <span class="number">1</span> <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="built_in">arg</span>[i])</span><br><span class="line">    <span class="keyword">end</span>    </span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">F7(<span class="number">1</span>,<span class="string">&quot;HX&quot;</span>,<span class="literal">true</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>)</span><br></pre></td></tr></table></figure>
+<p>5.嵌套函数</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;**********嵌套函数**********&quot;</span>)</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F8</span><span class="params">()</span></span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">        <span class="built_in">print</span>(<span class="number">123</span>)</span><br><span class="line">    <span class="keyword">end</span>    </span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">f9=F8()</span><br><span class="line">f9()</span><br></pre></td></tr></table></figure>
+<p>在嵌套函数中引入了一个新的词：<font  color=red>闭包</font>【面试常问】</p>
+<div class="tip sync"><p>闭包：通过调用含有一个内部函数加上该外部函数持有的外部局部变量（upvalue）的外部函数（就是工厂）产生的一个实例函数</p>
+</div>
+
+<div class="tip sync"><p>闭包组成：外部函数+外部函数创建的upvalue+内部函数（闭包函数）</p>
+</div>
+
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F9</span><span class="params">(x)</span></span></span><br><span class="line">    <span class="comment">--改变传入参数的生命周期</span></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="params">(y)</span></span></span><br><span class="line">        <span class="keyword">return</span> x+y</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">f10=F9(<span class="number">10</span>)</span><br><span class="line"><span class="built_in">print</span>(f10(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <p>这里最后执行的结果为15==&gt;F9(10)执行的x=10，f(10)执行的是y=5</p>
+              </div>
+            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="循环语句-2"><div class="tip bell"><p>这里需要注意一个知识点:所有复杂类型本质都是table表</p>
+</div>
+
+<p><span class='p red'>注意：</span></p>
+<p><span class='p red'>1.在lua中索引是从1开始的</span></p>
+<p><span class='p red'>2.通常在获取长度的时候关键字是#</span></p>
+<p><span class='p red'>3.打印长度时，nil（空）在末尾是被忽略的，但是不在末尾而是在某一位置，则会影响获取长度，由于底层的不同，有时转而打印在nil(空)之前的长度，有时会出现计算长度包括nil</span></p>
+<p>1.数组的定义与长度获取</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="string">&quot;SeveneStudio&quot;</span>,<span class="literal">true</span>,<span class="literal">nil</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;打印数组第一个值&quot;</span>,a[<span class="number">1</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;a这个数组的长度为&quot;</span>,#a)</span><br><span class="line">b=&#123;<span class="number">1</span>,<span class="literal">nil</span>,<span class="string">&quot;SeveneStudio&quot;</span>,<span class="literal">true</span>,<span class="number">8</span>,<span class="number">5</span>,<span class="number">6</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;b这个数组的长度为&quot;</span>,#b)</span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">打印数组第一个值        1</span><br><span class="line">a这个数组的长度为       5</span><br><span class="line">b这个数组的长度为       7</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<p>2.数组的遍历</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*********数组遍历*********&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>,#a <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(a[i])</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;---------------------------&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i=<span class="number">1</span>,#b <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(b[i])</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">*********数组遍历*********</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">SeveneStudio</span><br><span class="line">true</span><br><span class="line">---------------------------</span><br><span class="line">1</span><br><span class="line">nil</span><br><span class="line">SeveneStudio</span><br><span class="line">true</span><br><span class="line">8</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<p>3.二维数组的定义</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*********二维数组*********&quot;</span>)</span><br><span class="line">a=&#123;&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="literal">true</span>&#125;,&#123;<span class="number">4</span>,<span class="number">5</span>,<span class="string">&quot;SeveneStudio&quot;</span>&#125;&#125;</span><br><span class="line"><span class="built_in">print</span>(a[<span class="number">1</span>][<span class="number">3</span>])</span><br><span class="line"><span class="built_in">print</span>(a[<span class="number">2</span>][<span class="number">3</span>])</span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*********二维数组*********</span><br><span class="line">true</span><br><span class="line">SeveneStudio</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<p>4.二维数组的遍历</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;*********二维数组遍历*********&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>, #a <span class="keyword">do</span></span><br><span class="line">    b=a[i]</span><br><span class="line">    <span class="keyword">for</span> j = <span class="number">1</span>, #b <span class="keyword">do</span></span><br><span class="line">        <span class="built_in">print</span>(b[j])</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">*********二维数组遍历*********</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">true</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">SeveneStudio</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<p>5.自定义索引</p>
+<p><span class='p red'>注意：</span></p>
+<p><span class='p red'>1.计算长度时会忽略小于等于0的索引</span></p>
+<p><span class='p red'>2.当对自定义索引进行跳跃性设置时，若只跳跃一个值并不会断掉，长度受最大的索引影响</span></p><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="循环语句-3"><p>【迭代器遍历主要是用于遍历表】</p>
+<ul>
+<li>ipairs遍历</li>
+</ul>
+<p>pairs遍历是从1开始往后遍历的，小于等于是不会获取到的<br>智能找到连续索引的键值，若中间断序，无法遍历后面的内容</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;[<span class="number">0</span>]=<span class="number">1</span>,<span class="number">2</span>,[<span class="number">-1</span>]=<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,[<span class="number">5</span>]=<span class="number">6</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;***********ipairs迭代器遍历&quot;</span>)</span><br><span class="line"><span class="comment">--第一种方式</span></span><br><span class="line"><span class="keyword">for</span> i, k <span class="keyword">in</span> <span class="built_in">ipairs</span>(a) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;ipairs遍历键值&quot;</span>..i..<span class="string">&quot;_&quot;</span>..k)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">--第二种方式==&gt;可以省略k</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">ipairs</span>(a) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;ipairs遍历键值&quot;</span>..i)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">***********ipairs迭代器遍历</span><br><span class="line">ipairs遍历键值1<span class="built_in">_</span>2</span><br><span class="line">ipairs遍历键值2<span class="built_in">_</span>4</span><br><span class="line">ipairs遍历键值3<span class="built_in">_</span>5</span><br><span class="line">ipairs遍历键值1</span><br><span class="line">ipairs遍历键值2</span><br><span class="line">ipairs遍历键值3</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<ul>
+<li>pairs【<font  color=red>推荐使用pairs遍历不规则数组</font>】</li>
+</ul>
+<p>能够把所有的键都可以找到，通过键可以得到值</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">a=&#123;[<span class="number">0</span>]=<span class="number">1</span>,<span class="number">2</span>,[<span class="number">-1</span>]=<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,[<span class="number">5</span>]=<span class="number">6</span>&#125;</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;***********pairs迭代器遍历&quot;</span>)</span><br><span class="line"><span class="comment">--ipairs遍历是从1开始往后遍历的，小于等于是不会获取到的</span></span><br><span class="line"><span class="comment">--智能找到连续索引的键值，若中间断序，无法遍历后面的内容</span></span><br><span class="line"><span class="keyword">for</span> i, k <span class="keyword">in</span> <span class="built_in">pairs</span>(a) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;pairs遍历键值&quot;</span>..i..<span class="string">&quot;_&quot;</span>..k)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">pairs</span>(a) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;pairs遍历键值&quot;</span>..i)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">***********pairs迭代器遍历</span><br><span class="line">pairs遍历键值1<span class="built_in">_</span>2</span><br><span class="line">pairs遍历键值2<span class="built_in">_</span>4</span><br><span class="line">pairs遍历键值3<span class="built_in">_</span>5</span><br><span class="line">pairs遍历键值0<span class="built_in">_</span>1</span><br><span class="line">pairs遍历键值5<span class="built_in">_</span>6</span><br><span class="line">pairs遍历键值-1<span class="built_in">_</span>3</span><br><span class="line">pairs遍历键值1</span><br><span class="line">pairs遍历键值2</span><br><span class="line">pairs遍历键值3</span><br><span class="line">pairs遍历键值0</span><br><span class="line">pairs遍历键值5</span><br><span class="line">pairs遍历键值-1</span><br></pre></td></tr></table></figure>
+              </div>
+            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="循环语句-4"><font color=red>lua字典的使用与C#相似</font>
+
+<p>1.字典的声明与访问使用</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;****************字典的声明和使用****************&quot;</span>)</span><br><span class="line"><span class="comment">--字典由键值对构成</span></span><br><span class="line">a=&#123;[<span class="string">&quot;id&quot;</span>]=<span class="number">1</span>,[<span class="string">&quot;name&quot;</span>]=<span class="string">&quot;SeveneStudio&quot;</span>,[<span class="string">&quot;age&quot;</span>]=<span class="number">22</span>,[<span class="string">&quot;hobby&quot;</span>]=<span class="string">&quot;踢足球，打篮球&quot;</span>&#125;</span><br><span class="line"><span class="comment">--第一种方式访问</span></span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">&quot;id&quot;</span>])</span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">&quot;name&quot;</span>])</span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">&quot;age&quot;</span>])</span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">&quot;hobby&quot;</span>])</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;--------------------------------------------------&quot;</span>)</span><br><span class="line"><span class="comment">--第二种方式访问</span></span><br><span class="line"><span class="built_in">print</span>(a.id)</span><br><span class="line"><span class="built_in">print</span>(a.name)</span><br><span class="line"><span class="built_in">print</span>(a.age)</span><br><span class="line"><span class="built_in">print</span>(a.hobby)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;***修改***&quot;</span>)</span><br><span class="line">a[<span class="string">&quot;name&quot;</span>]=<span class="string">&quot;HYH&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">&quot;name&quot;</span>])</span><br><span class="line"><span class="built_in">print</span>(a.name)</span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;***增加***&quot;</span>)</span><br><span class="line">a[<span class="string">&quot;sex&quot;</span>]=<span class="string">&quot;man&quot;</span></span><br><span class="line"><span class="built_in">print</span>(a[<span class="string">&quot;sex&quot;</span>])</span><br><span class="line"><span class="built_in">print</span>(a.sex)</span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">****************字典的声明和使用****************</span><br><span class="line">1</span><br><span class="line">SeveneStudio</span><br><span class="line">22</span><br><span class="line">踢足球，打篮球</span><br><span class="line">--------------------------------------------------</span><br><span class="line">1</span><br><span class="line">SeveneStudio</span><br><span class="line">22</span><br><span class="line">踢足球，打篮球</span><br><span class="line">***修改***</span><br><span class="line">HYH</span><br><span class="line">HYH</span><br><span class="line">***增加***</span><br><span class="line">man</span><br><span class="line">man</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+
+<p>2.字典的遍历</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;****************字典的遍历****************&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> k,v <span class="keyword">in</span> <span class="built_in">pairs</span>(a) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(k,v)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;****************字典的值遍历****************&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> _,v <span class="keyword">in</span> <span class="built_in">pairs</span>(a) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;单个值:&quot;</span>,v)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;带上键:&quot;</span>,_,v)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;****************字典的键遍历****************&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> k <span class="keyword">in</span> <span class="built_in">pairs</span>(a) <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(k)</span><br><span class="line">    <span class="built_in">print</span>(a[k])</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关的测试结果 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">****************字典的遍历****************</span><br><span class="line">sex     man</span><br><span class="line">name    HYH</span><br><span class="line">hobby   踢足球，打篮球</span><br><span class="line">age     22</span><br><span class="line">id      1</span><br><span class="line">****************字典的值遍历****************</span><br><span class="line">单个值  man</span><br><span class="line">带上键  sex     man</span><br><span class="line">单个值  HYH</span><br><span class="line">带上键  name    HYH</span><br><span class="line">单个值  踢足球，打篮球</span><br><span class="line">带上键  hobby   踢足球，打篮球</span><br><span class="line">单个值  22</span><br><span class="line">带上键  age     22</span><br><span class="line">单个值  1</span><br><span class="line">带上键  id      1</span><br><span class="line">****************字典的键遍历****************</span><br><span class="line">sex</span><br><span class="line">man</span><br><span class="line">name</span><br><span class="line">HYH</span><br><span class="line">hobby</span><br><span class="line">踢足球，打篮球</span><br><span class="line">age</span><br><span class="line">22</span><br><span class="line">id</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+              </div>
+            </details><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="循环语句-5"><p><span class='p red'>在开始的时候已经说过了lua没有面向对象的，所以这里通过表类实现类</span></p>
+<p>下面给大家说明一下相关知识逻辑</p>
+<p>TODO:这里到时候叙说</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">Student=&#123;</span><br><span class="line">    <span class="comment">--变量==&gt;年龄,性别,姓名</span></span><br><span class="line">    name=<span class="string">&quot;小明&quot;</span>,<span class="comment">--姓名</span></span><br><span class="line">    age=<span class="number">18</span>,<span class="comment">--年龄</span></span><br><span class="line">    sex=<span class="literal">true</span>,<span class="comment">--性别==&gt;这里通过true代表男</span></span><br><span class="line">    <span class="comment">--函数</span></span><br><span class="line">    Eat=<span class="function"><span class="keyword">function</span> <span class="params">(food)</span></span></span><br><span class="line">        <span class="comment">--如果采用这种方式进行书写，是与表中的name是毫无关系的，print中的name会看成全局变量哦</span></span><br><span class="line">        <span class="comment">--想要在表内部函数中调用表本身的属性和方法，一定要使用表名.属性或者表名.方法</span></span><br><span class="line">        <span class="built_in">print</span>(name)</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;我们中午吃的:&quot;</span>,food)</span><br><span class="line">    <span class="keyword">end</span>,</span><br><span class="line">    Learn=<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;好好学习，天天向上&quot;</span>)</span><br><span class="line">    <span class="keyword">end</span>,</span><br><span class="line">    <span class="comment">--在函数中调用自己属性或者方法的方式是把自己作为一个参数传进去，在内部访问</span></span><br><span class="line">    Sleep=<span class="function"><span class="keyword">function</span> <span class="params">(s)</span></span></span><br><span class="line">        <span class="built_in">print</span>(s.sex)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line">&#125;</span><br><span class="line">Student.Sleep(Student)</span><br><span class="line"><span class="comment">--lua在申明表后，在表外是可以申明表没有的变量和方法</span></span><br><span class="line">Student.hobby=<span class="string">&quot;踢足球，打篮球&quot;</span>;</span><br><span class="line">Student.Speak=<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(Student.name,<span class="string">&quot;说话了&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student.SpeakTwo</span><span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;又说话了&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">--lua无法通过实例化对象new的方式，更像是一个类中有很多静态方法和变量，通过类名点的方式调用</span></span><br><span class="line"><span class="built_in">print</span>(Student.name,<span class="string">&quot;今年&quot;</span>,Student.age)</span><br><span class="line"><span class="built_in">print</span>(Student.Eat(<span class="string">&quot;汉堡包&quot;</span>))</span><br><span class="line">Student.Speak();</span><br><span class="line"><span class="built_in">print</span>(Student.hobby);</span><br><span class="line">Student.SpeakTwo();</span><br><span class="line">Student:SpeakTwo();</span><br><span class="line"></span><br><span class="line"><span class="comment">--lua中的点和冒号的区别</span></span><br><span class="line"><span class="comment">--冒号调用方法会默认把调用者作为第一个参数传入方法中</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Student:SpeakThree</span><span class="params">()</span></span></span><br><span class="line">    <span class="comment">--lua中有一个关键字self表示默认传入的第一个参数</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="built_in">self</span>.name..<span class="string">&quot;说话&quot;</span>)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">end</span></span><br><span class="line">Student:SpeakThree()</span><br><span class="line">Student.SpeakThree(Student)</span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h1 id="三-运算符"><a href="#三-运算符" class="headerlink" title="三.运算符"></a>三.运算符</h1><h2 id="算数运算符"><a href="#算数运算符" class="headerlink" title="算数运算符"></a>算数运算符</h2><font color=red>（1）在lua中是没有自增自减和复合运算的</font>  
+
+<font color=red>（2）字符串可以进行算数运算符操作，可自动转化成number</font>
+
+<p>加法（+）减法（-）乘法（*）除法（/）取余（%） 幂（^） 整除（//）</p>
+<h2 id="条件运算符"><a href="#条件运算符" class="headerlink" title="条件运算符"></a>条件运算符</h2><p>大于(&gt;)   小于(&lt;)   大于等于(&gt;=)   小于等于(&lt;=)    等于等于(==)   <font color=red> 不等于(~=)</font></p>
+<h2 id="逻辑运算符"><a href="#逻辑运算符" class="headerlink" title="逻辑运算符"></a>逻辑运算符</h2><ul>
+<li>在lua中逻辑与==&gt;and</li>
+<li>在lua中逻辑或==&gt;or</li>
+<li>在lua中逻辑否==&gt;not</li>
+<li><font color=red>在lua中同样遵守逻辑运算的“短路”规则</font>
+
+</li>
+</ul>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="literal">true</span> <span class="keyword">and</span> <span class="literal">false</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="literal">true</span> <span class="keyword">or</span> <span class="literal">false</span>)</span><br><span class="line"><span class="built_in">print</span>(<span class="keyword">not</span> <span class="literal">false</span>)</span><br></pre></td></tr></table></figure>
+<font color=red><span class='p red'>*特殊知识记录</span></font>
+
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>and 逻辑与 or 逻辑或</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>and or 他们不仅可以连接boolean ，任何东西都可以连接</td>
+</tr>
+<tr>
+<td>在lua中只有nil和false才会认为是假</td>
+</tr>
+<tr>
+<td>“短路”===&gt;对于and 是有假则假，对于 or 则是有真则真</td>
+</tr>
+<tr>
+<td>所以只需要判断第一个是否满足就会停止计算</td>
+</tr>
+<tr>
+<td>对于运算符and来说，假设它的第一个操作数为假，就返回第一个操作数；不然返回第二个操作数</td>
+</tr>
+<tr>
+<td>对于运算符or来说，假设它的第一个操作数为真。就返回第一个操作数，不然返回第二个操作数</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><font color=red>在lua中不支持位运算（& |），需要自己去实现</font>
+
+<h2 id="三目运算符"><a href="#三目运算符" class="headerlink" title="三目运算符"></a>三目运算符</h2><font color=red>在lua中不支持三目运算符（？：）,需要自身根据需要实现</font>
+
+<p>模拟三目运算符</p>
+<p>说明：这里x=3，y=2，所以很明显的说明x&gt;y返回时true，然后继续看便是 true and x ，由于and是有假则假，所以true and x肯定是true了，对于or来说，true or y这个已经有一个真的了，所以直接返回3</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">3</span></span><br><span class="line">y=<span class="number">2</span></span><br><span class="line"><span class="comment">--这里x&gt;y返回的是true  （x&gt;y） and x==&gt;3 是真的，就不用看or了</span></span><br><span class="line"><span class="keyword">local</span> res=(x&gt;y) <span class="keyword">and</span> x <span class="keyword">or</span> y</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+<p>说明：（1）这里x=1，y=3，所以x&gt;y返回的是false，所以现在变化成了false and y，在前面逻辑运算符中说到过and的逻辑，当第一个值为假，则返回第一个值，所以r是false</p>
+<p>（2）根据上一个所知转化为 false or y，根据or的逻辑，第一个为假，则会返回第二个值，所以res是3</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">x=<span class="number">1</span></span><br><span class="line">y=<span class="number">3</span></span><br><span class="line"><span class="comment">--这里x&gt;y返回的是false，则(x&gt;y)==&gt;false and x==&gt;x ==&gt;false or y or是真则真==&gt;取y，则是3 </span></span><br><span class="line"><span class="keyword">local</span> r=(x&gt;y) <span class="keyword">and</span> x</span><br><span class="line"><span class="built_in">print</span>(r)</span><br><span class="line"><span class="keyword">local</span> res=(x&gt;y) <span class="keyword">and</span> x <span class="keyword">or</span> y</span><br><span class="line"><span class="built_in">print</span>(res)</span><br></pre></td></tr></table></figure>
+<h1 id="四-Lua循环和条件分支"><a href="#四-Lua循环和条件分支" class="headerlink" title="四.Lua循环和条件分支"></a><i class="iconfont icon-ningmeng"></i>四.Lua循环和条件分支</h1><span class='p red'>注意：lua中是没有Switch语句的</span>
+<h2 id="1-条件分支语句"><a href="#1-条件分支语句" class="headerlink" title="1.条件分支语句"></a><i class="iconfont icon-yingtao"></i>1.条件分支语句</h2><p>Lua 提供了以下条件分支语句：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">语句</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[if 语句]</td>
+<td style="text-align:left"><strong>if 语句</strong> 由一个布尔表达式作为条件判断，其后紧跟其他语句组成。</td>
+</tr>
+<tr>
+<td style="text-align:left">[if…else 语句]</td>
+<td style="text-align:left"><strong>if 语句</strong> 可以与 <strong>else 语句</strong>搭配使用, 在 if 条件表达式为 false 时执行 else 语句代码。</td>
+</tr>
+<tr>
+<td style="text-align:left">[if 嵌套语句]</td>
+<td style="text-align:left">你可以在<strong>if</strong> 或 <strong>else if</strong>中使用一个或多个 <strong>if</strong> 或 <strong>else if</strong> 语句 。</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabs" id="条件分支语句"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#条件分支语句-1">单分支语句</button></li><li class="tab"><button type="button" data-href="#条件分支语句-2">双分支语句</button></li><li class="tab"><button type="button" data-href="#条件分支语句-3">多分支语句</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="条件分支语句-1"><p>基本语法：</p>
+<p>if  条件 then ……end</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">8</span></span><br><span class="line"><span class="keyword">if</span> a&gt;<span class="number">5</span> <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;大于5&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="条件分支语句-2"><p>基本语法</p>
+<p>if  条件 then ……else ……end</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">22</span></span><br><span class="line"><span class="keyword">if</span> a&gt;<span class="number">15</span> <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;大于15&quot;</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;小于15&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="条件分支语句-3"><p>if 条件 then ……elseif 条件 then ……end</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">5</span></span><br><span class="line"><span class="keyword">if</span> a&lt;<span class="number">5</span> <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;小于5&quot;</span>)</span><br><span class="line"><span class="keyword">elseif</span> a==<span class="number">5</span> <span class="keyword">then</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;等于5&quot;</span>)</span><br><span class="line"><span class="keyword">else</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;大于5&quot;</span>)</span><br><span class="line"><span class="keyword">end</span> </span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h2 id="2-循环语句"><a href="#2-循环语句" class="headerlink" title="2.循环语句"></a>2.循环语句</h2><p>Lua 语言提供了以下几种循环处理方式：</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:left">循环类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">[while 循环]</td>
+<td style="text-align:left">在条件为 true 时，让程序重复地执行某些语句。执行语句前会先检查条件是否为 true。</td>
+</tr>
+<tr>
+<td style="text-align:left">[for 循环]</td>
+<td style="text-align:left">重复执行指定语句，重复次数可在 for 语句中控制。</td>
+</tr>
+<tr>
+<td style="text-align:left">[repeat…until]</td>
+<td style="text-align:left">重复执行循环，直到 指定的条件为真时为止</td>
+</tr>
+<tr>
+<td style="text-align:left">[循环嵌套]</td>
+<td style="text-align:left">可以在循环内嵌套一个或多个循环语句（while do … end;for … do … end;repeat … until;）</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabs" id="循环语句"><ul class="nav-tabs"><li class="tab active"><button type="button" data-href="#循环语句-1">while循环语句</button></li><li class="tab"><button type="button" data-href="#循环语句-2">do-while循环语句</button></li><li class="tab"><button type="button" data-href="#循环语句-3">for循环语句</button></li></ul><div class="tab-contents"><div class="tab-item-content active" id="循环语句-1"><p>基本语法：</p>
+<p>while 条件 do……end</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num=<span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> num&lt;<span class="number">5</span> <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(num)</span><br><span class="line">    num=num+<span class="number">1</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="循环语句-2"><p>基本语法</p>
+<p>repeat ……until 条件（条件事结束条件）</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">num=<span class="number">0</span></span><br><span class="line"><span class="keyword">repeat</span></span><br><span class="line">    <span class="built_in">print</span>(num)</span><br><span class="line">    num=num+<span class="number">1</span></span><br><span class="line"><span class="keyword">until</span>  num&gt;<span class="number">5</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div><div class="tab-item-content" id="循环语句-3"><p>for 初始值,结束值,递增值</p>
+<p><span class='p red'>注意：lua中默认递增，i会默认+1，若保持默认递增值可以省略，若递减则需将递增值改为负数</span></p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;****默认递增for循环****&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">10</span> <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;****每次递增3的for循环****&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">1</span>, <span class="number">10</span>, <span class="number">3</span> <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="built_in">print</span>(<span class="string">&quot;****每次递减1的for循环****&quot;</span>)</span><br><span class="line"><span class="keyword">for</span> i = <span class="number">5</span>, <span class="number">1</span>, <span class="number">-1</span> <span class="keyword">do</span></span><br><span class="line">    <span class="built_in">print</span>(i)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure><button type="button" class="tab-to-top" aria-label="scroll to top"><i class="fas fa-arrow-up"></i></button></div></div></div>
+<h1 id="五-多脚本执行"><a href="#五-多脚本执行" class="headerlink" title="五.多脚本执行"></a>五.多脚本执行</h1><p>在实际的开发过程中，无论是Java还是C#都需要多脚本的调用</p>
+<h2 id="1-全局变量和本地变量"><a href="#1-全局变量和本地变量" class="headerlink" title="1.全局变量和本地变量"></a>1.全局变量和本地变量</h2><p>这里全局变量直接就可以定义。例如</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">123</span> <span class="comment">--number类型</span></span><br><span class="line">b=<span class="string">&quot;SeriousWission&quot;</span>  <span class="comment">--字符串类型</span></span><br><span class="line">c=<span class="literal">true</span>  <span class="comment">--boolean类型</span></span><br></pre></td></tr></table></figure>
+<p>在c#中的本地变量（亦可以说局部变量）是可以用private【私有】protected（保护，只有子类可以访问），在lua中就比较简易了，直接用local 来表示，例如</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> d=<span class="string">&quot;HaXinXi&quot;</span>  <span class="comment">--局部字符串类型</span></span><br><span class="line"><span class="keyword">local</span> e=<span class="number">123456</span>  <span class="comment">--局部字符串类型</span></span><br></pre></td></tr></table></figure>
+<h2 id="2-全局方法和本地方法"><a href="#2-全局方法和本地方法" class="headerlink" title="2.全局方法和本地方法"></a>2.全局方法和本地方法</h2><p>前面已经说明了全局变量和本地变量，其实全局方法和本地方法是和其相差不多的</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 全局方法</span></span><br><span class="line">funOne=<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;方法&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="comment">-- 本地方法</span></span><br><span class="line"><span class="keyword">local</span> funTwo=<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;local方法&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="3-脚本的调用"><a href="#3-脚本的调用" class="headerlink" title="3.脚本的调用"></a>3.脚本的调用</h2><p>前面两个标题已经说明了一大部分知识点了，下面就是脚本的调用</p>
+<p>这里先写一个Test.lua文件作为后面使用</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;Test这里加载了这个lua文件测试&quot;</span>)</span><br><span class="line">testA=<span class="string">&quot;123456&quot;</span></span><br><span class="line"><span class="keyword">local</span> testLocalA=<span class="string">&quot;456789&quot;</span></span><br><span class="line">funOne=<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;方法&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">local</span> funTwo=<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;local方法&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"><span class="keyword">return</span> testLocalA</span><br></pre></td></tr></table></figure>
+<p>在lua中如果想用其他脚本，需要使用一个关键字：require(‘脚本名’)/ require(“脚本名”)这两种格式都是可以的，例如：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">&quot;Test&quot;</span>)  <span class="comment">-- 调用同路径中的Test脚本</span></span><br><span class="line">funOne()  <span class="comment">-- 这里因为上一行已经加载了Test脚本，而且Test脚本中funOne方法是共有的，所以可以直接使用</span></span><br><span class="line"><span class="built_in">print</span>(testA) <span class="comment">--打印testA参数的值</span></span><br><span class="line"><span class="built_in">print</span>(testLocalA) <span class="comment">-- 打印testLocalA参数的值</span></span><br></pre></td></tr></table></figure>
+<p>这里需要说明重要的点</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>相关说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>只要require执行完的脚本，任何全局变量，包括表，方法是可以直接拿来用的</td>
+</tr>
+<tr>
+<td>这里需要注意若调用相同路径的文件可以直接使用文件名，而不同路径需要写入路径名</td>
+</tr>
+<tr>
+<td>require不会重复加载同一个lua</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h2 id="4-脚本的卸载-移除"><a href="#4-脚本的卸载-移除" class="headerlink" title="4.脚本的卸载/移除"></a>4.脚本的卸载/移除</h2><p>前面已经说完了脚本的声明调用，当这个脚本不需要了，该如何呢</p>
+<p>先说明如何判断脚本是否声明过了</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">package</span>.<span class="built_in">loaded</span>[<span class="string">&quot;Test&quot;</span>]</span><br></pre></td></tr></table></figure>
+<p>当知道了判断脚本是否被调用了，在后面不需要了直接将其判断为空或者将判断是否调用过直接定义为false也是也是可以的</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">package</span>.<span class="built_in">loaded</span>[<span class="string">&quot;Test&quot;</span>]=<span class="literal">nil</span>  <span class="comment">-- 将判断包是否加载过为nil</span></span><br><span class="line"><span class="built_in">package</span>.<span class="built_in">loaded</span>[<span class="string">&quot;Test&quot;</span>]=<span class="literal">false</span> <span class="comment">--将判断包是否加载过为false</span></span><br></pre></td></tr></table></figure>
+<h2 id="5-局部变量使用"><a href="#5-局部变量使用" class="headerlink" title="5.局部变量使用"></a>5.局部变量使用</h2><p>对于局部变量的使用可以在lua文件的最后一行返回一个局部参数，然后在需要的地方来用local 参数接收即可</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">local</span> a=<span class="built_in">require</span>(<span class="string">&quot;Test&quot;</span>) <span class="comment">--这里调用Test.lua文件，用local a来接收，其实收到的也就是Test.lua中的testLocalA</span></span><br><span class="line"><span class="built_in">print</span>(a)</span><br></pre></td></tr></table></figure>
+<h2 id="6-大G表"><a href="#6-大G表" class="headerlink" title="6.大G表"></a>6.大G表</h2><p>_G是一个总表，本质是table，他将我们申明的所有全局变量都存储在其中</p>
+<p>声明的local本地/局部变量是不会存到_G表中的</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">a=<span class="number">1</span></span><br><span class="line">b=<span class="string">&quot;serious&quot;</span></span><br><span class="line">c=<span class="literal">true</span></span><br><span class="line"><span class="keyword">for</span> key, value <span class="keyword">in</span> <span class="built_in">pairs</span>(<span class="built_in">_G</span>) <span class="keyword">do</span></span><br><span class="line">  <span class="built_in">print</span>(key,value)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<details class="folding-tag" green><summary> 相关参考信息 </summary>
+              <div class='content'>
+              <figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">string  table: 0000021B456413D0</span><br><span class="line">ipairs  function: 00007FFDB36C9980        </span><br><span class="line">setmetatable    function: 00007FFDB36C8B20</span><br><span class="line"><span class="built_in">_</span>G      table: 0000021B45633FA0</span><br><span class="line">rawequal        function: 00007FFDB36C8C90</span><br><span class="line">c       true</span><br><span class="line">b       serious</span><br><span class="line">load    function: 00007FFDB36C9EB0        </span><br><span class="line">rawlen  function: 00007FFDB36C8DB0        </span><br><span class="line">getmetatable    function: 00007FFDB36C8A40</span><br><span class="line">assert  function: 00007FFDB36CA580        </span><br><span class="line">debug   table: 0000021B45641690</span><br><span class="line">package table: 0000021B45641050</span><br><span class="line">os      table: 0000021B45641190</span><br><span class="line">xpcall  function: 00007FFDB36CAA80</span><br><span class="line">table   table: 0000021B45641510</span><br><span class="line">dofile  function: 00007FFDB36CA3A0</span><br><span class="line">io      table: 0000021B456411D0</span><br><span class="line">pairs   function: 00007FFDB36C9780</span><br><span class="line">next    function: 00007FFDB36C9640</span><br><span class="line">loadfile        function: 00007FFDB36C9AC0</span><br><span class="line">require function: 0000021B456412D0</span><br><span class="line">utf8    table: 0000021B45640F90</span><br><span class="line">tonumber        function: 00007FFDB36C85C0</span><br><span class="line">select  function: 00007FFDB36CA620</span><br><span class="line">a       1</span><br><span class="line">rawget  function: 00007FFDB36C8E80</span><br><span class="line">arg     table: 0000021B45641010</span><br><span class="line">math    table: 0000021B456415D0</span><br><span class="line">pcall   function: 00007FFDB36CA800</span><br><span class="line"><span class="built_in">_</span>VERSION        Lua 5.4</span><br><span class="line">print   function: 00007FFDB36C8210</span><br><span class="line">warn    function: 00007FFDB36C8330</span><br><span class="line">collectgarbage  function: 00007FFDB36C91E0</span><br><span class="line">type    function: 00007FFDB36C9590</span><br><span class="line">coroutine       table: 0000021B45641490</span><br><span class="line">tostring        function: 00007FFDB36CADA0</span><br><span class="line">rawset  function: 00007FFDB36C8FF0</span><br></pre></td></tr></table></figure>
+              </div>
+            </details>
+<h1 id="六-协同程序"><a href="#六-协同程序" class="headerlink" title="六.协同程序"></a>六.协同程序</h1><p>前言：协程其实可以看作是一个线程对象，前面已经说了方法的定义与使用，这里就直接写一个方法</p>
+<p>首先是一个比较简单的方法，打印的是SeriousWission这个字符串</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fun=<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;SeriousWission&quot;</span>)</span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<h2 id="协同程序的创建"><a href="#协同程序的创建" class="headerlink" title="协同程序的创建"></a>协同程序的创建</h2><p>这里需要说明的便是这两种方式的使用和运行是不一样的</p>
+<h3 id="第一种方式-coroutine-create"><a href="#第一种方式-coroutine-create" class="headerlink" title="第一种方式-coroutine.create"></a>第一种方式-coroutine.create</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">co=<span class="built_in">coroutine</span>.<span class="built_in">create</span>(fun)</span><br><span class="line"><span class="built_in">print</span>(co)  <span class="comment">--打印结果 thread: 0000025793510878</span></span><br></pre></td></tr></table></figure>
+<h3 id="第二种方式-coroutine-warp"><a href="#第二种方式-coroutine-warp" class="headerlink" title="第二种方式-coroutine.warp"></a>第二种方式-coroutine.warp</h3><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">co2=<span class="built_in">coroutine</span>.<span class="built_in">wrap</span>(fun)</span><br><span class="line"><span class="built_in">print</span>(co2)  <span class="comment">-- function: 0000025793542920</span></span><br></pre></td></tr></table></figure>
+<p>这样看的还是不太明显，使用type()看看这两个协程程序的类型</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">-- 创建协程的第一种方式</span></span><br><span class="line">co=<span class="built_in">coroutine</span>.<span class="built_in">create</span>(fun)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(co))  <span class="comment">--thread</span></span><br><span class="line"><span class="comment">-- 创建协程的第二种方式</span></span><br><span class="line">co2=<span class="built_in">coroutine</span>.<span class="built_in">wrap</span>(fun)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(co2))  <span class="comment">--function</span></span><br></pre></td></tr></table></figure>
+<p>这样就能看出来这两种创建协程的方式类型是不同的，第一种方式本质是线程，但是第二种则本质是方法</p>
+<h2 id="协同程序的运行"><a href="#协同程序的运行" class="headerlink" title="协同程序的运行"></a>协同程序的运行</h2><p>这里运行协程程序因为前面用到的方式不同，使用也是不同的</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--运行通过coroutine.create()创建的协程</span></span><br><span class="line"><span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co)</span><br><span class="line"><span class="comment">--运行通过coroutine.wrap()创建的协程</span></span><br><span class="line"><span class="comment">--直接用接收coroutine.wrap()的方法名运行即可</span></span><br><span class="line">co2()<span class="comment">--因为本质是方法，可以直接使用方法来运行</span></span><br></pre></td></tr></table></figure>
+<h2 id="协同程序的挂起"><a href="#协同程序的挂起" class="headerlink" title="协同程序的挂起"></a>协同程序的挂起</h2><p>这里需要注意一个点，c#的协程在启动后会按照一定时间不停的执行，但是lua只会执行一次</p>
+<p>首先我们重新在定义一个方法并在里面放上协程的挂起函数</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun2 =<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="keyword">local</span> i=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">true</span> <span class="keyword">do</span></span><br><span class="line">        i=i+<span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;I Like Lua&quot;</span>..<span class="string">&quot;==&gt;&quot;</span>..i)</span><br><span class="line">        <span class="comment">-- 协程挂起函数</span></span><br><span class="line">        <span class="built_in">coroutine</span>.<span class="built_in">yield</span>()</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>使用上面说到的运行协同程序的方式看看效果</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">--coroutine.create()创建</span></span><br><span class="line">co3=<span class="built_in">coroutine</span>.<span class="built_in">create</span>(fun2)</span><br><span class="line"><span class="comment">--coroutine.resume()运行</span></span><br><span class="line"><span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co3)  <span class="comment">--输出结果为：I Like Lua==&gt;1</span></span><br><span class="line"><span class="built_in">coroutine</span>.<span class="built_in">resume</span>(co3)  <span class="comment">--输出结果为：I Like Lua==&gt;2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">--coroutine.wrap()创建</span></span><br><span class="line">co4=<span class="built_in">coroutine</span>.<span class="built_in">wrap</span>(fun2)</span><br><span class="line"><span class="comment">--运行</span></span><br><span class="line">co4() <span class="comment">--输出结果为：I Like Lua==&gt;1</span></span><br><span class="line">co4() <span class="comment">--输出结果为：I Like Lua==&gt;2</span></span><br></pre></td></tr></table></figure>
+<p>即使while是一个死循环，这两种方式都只会执行一次，只有再创建相应的开始程序才会执行</p>
+<h2 id="协同程序的挂（加返回值）"><a href="#协同程序的挂（加返回值）" class="headerlink" title="协同程序的挂（加返回值）"></a>协同程序的挂（加返回值）</h2><p>协程的挂起说完了，其实协程是可以有返回值的</p>
+<p>定义一个function()【为了方便直接使用fun2的】</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">fun3 =<span class="function"><span class="keyword">function</span> <span class="params">()</span></span></span><br><span class="line">    <span class="keyword">local</span> i=<span class="number">0</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">true</span> <span class="keyword">do</span></span><br><span class="line">        i=i+<span class="number">1</span></span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;I Like Lua&quot;</span>..<span class="string">&quot;==&gt;&quot;</span>..i)</span><br><span class="line">        <span class="comment">-- 协程挂起函数</span></span><br><span class="line">        <span class="built_in">coroutine</span>.<span class="built_in">yield</span>(i)</span><br><span class="line">    <span class="keyword">end</span></span><br><span class="line"><span class="keyword">end</span></span><br></pre></td></tr></table></figure>
+<p>执行这两个程序</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">-- 这里需要明白，是coroutine.resume这时有两个返回值，第一个返回的是程序是否执行成功，第二个是yield的值</span><br><span class="line">co3=coroutine.create(fun3)</span><br><span class="line">isOK,tempOne=coroutine.resume(co3)</span><br><span class="line">print(isOK,tempOne)</span><br><span class="line"></span><br><span class="line">-- coroutine.wrap返回的是没有程序是否成功这个值，只会返回程序中的值和yield的值</span><br><span class="line">co4=coroutine.wrap(fun3)</span><br><span class="line">print(&quot;返回值==&gt;&quot;..co4())</span><br></pre></td></tr></table></figure>
+<h1 id="七-元表"><a href="#七-元表" class="headerlink" title="七.元表"></a>七.元表</h1><p>——待更新</p>
+</article><div class="post-copyright"><div class="post-copyright__title"><a class="post-copyright__original" title="本文为原创文章，注意版权协议,如需引用请标注来源" href="/cc/" data-pjax-state>原创</a><span class="post-copyright-info"><h>Unity热更新-Lua基础语法</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.gmcj0816.top/19624.html">https://blog.gmcj0816.top/19624.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a" style="display: inline-block;width: 120px"><h>作者</h><div class="post-copyright-cc-info"><h>爱吃大饼的小虎</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>发布于</h><div class="post-copyright-cc-info"><h>2022-09-03</h></div></div><div class="post-copyright-u" style="display: inline-block;width: 120px"><h>更新于</h><div class="post-copyright-cc-info"><h>2022-11-06</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY 4.0" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Unity/">Unity</a></div><div class="post_share"><div class="social-share" data-image="https://blog.gmcj0816.top/img/wz/wz006.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul><a class="reward-main-btn" href="/about/" target="_blank" title="赞赏作者"> 打赏作者<div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/37813967.html"><img class="prev-cover" src="https://blog.gmcj0816.top/img/wz/wz009.png" onerror="onerror=null;src='/img/404.png'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">如何实现Twikoo自有服务器部署</div></div></a></div><div class="next-post pull-right"><a href="/4573.html"><img class="next-cover" src="https://sevenestudio-hexo.oss-cn-hangzhou.aliyuncs.com/img/SixThCover.png" onerror="onerror=null;src='/img/404.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hexo Butterfly github徽标</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/4187e9ca.html" title="SW_Framework通用框架"><img class="cover" src="https://blog.gmcj0816.top/img/wz/wz011.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-06</div><div class="title">SW_Framework通用框架</div></div></a></div><div><a href="/9c3bcc4d.html" title="Unity3D基础知识"><img class="cover" src="https://blog.gmcj0816.top/img/wz/wz016.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-22</div><div class="title">Unity3D基础知识</div></div></a></div><div><a href="/16479.html" title="Unity热更新-AB包"><img class="cover" src="https://blog.gmcj0816.top/img/wz/wz005.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-12-02</div><div class="title">Unity热更新-AB包</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><!--if theme.aside.card_author.enable.card-widget.card-info
+  .is-center
+    .avatar-img
+      img(src=url_for(theme.avatar.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
+    .author-info__name= config.author
+    .author-info__description!= theme.aside.card_author.description || config.description
+
+  .card-info-data.site-data.is-center
+    a(href=url_for(config.archive_dir) + '/')
+      .headline= _p('aside.articles')
+      .length-num= site.posts.length
+    a(href=url_for(config.tag_dir) + '/')
+      .headline= _p('aside.tags')
+      .length-num= site.tags.length
+    a(href=url_for(config.category_dir) + '/')
+      .headline= _p('aside.categories') 
+      .length-num= site.categories.length
+
+  if theme.aside.card_author.button.enable
+    a#card-info-btn(href=theme.aside.card_author.button.link)
+      i(class=theme.aside.card_author.button.icon)
+      span=theme.aside.card_author.button.text
+
+  if(theme.social)
+      .card-info-social-icons.is-center
+        !=fragment_cache('social', function(){return partial('includes/header/social')}) //--><div class="card-widget card-info"><div class="card-content"><div class="card-info-avatar is-center"><div class="author-info__sayhi" id="author-info__sayhi">晚上好！我是</div><div class="author-info__name">爱吃大饼的小虎</div><div class="author-info__description"><p>如果时间可以磨炼人的意志和磨灭过去，那为了今天的昨天又有何意义</p></div><div class="author-info__description2">真正用心去创造的，相信在这里肯定能找到要学习，创造的</div></div></div><div class="banner-button-group"><a class="banner-button" onclick="pjax.loadUrl(&quot;/about/&quot;)" data-pjax-state="data-pjax-state"><i class="fas fa-circle-chevron-right"></i><span class="banner-button-text">了解更多</span></a></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener external nofollow" href="https://github.com/zhheo"><i class="fab fa-github"></i><span>Github</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="mailto:2813842071@qq.com" rel="external nofollow" target="_blank" title="QQ邮箱"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://github.com/hyh981006" rel="external nofollow" target="_blank" title="Github"><i class="ri-github-line"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">本博客已经通过ICP备案和公安备案<br>主页地址:<a target="_blank" rel="noopener" href="https://gmcj0816.top">gmcj0816.top</a><br>博客地址[二级域名]:<br><a href="https://blog.gmcj0816.top">blog.gmcj0816.top</a></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-Lua%E7%9B%B8%E5%85%B3%E6%B3%A8%E9%87%8A"><span class="toc-number">1.</span> <span class="toc-text">一.Lua相关注释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%8C-%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">二.数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%89%8D%E9%9D%A2"><span class="toc-number">2.1.</span> <span class="toc-text">写在最前面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.2.</span> <span class="toc-text">1.基本数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#nil%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">2.2.1.</span> <span class="toc-text">nil的使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#number%EF%BC%88%E6%95%B0%E5%80%BC%E7%B1%BB%E5%9E%8B%EF%BC%89"><span class="toc-number">2.2.2.</span> <span class="toc-text">number（数值类型）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#string%EF%BC%88%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%EF%BC%89"><span class="toc-number">2.2.3.</span> <span class="toc-text">string（字符串类型）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#boolean%EF%BC%88Boolean%E7%B1%BB%E5%9E%8B%EF%BC%89"><span class="toc-number">2.2.4.</span> <span class="toc-text">boolean（Boolean类型）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-type-%E7%9A%84%E4%BD%BF%E7%94%A8%E5%92%8C%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%89%A9%E5%B1%95"><span class="toc-number">2.3.</span> <span class="toc-text">2.type()的使用和字符串扩展</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#type-%E8%8E%B7%E5%8F%96%E5%8F%98%E9%87%8F%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.3.1.</span> <span class="toc-text">type() 获取变量类型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%9B%B8%E5%85%B3%E4%BD%BF%E7%94%A8"><span class="toc-number">2.4.</span> <span class="toc-text">3.字符串的相关使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AD%97%E7%AC%A6%E4%B8%B2%E9%95%BF%E5%BA%A6%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-number">2.4.1.</span> <span class="toc-text">(1).字符串长度的计算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8D%A2%E8%A1%8C"><span class="toc-number">2.4.2.</span> <span class="toc-text">(2).字符串的换行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8B%BC%E6%8E%A5"><span class="toc-number">2.4.3.</span> <span class="toc-text">(3).字符串的拼接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E8%BD%AC%E5%8C%96"><span class="toc-number">2.4.4.</span> <span class="toc-text">(4).字符串的转化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E7%BF%BB%E8%BD%AC"><span class="toc-number">2.4.5.</span> <span class="toc-text">(5).字符串的翻转</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9F%A5%E6%89%BE"><span class="toc-number">2.4.6.</span> <span class="toc-text">(6).字符串的查找</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%88%AA%E5%8F%96"><span class="toc-number">2.4.7.</span> <span class="toc-text">(7).字符串的截取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%8B%B7%E8%B4%9D"><span class="toc-number">2.4.8.</span> <span class="toc-text">(8).字符串的拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E6%9B%BF%E6%8D%A2"><span class="toc-number">2.4.9.</span> <span class="toc-text">(9).字符串的替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E5%AD%97%E7%AC%A6%E5%92%8CASCII%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="toc-number">2.4.10.</span> <span class="toc-text">(10).字符串的字符和ASCII相互转换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%A4%8D%E6%9D%82%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">2.5.</span> <span class="toc-text">4.复杂数据类型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%89-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.</span> <span class="toc-text">三.运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%95%B0%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.1.</span> <span class="toc-text">算数运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.2.</span> <span class="toc-text">条件运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%BB%E8%BE%91%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.3.</span> <span class="toc-text">逻辑运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%8D%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.4.</span> <span class="toc-text">位运算符</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%9B%AE%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">3.5.</span> <span class="toc-text">三目运算符</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9B-Lua%E5%BE%AA%E7%8E%AF%E5%92%8C%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF"><span class="toc-number">4.</span> <span class="toc-text">四.Lua循环和条件分支</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E6%9D%A1%E4%BB%B6%E5%88%86%E6%94%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">4.1.</span> <span class="toc-text">1.条件分支语句</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%BE%AA%E7%8E%AF%E8%AF%AD%E5%8F%A5"><span class="toc-number">4.2.</span> <span class="toc-text">2.循环语句</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BA%94-%E5%A4%9A%E8%84%9A%E6%9C%AC%E6%89%A7%E8%A1%8C"><span class="toc-number">5.</span> <span class="toc-text">五.多脚本执行</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E5%92%8C%E6%9C%AC%E5%9C%B0%E5%8F%98%E9%87%8F"><span class="toc-number">5.1.</span> <span class="toc-text">1.全局变量和本地变量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E5%85%A8%E5%B1%80%E6%96%B9%E6%B3%95%E5%92%8C%E6%9C%AC%E5%9C%B0%E6%96%B9%E6%B3%95"><span class="toc-number">5.2.</span> <span class="toc-text">2.全局方法和本地方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%84%9A%E6%9C%AC%E7%9A%84%E8%B0%83%E7%94%A8"><span class="toc-number">5.3.</span> <span class="toc-text">3.脚本的调用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E8%84%9A%E6%9C%AC%E7%9A%84%E5%8D%B8%E8%BD%BD-%E7%A7%BB%E9%99%A4"><span class="toc-number">5.4.</span> <span class="toc-text">4.脚本的卸载&#x2F;移除</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F%E4%BD%BF%E7%94%A8"><span class="toc-number">5.5.</span> <span class="toc-text">5.局部变量使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E5%A4%A7G%E8%A1%A8"><span class="toc-number">5.6.</span> <span class="toc-text">6.大G表</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%AD-%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F"><span class="toc-number">6.</span> <span class="toc-text">六.协同程序</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-number">6.1.</span> <span class="toc-text">协同程序的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F-coroutine-create"><span class="toc-number">6.1.1.</span> <span class="toc-text">第一种方式-coroutine.create</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F-coroutine-warp"><span class="toc-number">6.1.2.</span> <span class="toc-text">第二种方式-coroutine.warp</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E8%BF%90%E8%A1%8C"><span class="toc-number">6.2.</span> <span class="toc-text">协同程序的运行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8C%82%E8%B5%B7"><span class="toc-number">6.3.</span> <span class="toc-text">协同程序的挂起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E5%90%8C%E7%A8%8B%E5%BA%8F%E7%9A%84%E6%8C%82%EF%BC%88%E5%8A%A0%E8%BF%94%E5%9B%9E%E5%80%BC%EF%BC%89"><span class="toc-number">6.4.</span> <span class="toc-text">协同程序的挂（加返回值）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%83-%E5%85%83%E8%A1%A8"><span class="toc-number">7.</span> <span class="toc-text">七.元表</span></a></li></ol></div></div></div></div></main><footer id="footer"><div id="footer_deal"><a class="deal_link" href="mailto:2813842071@qq.com" rel="external nofollow" target="_blank" title="QQ邮箱"><i class="iconfont icon-youxiang"></i></a><a class="deal_link" href="" title="我的QQ" target="_blank"><i class="iconfont icon-QQ"></i></a><a class="deal_link" href="https://github.com/hyh981006" title="Github主页" target="_blank"><i class="iconfont icon-github"></i></a><img class="footer_mini_logo entered loading" style="border-radius:50%" src="https://cdn1.tianli0.top/gh/Jayhrn/CDN/img/footer-icon-space-travel.gif" onclick="btf.scrollToDest(0,500)" title="返回顶部"/><a class="deal_link" href="" title="哔哩哔哩主页" target="_blank"><i class="iconfont icon-bilibili"></i></a><a class="deal_link" href="" title="Gitee主页" target="_blank"><i class="iconfont icon-gitee"></i></a><a class="deal_link" href="https://www.pinterest.com/yhyx2813842071/_created/" target="_blank" title="Pinterest找到我"><i class="ri-pinterest-line"></i></a></div><div id="Jay-footer"><div class="footer-group"><h3 class="footer-title">直达</h3><div class="footer-links"><a class="footer-item" href="https://blog.gmcj0816.top/" target="_blank">我的主页</a><a class="footer-item" href="/music">音乐欣赏</a><a class="footer-item" href="/essay/">即刻短文</a><a class="footer-item" onclick="randomPost()">随机文章</a><div class="footer-item" href="https://travellings.link/" title="开往 - 随机跳转到另一个加入开往的网页">十年之约</div></div></div><div class="footer-group"><h3 class="footer-title">分类</h3><div class="footer-links"><a class="footer-item" href="/categories/📚学习笔记/">学习笔记</a><a class="footer-item" href="/categories/🦋魔改教程/">魔改教程</a><a class="footer-item" href="/categories/🌈算法笔记/">算法笔记</a><a class="footer-item" href="/categories/📙语法教程/">语法教程</a></div></div><div class="footer-group"><h3 class="footer-title">关于</h3><div class="footer-links"><a class="footer-item" href="/resume/">关于我</a><a class="footer-item" href="/charts/">博客统计</a><a class="footer-item" href="/archives">文章归档</a><a class="footer-item" href="/update">更新记录</a></div></div><div class="footer-group"><h3 class="footer-title">开发</h3><div class="footer-links"><a class="footer-item" href="/sw/MyServer/">车模展示</a><a class="footer-item" target="_blank" rel="noopener" href="https://pan.gmcj0816.top/">Alist云盘</a><a class="footer-item" href="/webcollect/">网站收藏</a></div></div><div class="footer-group"><h3 class="footer-title">协议</h3><div class="footer-links"><a class="footer-item" href="/privacy/">隐私协议</a><a class="footer-item" href="/cookie/">Cookie</a><a class="footer-item" href="/cc/">版权协议</a></div></div></div><div id="footer-banner"><div class="footer-banner-links"><div class="footer-banner-left"><div class="footer-banner-left"><p id="beianFooter"><img src="https://blog.gmcj0816.top/img/police_beian.png" style="width:20px;height:20px"/><a class="bacolor" href="http://www.beian.miit.gov.cn/" target="_blank">冀公网安备-13080402000018号</a>|<img src="https://sevenestudio-hexo.oss-cn-hangzhou.aliyuncs.com/img/ICP_BA_Logo.png"/><a class="bacolor" href="https://beian.miit.gov.cn/" target="_blank">冀ICP备-2022018054号</a>|<img src="https://sevenestudio-hexo.oss-cn-hangzhou.aliyuncs.com/img/meng_icpbeian.png"/><a class="bacolor" href="https://icp.gov.moe/" target="_blank">萌ICP备-20228016号</a>|<img src="https://sevenestudio-hexo.oss-cn-hangzhou.aliyuncs.com/img/bdzny.png" style="width:20px;"/><a class="bacolor" href="https://cloud.baidu.com/" target="_blank">百度智能云提供</a></p></div></div><div class="footer-banner-right"><a class="footer-banner-link" target="_blank" rel="noopener" href="https://hexo.io/zh-cn/" title="Hexo">框架</a><a class="footer-banner-link">|</a><a class="footer-banner-link" target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly" title="theme">主题</a><a class="footer-banner-link">|</a><a class="footer-banner-link" href="/atom.xml" title="RSS">订阅</a><a class="footer-banner-link">|</a><a class="footer-banner-link" href="/about/" title="about">关于</a><a class="footer-banner-link">|</a><a class="footer-banner-link cc" href="/cc/" title="cc协议">协议</a></div></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><a class="icon-V hidden" onclick="switchNightMode()" title="浅色和深色模式转换"><svg width="25" height="25" viewBox="0 0 1024 1024"><use id="modeicon" xlink:href="#icon-moon"></use></svg></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="share" type="button" title="分享链接" onclick="share()"><i class="fas fa-share-nodes"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i><span id="percent">0<span>%</span></span></button><button id="go-down" type="button" title="直达底部" onclick="btf.scrollToDest(document.body.scrollHeight, 500)"><i class="fas fa-arrow-down"></i></button></div></div><div id="algolia-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="search-wrap"><div id="algolia-search-input"></div><hr/><div id="algolia-search-results"><div id="algolia-hits"></div><div id="algolia-pagination"></div><div id="algolia-info"><div class="algolia-stats"></div><div class="algolia-poweredBy"></div></div></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><a class="rightMenu-item" href="javascript:window.history.back();"><i class="fa fa-arrow-left"></i></a><a class="rightMenu-item" href="javascript:window.history.forward();"><i class="fa fa-arrow-right"></i></a><a class="rightMenu-item" href="javascript:window.location.reload();"><i class="fa fa-refresh"></i></a><a class="rightMenu-item" href="javascript:rmf.scrollToTop();"><i class="fa fa-arrow-up"></i></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-text"><a class="rightMenu-item" href="javascript:rmf.copySelect();"><i class="fa fa-copy"></i><span>复制</span></a><a class="rightMenu-item" href="javascript:window.open(&quot;https://www.baidu.com/s?wd=&quot;+window.getSelection().toString());window.location.reload();"><i class="iconfont icon-baidu"></i><span>百度搜索</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-too"><a class="rightMenu-item" href="javascript:window.open(window.getSelection().toString());window.location.reload();"><i class="fa fa-link"></i><span>转到链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-paste"><a class="rightMenu-item" href="javascript:rmf.paste()"><i class="fa fa-copy"></i><span>粘贴</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-post"><a class="rightMenu-item" href="#post-comment"><i class="fas fa-comment"></i><span>空降评论</span></a><a class="rightMenu-item" href="javascript:rmf.copyWordsLink()"><i class="fa fa-link"></i><span>复制本文地址</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-to"><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>新窗口打开</span></a><a class="rightMenu-item" id="menu-too" href="javascript:rmf.open()"><i class="fa fa-link"></i><span>转到链接</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制链接</span></a></div><div class="rightMenu-group rightMenu-line hide" id="menu-img"><a class="rightMenu-item" href="./#post-comment"><i class="fa fa-download"></i><span>保存图片</span></a><a class="rightMenu-item" href="javascript:rmf.openWithNewTab()"><i class="fa fa-window-restore"></i><span>在新窗口打开</span></a><a class="rightMenu-item" href="javascript:rmf.click()"><i class="fa fa-arrows-alt"></i><span>全屏显示</span></a><a class="rightMenu-item" href="javascript:rmf.copyLink()"><i class="fa fa-copy"></i><span>复制图片链接</span></a></div><div class="rightMenu-group rightMenu-line"><a class="rightMenu-item" href="javascript:toRandomPost()"><i class="iconfont icon-suijishushengcheng"></i><span>随便逛逛</span></a><a class="rightMenu-item" href="javascript:rmf.switchDarkMode();"><i class="iconfont icon-yejian"></i><span>昼夜切换</span></a><a class="rightMenu-item" href="javascript:rmf.translate();"><i class="iconfont icon-a-yuyanfanti"></i><span>繁简转换</span></a><a class="rightMenu-item" href="javascript:rmf.switchReadMode();"><i class="iconfont icon-yuedu-2"></i><span>阅读模式</span></a><a class="rightMenu-item" href="javascript:window.location.href=&quot;/declare/&quot;;"><i class="iconfont icon-banquan-kuai"></i><span>版权声明</span></a></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/node-snackbar/dist/snackbar.min.js"></script><script src="https://cdn.jsdelivr.net/npm/algoliasearch/dist/algoliasearch-lite.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instantsearch.js/dist/instantsearch.production.min.js"></script><script src="/js/search/algolia.js"></script><script>var preloader = {
+  endLoading: () => {
+    document.body.style.overflow = 'auto';
+    document.getElementById('loading-box').classList.add("loaded")
+  },
+  initLoading: () => {
+    document.body.style.overflow = '';
+    document.getElementById('loading-box').classList.remove("loaded")
+
+  }
+}
+window.addEventListener('load',preloader.endLoading())</script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://blog.gmcj0816.top/twikoo',
+      region: '',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://blog.gmcj0816.top/twikoo',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div><script src="/js/custom_mg/nav_menu.js"></script><script src="/js/custom_mg/sun_moon.js" async></script><script src="/js/custom_mg/nav.js" async></script><script async data-pjax src="/js/custom_mg/essay.js?version=0.0.2"></script><script async data-pjax src="/js/custom_mg/about.js?version=0.0.2"></script><script src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script type="text/javascript" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/gsap/3.9.1/gsap.min.js"></script><script type="text/javascript" src="https://cdn1.tianli0.top/npm/jquery@latest/dist/jquery.min.js"></script><script type="text/javascript" src="/js/custom_mg/rightmenu.js"></script><script type="text/javascript" src="/js/custom_mg/ca_and_tag.js"></script><script type="text/javascript" src="/js/custom_mg/share.js"></script><script type="text/javascript" src="/js/custom_mg/readNum.js"></script><script async src="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.js"></script><script data-pjax src="https://npm.elemecdn.com/anzhiyu-blog@1.1.6/js/swiper.min.js"></script><script defer="" src="/js/custom_mg/newest_post.js" data-pjax=""></script><div class="aplayer no-destroy" data-id="8656172706" data-server="tencent" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="false" data-mutex="true" ></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/metingjs/dist/Meting.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax","#web_bg"]
+
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: false,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+
+  // removeEventListener scroll 
+  window.tocScrollFn && window.removeEventListener('scroll', window.tocScrollFn)
+  window.scrollCollect && window.removeEventListener('scroll', scrollCollect)
+
+  typeof preloader === 'object' && preloader.initLoading()
+  document.getElementById('rightside').style.cssText = "opacity: ''; transform: ''"
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+
+  typeof disqusjs === 'object' && disqusjs.destroy()
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof chatBtnFn === 'function' && chatBtnFn()
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', '', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+
+  typeof preloader === 'object' && preloader.endLoading()
+})
+
+document.addEventListener('pjax:error', (e) => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404.html')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script>
+    // 全局变量声明区域
+    var fdata = {
+      apiurl: 'https://blog.gmcj0816.top/friendlink',
+      initnumber: 30, //【可选】页面初始化展示文章数量
+      stepnumber: 30, //【可选】每次加载增加的篇数
+      error_img: 'https://npm.elemecdn.com/akilar-candyassets/image/404.gif' //【可选，头像图片加载失败时的默认头像】
+    }
+    //存入本地存储
+    localStorage.setItem("fdatalist",JSON.stringify(fdata))
+    </script>
+    <script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.0.9/assets/js/fetch.js"></script><script data-pjax src="https://npm.elemecdn.com/hexo-filter-fcircle-anzhiyu@1.0.9/assets/js/random-friends-post.js"></script><script data-pjax>
+  function butterfly_clock_anzhiyu_injector_config(){
+    var parent_div_git = document.getElementsByClassName('sticky_layout')[0];
+    var item_html = '<div class="card-widget card-clock"><div class="card-glass"><div class="card-background"><div class="card-content"><div id="hexo_electric_clock"><img class="entered loading" id="card-clock-loading" src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/loading.gif" style="height: 120px; width: 100%;" data-ll-status="loading"/></div></div></div></div></div>';
+    console.log('已挂载butterfly_clock_anzhiyu')
+    if(parent_div_git) {
+      parent_div_git.insertAdjacentHTML("afterbegin",item_html)
+    }
+  }
+  var elist = 'null'.split(',');
+  var cpage = location.pathname;
+  var epage = 'all';
+  var qweather_key = 'b16a1fa0e63c46a4b8f28abfb06ae3fe';
+  var gaud_map_key = 'e2b04289e870b005374ee030148d64fd&s=rsv3';
+  var baidu_ak_key = 'undefined';
+  var flag = 0;
+  var clock_rectangle = '112.982279,28.19409';
+  var clock_default_rectangle_enable = 'false';
+
+  for (var i=0;i<elist.length;i++){
+    if (cpage.includes(elist[i])){
+      flag++;
+    }
+  }
+
+  if ((epage ==='all')&&(flag == 0)){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  else if (epage === cpage){
+    butterfly_clock_anzhiyu_injector_config();
+  }
+  </script><script src="https://widget.qweather.net/simple/static/js/he-simple-common.js?v=2.0"></script><script data-pjax src="https://cdn.cbd.int/hexo-butterfly-clock-anzhiyu/lib/clock.min.js"></script><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html><script>var posts=["/43183.html","/74583.html","/9322.html","/30495.html","/a08aed7d.html","/34732.html","/49248.html","/4573.html","/47c1249e.html","/ae16211c.html","/9723.html","/4187e9ca.html","/60990.html","/9c3bcc4d.html","/41434.html","/53425.html","/16479.html","/e44940b1.html","/19624.html","/37813967.html","/4ea133a0.html"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
