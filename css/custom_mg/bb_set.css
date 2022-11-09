@@ -9971,6 +9971,7 @@ b, strong {
     color: var(--heo-fontcolor);
     font-weight: 700;
     padding: 0 4px;
+	padding-top: 1rem;
 }
 .flink#article-container .flink-list>.flink-list-item a .flink-item-desc {
     white-space: normal;
@@ -10501,4 +10502,7 @@ span.recent-post-top-text {
     font-weight: 700;
     line-height: 1.6;
     white-space: nowrap;
+}
+#article-container img {
+	border-radius: 400px;
 }

@@ -1949,12 +1949,13 @@ span.hexo-douban-pagenum{
 .author-content-item .author-content-item-title{
   font-size:36px;
   font-weight:700;
-  line-height:1
+  line-height:1;
 }
 .author-content-item .author-content-item-tips{
   opacity:.8;
   font-size:.6rem;
-  margin-bottom:.5rem
+  margin-bottom:.5rem;
+  color: white;
 }
 @media screen and (max-width:768px){
   .author-content-item{
@@ -2500,6 +2501,7 @@ span.hexo-douban-pagenum{
   overflow: hidden;
   user-select: none;
   width: 100%;
+  height: 15rem;
 }
 .cursor {
   position: absolute;
@@ -2618,7 +2620,8 @@ span.hexo-douban-pagenum{
   margin-top:auto;
   display:flex;
   align-items:center;
-  justify-content:space-between
+  justify-content:space-between;
+  color: white;
 }
 .author-content-item .content-bottom .icon-group{
   display:flex
@@ -2656,7 +2659,8 @@ span.hexo-douban-pagenum{
   left:0
 }
 .author-content-item .card-content .author-content-item-title{
-  margin-bottom:.5rem
+  margin-bottom:.5rem;
+  color: white;
 }
 .author-content-item .card-content .banner-button-group{
   position:absolute;
@@ -2787,4 +2791,11 @@ span.hexo-douban-pagenum{
   color:var(--heo-white);
   overflow:hidden;
   margin-top:0
+}
+
+
+.ml3 {
+  font-weight: 900;
+  font-size: 2.8rem;
+  color: var(--font-color);
 }
