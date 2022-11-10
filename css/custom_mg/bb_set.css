@@ -10028,7 +10028,7 @@ b, strong {
     max-width: 1400px;
     margin: auto;
     margin-top: .5rem;
-    padding: 0 1.5rem;
+    /*padding: 0 1.5rem;*/
     width: 100%;
 }
 .recent-top-post-group {
@@ -10505,4 +10505,14 @@ span.recent-post-top-text {
 }
 #article-container img {
 	border-radius: 0px;
+}
+/* 翻页按钮居中 */
+#pagination {
+	width: 100%;
+	margin: auto;
+  }
+  div#category-bar {
+    margin-top: 1r;
+    margin-top: 1rem;
+    margin-bottom: 0rem;
 }

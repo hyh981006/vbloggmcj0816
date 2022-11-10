@@ -2,17 +2,21 @@
   font-family: "iconfont"; /* Project id 3611074 */
   /* Color fonts */
   src: 
-       url('iconfont.woff2?t=1667785332591') format('woff2'),
-       url('iconfont.woff?t=1667785332591') format('woff'),
-       url('iconfont.ttf?t=1667785332591') format('truetype');
+       url('iconfont.woff2?t=1668048469540') format('woff2'),
+       url('iconfont.woff?t=1668048469540') format('woff'),
+       url('iconfont.ttf?t=1668048469540') format('truetype');
 }
 
 .iconfont {
   font-family: "iconfont" !important;
-  font-size: 20px;
+  font-size: 22px;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-dribbble:before {
+  content: "\e696";
 }
 
 .icon-youxiang:before {
