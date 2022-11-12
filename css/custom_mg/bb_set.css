@@ -440,7 +440,7 @@ body {
 	padding:0 0.01rem!important
 }
 #page-header #nav #nav-group {
-	padding:0 1rem!important
+	padding:0 0.25rem!important
 }
 }@media screen and (min-width:1920px) {
 	.layout.hide-aside {
@@ -534,7 +534,7 @@ body {
 #nav #site-name span {
 	font-weight:700!important;
 	/*博客名字体修改大小*/
-	font-size:1.35rem
+	font-size:1.25rem
 }
 #nav #site-name {
 	opacity:1;
@@ -583,7 +583,8 @@ body {
 }
 .nav-fixed #nav #site-name span {
 	color:var(--Jay-fontcolor);
-	transition:.3s
+	transition:.3s;
+	font-size: 1.25rem;
 }
 #nav #site-name:hover span {
 	color:var(--Jay-white)
@@ -8155,13 +8156,6 @@ span.card-category-list-name {
 #sidebar #sidebar-menus .menus_items {
 	padding:0 10px 40px
 }
-#sidebar #sidebar-menus .menus_items .site-page {
-	position:relative;
-	display:block;
-	padding:6px 30px 6px 22px;
-	color:var(--font-color);
-	font-size:1.15em
-}
 #sidebar #sidebar-menus .menus_items .site-page:hover {
 	background:var(--text-bg-hover)
 }
@@ -10428,6 +10422,7 @@ span.recent-post-top-text {
     font-variant: normal;
     line-height: 1;
     text-rendering: auto;
+	font-size: 1.25rem;
 }
 .post-reward .reward-main {
     z-index: 1003;
@@ -10515,4 +10510,51 @@ span.recent-post-top-text {
     margin-top: 1r;
     margin-top: 1rem;
     margin-bottom: 0rem;
+}
+/*侧边栏*/
+#sidebar #sidebar-menus .menus_item_child li {
+    width: calc(50% - 8px);
+    margin: 4px;
+}
+#sidebar #sidebar-menus .menus_items .menus_item_child {
+    margin: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#sidebar #sidebar-menus .menus_item_child .site-page.child {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px;
+    border-radius: 12px;
+    border: var(--style-border-always);
+    background: var(--Jay-card-twikoo-bg);
+}
+#sidebar #sidebar-menus .menus_item_child .site-page.child span {
+    line-height: 1;
+    margin-top: 8px;
+    font-size: 13px;
+}
+#sidebar #sidebar-menus .menus_item>.site-page {
+    display: flex;
+    font-size: 12px;
+    color: var(--Jay-secondtext);
+}
+#sidebar #sidebar-menus .card-tag-cloud {
+    padding: 0 16px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-bottom: 60px;
+}
+#sidebar #sidebar-menus .card-tag-cloud a {
+    color: var(--Jay-fontcolor)!important;
+    padding: 2px 8px 2px 12px;
+    margin: 4px;
+    border-radius: 8px;
+    border: var(--style-border-always);
+    background: var(--Jay-card-twikoo-bg);
+    font-size: 14px;
 }

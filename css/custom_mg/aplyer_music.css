@@ -7,3 +7,6 @@
     left: 0 !important;
     /* 鼠标悬停是左侧缩进归零，完全显示按钮 */
   }
+  [data-theme=light] {
+  --heo-shadow-border: 0 8px 16px -4px #2c2d300c;
+  }
