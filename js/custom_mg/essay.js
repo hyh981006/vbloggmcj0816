@@ -152,4 +152,4 @@ var anzhiyu = {
 
 anzhiyu.changeTimeInEssay();
 anzhiyu.reflashEssayWaterFall();
-addRightMenuClickEvent();
+//addRightMenuClickEvent();
