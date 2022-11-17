@@ -1,3 +1,13 @@
+function addFriendLink() {
+  var input = document.getElementsByClassName('el-textarea__inner')[0];
+  let evt = document.createEvent('HTMLEvents');
+  evt.initEvent('input', true, true);
+  input.value = '昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n';
+  input.dispatchEvent(evt);
+  heo.scrollTo("#post-comment");
+  input.focus();
+  input.setSelectionRange(-1, -1);
+}
 // 发现有时会和当前页面重复，加一个判断
 function randomPost() {
     fetch('/baidusitemap.xml').then(res => res.text()).then(str => (new window.DOMParser()).parseFromString(str, "text/xml")).then(data => {
