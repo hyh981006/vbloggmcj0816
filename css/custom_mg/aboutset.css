@@ -1451,23 +1451,7 @@ span.hexo-douban-pagenum{
 #about-page .author-img img{
   border-radius:200px
 }
-#about-page .author-img::before{
-  content:'';
-  -webkit-transition:1s;
-  -moz-transition:1s;
-  -o-transition:1s;
-  -ms-transition:1s;
-  transition:1s;
-  width:30px;
-  height:30px;
-  background:var(--heo-green);
-  position:absolute;
-  border-radius:50%;
-  border:5px solid var(--heo-background);
-  bottom:5px;
-  right:10px;
-  z-index:2
-}
+
 #about-page .author-title{
   font-size:2rem;
   font-weight:700;
