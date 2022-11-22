@@ -11650,4 +11650,33 @@ a.bacolor{
 	.author-content.author-content-item.fcirclePage {
 	  background: url("https://blog.gmcj0816.top/img/fcricle_background.jpg") center center no-repeat !important
 	}
-  
+	@media screen and (max-width:768px) {
+		div#mode-button{
+			display: none;
+		}
+		div#randompost-button {
+			display: none;
+		}
+		#sidebar #sidebar-menus .sidebar-menu-item {
+			display: flex;
+			flex-direction: column;
+			padding: 0px 20px;
+			padding-left: 2rem;
+			padding-top: 1rem;
+		}
+		#sidebar #sidebar-menus .sidebar-menu-item a.menu-child {
+			width: 100%;
+			background: var(--heo-card-bg);
+			border-radius: 8px;
+			border: var(--style-border-always);
+			display: flex;
+			align-items: center;
+		}
+		a.darkmode_switchbutton {
+			padding: 4px 8px !important;
+			cursor: pointer;
+			margin: 0 !important;
+			font-size: 0.9rem;
+			color: var(--sevene-fontcolor);
+		}
+	}
