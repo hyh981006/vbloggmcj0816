@@ -70,7 +70,7 @@ rmf.copyWordsLink = function () {
     txa.select();
     document.execCommand("Copy");
     document.body.removeChild(txa);
-    btf.snackbarShow("复制成功！");
+    Swal.fire("复制成功！");
 }
 rmf.switchReadMode = function () {
     const $body = document.body
