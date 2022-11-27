@@ -10982,7 +10982,7 @@ button#go-up:hover #percent {
 
 [data-theme="light"]
 #web_bg{
-	background: #ffffff;
+	background: rgb(247,249,254);
 }
 [data-theme="dark"]
 #web_bg{
@@ -11544,10 +11544,56 @@ a.bacolor{
   }
   
   /* 响应式 */
-  @media screen and (max-width: 1300px) {
+  @media screen and (min-width: 1300px) {
 	#bber .timeline ul li.bber-item {
 	  width: 49%;
 	  margin-right: 1%;
+	}
+	.topGroup .todayCard {
+		position: absolute;
+		width: calc(600px + 1rem);
+		height: 100%;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		background: var(--card-bg);
+		border-radius: 12px;
+		margin-left: .5rem;
+		overflow: hidden;
+		transition: .3s;
+		display: flex;
+		cursor: pointer;
+		pointer-events: all;
+	}
+	.topGroup .todayCard .todayCard-cover {
+		position: absolute;
+		min-width: 100%;
+		min-height: 100%;
+		top: 0;
+		left: 0;
+		background-size: cover;
+		z-index: -1;
+		transition: .3s;
+	  }
+	  .topGroup .banner-button {
+		background: var(--sevene-white-op);
+		border-radius: 20px;
+		color: var(--sevene-white);
+		display: flex;
+		align-items: center;
+		z-index: 1;
+		transition: .3s;
+		cursor: pointer;
+		backdrop-filter: saturate(180%) blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		height: 40px;
+		width: 124px;
+		justify-content: center;
+	  }
+	.topGroup .todayCard .todayCard-info .todayCard-title {
+		font-size: 24px;
+		font-weight: 700;
+		line-height: 36px;
 	}
   }
   @media screen and (max-width: 768px) {
@@ -11555,6 +11601,7 @@ a.bacolor{
 	  width: 100%;
 	  margin-right: 0px;
 	}
+	
   }
   [data-theme="dark"] #bber .bber-music .aplayer,
   [data-theme="dark"] #bber .aplayer .aplayer-lrc:before,
