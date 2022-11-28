@@ -86,7 +86,7 @@ i:hover {
 	--border:2px solid var(--sevene-card-border);
   	--sevene-border-radius: 8px;
   	--sevene-logo-color: linear-gradient(215deg, #4584ff 30%, #ff7676 70%);
-  
+    
 
 }
 ::selection {
@@ -146,6 +146,7 @@ a:hover {
   	--sevene-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
   	--sevene-card-border: #c0c6d8;
   	--sevene-footer-background: #f1f3f8;
+	--sevene-rightmenu-color: #18171d;
 }
 [data-theme=dark] {
 	--sevene-theme:#0084FF;
@@ -211,6 +212,7 @@ a:hover {
 	--sevene-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
 	--sevene-card-border: #42444a;
 	--sevene-footer-background: #30343f;
+	--sevene-rightmenu-color: #f5deb3;
 }
 
 @media screen and (max-width:768px) {
@@ -1838,7 +1840,7 @@ div#category {
 	margin-top:.5rem
 }
 }.layout#content-inner {
-	max-width:1400px
+	max-width:1450px
 }
 #aside-content {
 	width:300px
@@ -11109,12 +11111,13 @@ a.bacolor{
     background-color: rgba(238, 255, 255, .85);
     -webkit-backdrop-filter: blur(20px);
     backdrop-filter: blur(20px);
-    color: #363636;
+    color: var(--sevene-rightmenu-color);
     border-radius: 12px;
     z-index: 99994;
     border: #e3e8f7;
     user-select: none;
     box-shadow: rgba(0, 0, 0, .05);
+
 }
 
 #rightMenu a {
@@ -11138,7 +11141,8 @@ a.bacolor{
 #rightMenu .rightMenu-group .rightMenu-item {
     border-radius: 8px;
     transition: .3s;
-    cursor: pointer
+    cursor: pointer;
+	color: var(--sevene-rightmenu-color);
 }
 
 #rightMenu .rightMenu-line .rightMenu-item {
@@ -11147,7 +11151,8 @@ a.bacolor{
 }
 
 #rightMenu .rightMenu-group.rightMenu-line .rightMenu-item {
-    display: flex
+    display: flex;
+	color: var(--sevene-rightmenu-color);
 }
 
 #rightMenu .rightMenu-group .rightMenu-item:hover {
@@ -11224,6 +11229,7 @@ a.bacolor{
 	box-shadow: 3px 3px 5px #ffe60094;
 	background-color: var(#e3e8f7);
 	backdrop-filter: blur(30px);
+	
 }
 [data-theme="dark"]
   #aside-content .card-widget{
