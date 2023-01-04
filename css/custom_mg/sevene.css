@@ -7777,7 +7777,7 @@ span.card-category-list-name {
 	-ms-transition:all .2s ease-out;
 	transition:all .2s ease-out
 }
-#article-container h1:before,#article-container h2:before,#article-container h3:before,#article-container h4:before,#article-container h5:before,#article-container h6:before {
+/*#article-container h1:before,#article-container h2:before,#article-container h3:before,#article-container h4:before,#article-container h5:before,#article-container h6:before {
 	position:absolute;
 	top:calc(50% - 7px);
 	color:#f47466;
@@ -7851,7 +7851,7 @@ span.card-category-list-name {
 }
 #article-container h6:hover {
 	padding-left:30px
-}
+}*/
 #article-container ol p,#article-container ul p {
 	margin:0 0 8px
 }
