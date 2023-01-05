@@ -212,7 +212,7 @@ a:hover {
 	--sevene-shadow-light2black: 0 5px 12px -5px rgba(102, 68, 68, 0);
 	--sevene-card-border: #42444a;
 	--sevene-footer-background: #30343f;
-	--sevene-rightmenu-color: #f5deb3;
+	--sevene-rightmenu-color: #ffffff;
 }
 
 @media screen and (max-width:768px) {
@@ -7912,6 +7912,7 @@ span.card-category-list-name {
 	font-size:1.2em;
 	line-height:1.85em
 }
+[data-theme="light"]
 #post .post-copyright {
 	position:relative;
 	margin:40px 0 10px;
@@ -7923,6 +7924,19 @@ span.card-category-list-name {
 	-ms-transition:box-shadow .3s ease-in-out;
 	transition:box-shadow .3s ease-in-out;
 	background-image: url(https://ts1.cn.mm.bing.net/th/id/R-C.a293e20ac06498592e727a5d2ab5ae14?rik=s8fE0RLrQI1cQA&riu=http%3a%2f%2fimg95.699pic.com%2fphoto%2f40089%2f9389.jpg_wh860.jpg&ehk=4S6U6FczEXBPTEJcOUinfDTurbt6oZ8Ct%2fBpWhxZ5p4%3d&risl=&pid=ImgRaw&r=0);
+}
+[data-theme="dark"]
+#post .post-copyright {
+	position:relative;
+	margin:40px 0 10px;
+	padding:10px 16px;
+	border:1px solid var(--light-grey);
+	-webkit-transition:box-shadow .3s ease-in-out;
+	-moz-transition:box-shadow .3s ease-in-out;
+	-o-transition:box-shadow .3s ease-in-out;
+	-ms-transition:box-shadow .3s ease-in-out;
+	transition:box-shadow .3s ease-in-out;
+	background-image: url(https://blog.gmcj0816.top/img/tiankong.jpg);
 }
 #post .post-copyright:before {
 	position:absolute;
@@ -11150,7 +11164,7 @@ a.bacolor{
 
 #rightMenu .rightMenu-group.rightMenu-line .rightMenu-item {
     display: flex;
-	color: var(--sevene-rightmenu-color);
+	/*color: var(--sevene-rightmenu-color);*/
 }
 
 #rightMenu .rightMenu-group .rightMenu-item:hover {
@@ -12165,4 +12179,74 @@ a.bacolor{
 	backdrop-filter: var(--backdrop-filter);
 	padding: 4px;
 	border-radius: 4px;
+  }
+  /* 新年侧边栏 */
+
+#newYear {
+    color: white;
+    padding: 0 !important;
+}
+
+#newYear p,
+#newYear h3 {
+    font-weight: normal;
+    color: inherit;
+    margin: 0;
+}
+
+#newYear .item-headline {
+    display: none;
+}
+
+#newYear-main {
+    min-height: 160px;
+    padding: 1rem;
+    position: relative;
+    border-radius: 12px;
+    background-image: url(https://tuchuang.voooe.cn/images/2023/01/02/tunian.webp);
+    background-size: cover;
+    background-position: center;
+}
+
+#newYear-main * {
+    position: relative;
+    line-height: 1.3;
+}
+
+#newYear-main .newYear-time {
+    font-weight: bold;
+    text-align: center;
+}
+
+#newYear-main .time,
+#newYear-main .happyNewYear {
+    font-size: 3.5rem;
+    margin: 1rem 0;
+    display: block;
+}
+
+#newYear-main .day {
+    font-size: 5rem;
+}
+
+#newYear-main .day .unit {
+    font-size: 1rem;
+}
+
+#newYear-main .mask {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0, 0, 0, .1);
+}
+/* 欢迎信息 */
+#welcome-info {
+	background: linear-gradient(45deg, #b9f4f3, #e3fbf9);
+	border-radius: 18px;
+	padding: 8px;
+  }
+  [data-theme="dark"] #welcome-info {
+	background: #212121;
   }
