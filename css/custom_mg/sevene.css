@@ -12272,3 +12272,76 @@ span.content-item-title {
     width: calc(100% - 5.4rem);
     bottom: 1rem;
 }
+/* 公众号 Start */
+
+[data-theme='light'] #aside-content .card-widget#card-wechat {
+    background: #079e00 !important;
+}
+
+#aside-content .card-widget#card-wechat {
+    background: var(--card-bg);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    padding: 0;
+    cursor: pointer !important;
+    border: none;
+    height: 110px;
+	outline: auto;
+}
+
+/* 如果你设置了aside 的 mobile 为 false，记得放开下面这段注释；
+   如果你设置了aside 的 mobile 为 true ，不需要改动。 */
+
+/* @media screen and (max-width: 768px) {
+    #aside-content .card-widget#card-wechat {
+        display: none !important;
+    }
+} */
+
+@media screen and (min-width: 1300px) {
+    #aside-content .card-widget {
+        margin-top: 1rem;
+    }
+}
+
+#flip-wrapper {
+    -webkit-perspective: 1000;
+    perspective: 1000;
+    position: relative;
+    width: 235px;
+    height: 110px;
+    z-index: 1;
+}
+
+#flip-wrapper:hover #flip-content {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+#flip-content {
+    width: 100%;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: cubic-bezier(0, 0, 0, 1.29) 0.3s;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    background: url(https://cdnimage.gmcj0816.top/630efc6e3e794.png) center center no-repeat;
+    background-size: 100%;
+}
+
+.back.face {
+    display: block;
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    box-sizing: border-box;
+    background: url(https://cdnimage.gmcj0816.top/635e9c6a228a3.png) center center no-repeat;
+    background-size: 100%;
+}
