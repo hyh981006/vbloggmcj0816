@@ -2,9 +2,9 @@
   font-family: "iconfont"; /* Project id 3611074 */
   /* Color fonts */
   src: 
-       url('iconfont.woff2?t=1669612880706') format('woff2'),
-       url('iconfont.woff?t=1669612880706') format('woff'),
-       url('iconfont.ttf?t=1669612880706') format('truetype');
+       url('iconfont.woff2?t=1673228640535') format('woff2'),
+       url('iconfont.woff?t=1673228640535') format('woff'),
+       url('iconfont.ttf?t=1673228640535') format('truetype');
 }
 
 .iconfont {
@@ -13,6 +13,14 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sharefrom:before {
+  content: "\e7f8";
+}
+
+.icon-lianjie1:before {
+  content: "\eadc";
 }
 
 .icon-guanyuwomen:before {
@@ -57,27 +65,22 @@
 
 .icon-shuaxin:before {
   content: "\e647";
-  font-size: 26px;
 }
 
 .icon-shang:before {
   content: "\e621";
-  font-size: 26px;
 }
 
 .icon-xia:before {
   content: "\e624";
-  font-size: 26px;
 }
 
 .icon-zuo:before {
   content: "\e626";
-  font-size: 26px;
 }
 
 .icon-you:before {
   content: "\e60b";
-  font-size: 26px;
 }
 
 .icon-bars:before {
