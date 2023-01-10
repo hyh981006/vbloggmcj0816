@@ -12,7 +12,7 @@ const commentBarrageConfig = {
     //弹幕显示间隔时间，单位ms
     barrageTime: 3000,
     //twikoo部署地址（Vercel、私有部署），腾讯云的为环境ID
-    twikooUrl: "https://tkapi.yisous.xyz",
+    twikooUrl: "https://blog.gmcj0816.top/twikoo",
     //token获取见前文
     accessToken: "1c6a7cf88b2f44977cbdbcc0006f7977",
     pageUrl: window.location.pathname,
