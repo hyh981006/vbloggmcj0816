@@ -11841,7 +11841,7 @@ a.bacolor{
 	  }
 	  
 	  #bber .timeline ul li.bber-item hr {
-		display: flex;
+		display: none;
 		position: relative;
 		margin: 8px 0px;
 		border: 1px dashed var(--anzhiyu-theme-op);
@@ -12504,3 +12504,29 @@ span.content-item-title {
 	width: 3em;
   }
 
+#recent-posts>.recent-post-item .post_cover:hover::after {
+    -webkit-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+    -moz-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+    -o-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+    -ms-transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+    transform: scale3d(2,1,1) rotate(60deg) translate3d(0,130%,0);
+}
+#recent-posts>.recent-post-item .post_cover::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,.5);
+    content: '';
+    -webkit-transition: -webkit-transform .3s;
+    -moz-transition: -moz-transform .3s;
+    -o-transition: -o-transform .3s;
+    -ms-transition: -ms-transform .3s;
+    transition: transform .3s;
+    -webkit-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+    -moz-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+    -o-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+    -ms-transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+    transform: scale3d(2,1,1) rotate(60deg) translate3d(15%,-150%,0);
+}
