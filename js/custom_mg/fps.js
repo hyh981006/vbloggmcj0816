@@ -1,55 +1,3 @@
-if (window.localStorage.getItem("fpson") == undefined || window.localStorage.getItem("fpson") == "1") {
-    var rAF = function () {
-        return (
-            window.requestAnimationFrame ||
-            window.webkitRequestAnimationFrame ||
-            function (callback) {
-                window.setTimeout(callback, 1000 / 60);
-            }
-        );
-    }();
-    var frame = 0;
-    var allFrameCount = 0;
-    var lastTime = Date.now();
-    var lastFameTime = Date.now();
-    var loop = function () {
-        var now = Date.now();
-        var fs = (now - lastFameTime);
-        var fps = Math.round(1000 / fs);
-
-        lastFameTime = now;
-        // 不置 0，在动画的开头及结尾记录此值的差值算出 FPS
-        allFrameCount++;
-        frame++;
-
-        if (now > 1000 + lastTime) {
-            var fps = Math.round((frame * 1000) / (now - lastTime));
-            if (fps <= 5) {
-                var kd = `<span style="color:#bd0000">卡成ppt🤢</span>`
-            } else if (fps <= 15) {
-                var kd = `<span style="color:red">电竞级帧率😖</span>`
-            } else if (fps <= 25) {
-                var kd = `<span style="color:orange">有点难受😨</span>`
-            } else if (fps < 35) {
-                var kd = `<span style="color:#9338e6">不太流畅🙄</span>`
-            } else if (fps <= 45) {
-                var kd = `<span style="color:#08b7e4">还不错哦😁</span>`
-            } else {
-                var kd = `<span style="color:#39c5bb">十分流畅🤣</span>`
-            }
-            document.getElementById("fps").innerHTML = `FPS:${fps} ${kd}`;
-            frame = 0;
-            lastTime = now;
-        };
-
-        rAF(loop);
-    }
-
-    loop();
-} else {
-    document.getElementById("fps").style = "display:none!important"
-}
-
 let newYearTimer = null;
 var newYear = () => {
     clearTimeout(newYearTimer);
@@ -76,7 +24,7 @@ var newYear = () => {
         // 小于0则表示已经过年
         if (second < 0) {
             document.querySelector('#newYear .title').innerHTML = 'Happy New Year!';
-            document.querySelector('#newYear .newYear-time').innerHTML = '<span class="happyNewYear">新年快乐</p>';
+            document.querySelector('#newYear .newYear-time').innerHTML = '<span class="happyNewYear">新年快乐</span>';
         } else {
             // 大于0则还未过年
             document.querySelector('#newYear .title').innerHTML = '距离2023年春节：'
@@ -99,9 +47,9 @@ var newYear = () => {
     }
 
     // 元宝飘落
-    jQuery(document).ready(function ($) {
+    jQuery(document).ready(function($) {
         $('#newYear').wpSuperSnow({
-            flakes: ['https://tuchuang.voooe.cn/images/2023/01/02/yb1.webp', 'https://tuchuang.voooe.cn/images/2023/01/02/yb2.webp', 'https://tuchuang.voooe.cn/images/2023/01/02/yb3.webp'],
+            flakes: ['https://cdnimage.gmcj0816.top/yb3.webp', 'https://cdnimage.gmcj0816.top/yb2.webp', 'https://cdnimage.gmcj0816.top/yb3.webp'],
             totalFlakes: '100',
             zIndex: '999999',
             maxSize: '30',
@@ -110,7 +58,14 @@ var newYear = () => {
         });
     });
 }
-// Pjax适配：若没有开启Pjax这里直接是newYear()即可
-// 开了Pjax的用以下两句
-document.addEventListener('pjax:complete', newYear);
-document.addEventListener('DOMContentLoaded', newYear);
+newYear();
+document.onkeydown = function (e) {
+    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("别想了，我已经猜到了，已经禁用F12了🍕🍔"), event.keyCode = 0, event.returnValue = !1, !1
+};
+// 切换热评
+function switchCommentBarrage () {
+    let flag = window.localStorage.getItem('commentBarrageDisplay') // undefined || false
+    document.getElementById('comment-barrage').style.display = flag === 'false' ? 'block' : 'none'
+    // 本地缓存一天，刷新或切换页面时仍 隐藏或显示 热评。
+    window.localStorage.setItem('commentBarrageDisplay', flag === 'false' ? 'undefined' : 'false', 86400000)
+  }
