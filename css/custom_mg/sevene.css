@@ -12437,13 +12437,6 @@ span.content-item-title {
     opacity: 0;
 }
 
-@keyframes barrageIn {
-    0% { transform: scale(0.1);},
-    100% { transform: scale(1.0);}
-}
-
-
-
 .comment-barrage-item .barrageHead {
     height: 30px;
     padding: 0;
