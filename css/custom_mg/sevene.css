@@ -12537,3 +12537,6 @@ a#address {
     font-size: small;
 	margin-right: 4px;
 }
+#post-info #post-meta .post-meta-icon {
+    margin-right: 0.4rem;
+}
