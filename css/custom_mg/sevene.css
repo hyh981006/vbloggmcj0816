@@ -7,7 +7,7 @@
 @font-face{
     font-family: 'Mi Sans SC';
     font-display: swap;
-    src: url('/font/MiSans-Demibold.ttf') format("truetype");
+    src: url('/font/HanYiQiHei-50Jian-Regular-2.ttf') format("truetype");
 }
 body {
     font-family: 'JetBrains Mono','Mi Sans SC';
