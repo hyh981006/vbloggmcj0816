@@ -240,3 +240,157 @@ function addLongtabListener(target, callback) {
 }
 
 addLongtabListener(box, popupMenu)
+var rm = {};
+rm.stopdragimg = $("img"), rm.stopdragimg.on("dragstart", (function() {
+	return !1
+})), rm.showRightMenu = function(e, n = 0, t = 0) {
+	let o = $("#rightMenu");
+	o.css("top", n + "px")
+		.css("left", t + "px"), e ? (o.show(), stopMaskScroll()) : o.hide()
+}, rm.hideRightMenu = function() {
+	rm.showRightMenu(!1), $("#rightmenu-mask")
+		.attr("style", "display: none")
+};
+var rmWidth = $("#rightMenu")
+	.width(),
+	rmHeight = $("#rightMenu")
+	.height();
+rm.reloadrmSize = function() {
+	rmWidth = $("#rightMenu")
+		.width(), rmHeight = $("#rightMenu")
+		.height()
+};
+var domhref = "",
+	domImgSrc = "",
+	globalEvent = null;
+
+function imageToBlob(e) {
+	const n = new Image,
+		t = document.createElement("canvas"),
+		o = t.getContext("2d");
+	return n.crossOrigin = "", n.src = e, new Promise((e => {
+		n.onload = function() {
+			t.width = this.naturalWidth, t.height = this.naturalHeight, o.drawImage(this, 0, 0), t.toBlob((n => {
+				e(n)
+			}), "image/png", .75)
+		}
+	}))
+}
+async function copyImage(e) {
+	const n = await imageToBlob(e),
+		t = new ClipboardItem({
+			"image/png": n
+		});
+	navigator.clipboard.write([t])
+}
+
+function stopMaskScroll() {
+	if (document.getElementById("rightmenu-mask")) {
+		document.getElementById("rightmenu-mask")
+			.addEventListener("mousewheel", (function(e) {
+				rm.hideRightMenu()
+			}), !1)
+	}
+	if (document.getElementById("rightMenu")) {
+		document.getElementById("rightMenu")
+			.addEventListener("mousewheel", (function(e) {
+				rm.hideRightMenu()
+			}), !1)
+	}
+}
+window.oncontextmenu = function(e) {
+	if (document.body.clientWidth > 768) {
+		let n = e.clientX + 10,
+			t = e.clientY,
+			o = $(".rightMenuOther"),
+			i = $(".rightMenuPlugin"),
+			c = $("#menu-copytext"),
+			r = $("#menu-pastetext"),
+			m = $("#menu-commenttext"),
+			a = $("#menu-newwindow"),
+			u = $("#menu-copylink"),
+			l = $("#menu-copyimg"),
+			d = $("#menu-downloadimg"),
+			h = $("#menu-search"),
+			s = $("#menu-searchBaidu"),
+			g = $("#menu-music-toggle"),
+			w = $("#menu-music-back"),
+			p = $("#menu-music-forward"),
+			f = $("#menu-music-playlist"),
+			y = $("#menu-music-copyMusicName"),
+			k = e.target.href,
+			M = e.target.currentSrc,
+			x = !1;
+		return o.show(), globalEvent = e, selectTextNow && window.getSelection() ? (x = !0, c.show(), m.show(), h.show(), s.show()) : (c.hide(), m.hide(), s.hide(), h.hide()), k ? (x = !0, a.show(), u.show(), domhref = k) : (a.hide(), u.hide()), M ? (x = !0, l.show(), d.show(), domImgSrc = M) : (l.hide(), d.hide()), "input" === e.target.tagName.toLowerCase() || "textarea" === e.target.tagName.toLowerCase() ? (console.log("这是一个输入框"), x = !0, r.show()) : r.hide(), "METING-JS" === e.target.nodeName ? (console.log("这是一个音乐"), x = !0, g.show(), w.show(), p.show(), f.show(), y.show()) : (g.hide(), w.hide(), p.hide(), f.hide(), y.hide()), x ? (o.hide(), i.show()) : i.hide(), rm.reloadrmSize(), n + rmWidth > window.innerWidth && (n -= rmWidth + 10), t + rmHeight > window.innerHeight && (t -= t + rmHeight - window.innerHeight), rm.showRightMenu(!0, t, n), $("#rightmenu-mask")
+			.attr("style", "display: flex"), !1
+	}
+}, rm.downloadimging = !1, rm.writeClipImg = function(e) {
+	console.log("按下复制"), rm.hideRightMenu(), btf.snackbarShow("正在下载中，请稍后", !1, 1e4), !1 === rm.downloadimging && (rm.downloadimging = !0, setTimeout((function() {
+		copyImage(e), btf.snackbarShow("复制成功！图片已添加盲水印，请遵守版权协议"), rm.downloadimging = !1
+	}), "10000"))
+}, rm.switchDarkMode = function() {
+	navFn.switchDarkMode(), rm.hideRightMenu(), Jay.darkModeStatus()
+}, rm.copyUrl = function(e) {
+	$("body")
+		.after("<input id='copyVal'></input>");
+	let n = e,
+		t = document.getElementById("copyVal");
+	t.value = n, t.select(), t.setSelectionRange(0, t.value.length), document.execCommand("copy"), $("#copyVal")
+		.remove()
+}, rm.rightmenuCopyText = function(e) {
+	navigator.clipboard && navigator.clipboard.writeText(e), rm.hideRightMenu()
+}, rm.copyPageUrl = function() {
+	let e = window.location.href;
+	rm.copyUrl(e), btf.snackbarShow("复制本页链接地址成功", !1, 2e3), rm.hideRightMenu()
+}, rm.sharePage = function() {
+	window.location.href;
+	rm.copyUrl(url), btf.snackbarShow("复制本页链接地址成功", !1, 2e3), rm.hideRightMenu()
+};
+var selectTextNow = "";
+
+function selceText() {
+	let e;
+	e = document.selection ? document.selection.createRange()
+		.text : window.getSelection() + "", selectTextNow = e || ""
+}
+
+function replaceAll(e, n, t) {
+	return e.split(n)
+		.join(t)
+}
+
+
+document.onmouseup = document.ondbclick = selceText, rm.readClipboard = function() {
+	navigator.clipboard && navigator.clipboard.readText()
+		.then((e => rm.insertAtCaret(globalEvent.target, e)))
+}, rm.insertAtCaret = function(e, n) {
+	const t = e.selectionStart,
+		o = e.selectionEnd;
+	if (document.selection) {
+		e.focus(), document.selection.createRange()
+			.text = n, e.focus()
+	} else if (t || "0" === t) {
+		let i = e.scrollTop;
+		e.value = e.value.substring(0, t) + n + e.value.substring(o, e.value.length), e.focus(), e.selectionStart = t + n.length, e.selectionEnd = t + n.length, e.scrollTop = i
+	} else e.value += n, e.focus()
+}, rm.pasteText = function() {
+	rm.readClipboard();
+	rm.hideRightMenu()
+}, rm.rightMenuCommentText = function(e) {
+	rm.hideRightMenu();
+	let n = document.getElementsByClassName("el-textarea__inner")[0],
+		t = document.createEvent("HTMLEvents");
+	t.initEvent("input", !0, !0);
+	let o = replaceAll(e, "\n", "\n> ");
+	n.value = "> " + o + "\n\n", n.dispatchEvent(t);
+	let i = document.querySelector("#post-comment")
+		.offsetTop;
+	window.scrollTo(0, i - 80), n.focus(), n.setSelectionRange(-1, -1), document.getElementById("comment-tips") && document.getElementById("comment-tips")
+		.classList.add("show")
+}, rm.searchBaidu = function() {
+	btf.snackbarShow("即将跳转到百度搜索", !1, 2e3), setTimeout((function() {
+		window.open("https://www.baidu.com/s?wd=" + selectTextNow)
+	}), "2000"), rm.hideRightMenu()
+}, rm.copyLink = function() {
+	rm.rightmenuCopyText(domhref), btf.snackbarShow("已复制链接地址")
+};
