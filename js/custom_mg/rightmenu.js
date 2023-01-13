@@ -1,9 +1,3 @@
-
-
-console.log(
-    "Codes uses GPL Licence"
-)
-
 function insertAtCursor(myField, myValue) {
 
     //IE 浏览器

@@ -1,4 +1,18 @@
-<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>给自己的博客加上新年喜庆 | 七鳄の学习格</title><meta name="keywords" content="Butterfly,Hexo"><meta name="author" content="爱吃大饼的小虎"><meta name="copyright" content="爱吃大饼的小虎"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="转眼马上就还有10天就过年了，是时候有点喜庆的特色了，新年需要有什么，当然是灯笼咯，还就是”瑞雪兆丰年”，正好看到两篇不错的文章就copy了一下，改了点东西就出现主页效果咯，此文章参考自： Hexo添加雪花动态效果背景 | 花猪のBlog (cnhuazhu.top) Hexo-悬挂灯笼 | 唐志远の博客 (tzy1997.com)  添加悬挂灯笼 在BlogRoot&#x2F;node_modules&#x2F;h">
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><script>((function() {var callbacks = [],timeLimit = 50,open = false;setInterval(loop, 1);return {addListener: function(fn) {callbacks.push(fn);},cancleListenr: function(fn) {callbacks = callbacks.filter(function(v) {return v !== fn;});}}
+function loop() {var startTime = new Date();debugger;if (new Date() - startTime > timeLimit) {if (!open) {callbacks.forEach(function(fn) {fn.call(null);});}open = true;window.stop();alert('别想了，我已经猜到了，已经禁用F12了🍕🍔');document.body.innerHTML = "";} else {open = false;}}})()).addListener(function() {window.location.reload();});</script><script>function toDevtools(){
+  let num = 0; 
+  let devtools = new Date();
+  devtools.toString = function() {
+    num++;
+    if (num > 1) {
+        alert('别想了，我已经猜到了，已经禁用F12了🍕🍔')
+        window.location.href = "about:blank"
+        blast();
+    }
+  }
+  console.log('', devtools);
+}
+toDevtools();</script><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>给自己的博客加上新年喜庆 | 七鳄の学习格</title><meta name="keywords" content="Butterfly,Hexo"><meta name="author" content="爱吃大饼的小虎"><meta name="copyright" content="爱吃大饼的小虎"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="referrer" content="no-referrer"><meta name="description" content="转眼马上就还有10天就过年了，是时候有点喜庆的特色了，新年需要有什么，当然是灯笼咯，还就是”瑞雪兆丰年”，正好看到两篇不错的文章就copy了一下，改了点东西就出现主页效果咯，此文章参考自： Hexo添加雪花动态效果背景 | 花猪のBlog (cnhuazhu.top) Hexo-悬挂灯笼 | 唐志远の博客 (tzy1997.com)  添加悬挂灯笼 在BlogRoot&#x2F;node_modules&#x2F;h">
 <meta property="og:type" content="article">
 <meta property="og:title" content="给自己的博客加上新年喜庆">
 <meta property="og:url" content="https://blog.gmcj0816.top/da088714.html">
@@ -7,7 +21,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://bpic.588ku.com/back_pic/17/30/17/2763467e586b6df.jpg">
 <meta property="article:published_time" content="2023-01-11T12:23:33.000Z">
-<meta property="article:modified_time" content="2023-01-11T13:07:20.284Z">
+<meta property="article:modified_time" content="2023-01-13T03:59:58.194Z">
 <meta property="article:author" content="爱吃大饼的小虎">
 <meta property="article:tag" content="Butterfly">
 <meta property="article:tag" content="Hexo">
@@ -18,7 +32,7 @@
   localSearch: undefined,
   translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
   noticeOutdate: undefined,
-  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":300},
   copy: {
     success: '复制成功',
     error: '复制错误',
@@ -54,7 +68,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2023-01-11 21:07:20'
+  postUpdate: '2023-01-13 11:59:58'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -147,7 +161,7 @@
 <style>#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags:before {content:"\A";
   white-space: pre;}#recent-posts > .recent-post-item >.recent-post-info > .article-meta-wrap > .tags > .article-meta__separator{display:none}</style>
 <link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/font-awesome-animation.min.css" media="defer" onload="this.media='all'"><link rel="stylesheet" href="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/tag_plugins.css" media="defer" onload="this.media='all'"><script src="https://npm.elemecdn.com/hexo-butterfly-tag-plugins-plus@latest/lib/assets/carousel-touch.js"></script><!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"><link rel="alternate" href="/atom.xml" title="七鳄の学习格" type="application/atom+xml">
-</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://blog.gmcj0816.top/img/SeriousWission_TouXiangPic.jpg" onerror="onerror=null;src='/img/404_friend.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" onclick="rmf.switchDarkMode()" title="显示模式切换" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="fas fa-moon" style="font-size: 1rem;"></i><span>显示模式</span></a></div><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" onclick="randomPost()" title="随便看看 - 随机访问一篇本站文章" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="fas fa-splotch fa-fw" style="font-size: 1rem;"></i><span>随便看看</span></a></div><!--hr--><div class="menus_items"><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 文库</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-yongquan1"></i><span> 文章标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-zhifeiji"></i><span> 文章分类</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw iconfont icon-feiji"></i><span> 即刻短文</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 我的</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/webcollect/"><i class="fa-fw iconfont icon-jiangbei"></i><span> 网站收藏</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-kafei"></i><span> 电影推荐</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 书籍书虫</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 游戏仓库</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 友链</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-zhifengche"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw iconfont icon-diqiuyi"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 关于</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-cunqianguan"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/resume/"><i class="fa-fw iconfont icon-feidie"></i><span> 个人简历</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 博客更新</span></a></li></ul></div></div><div class="card-widget card-tags"><div class="item-headline"><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Butterfly/" style="font-size: 14px; color: #99a9bf">Butterfly</a> <a href="/tags/C-%E7%BC%96%E7%A8%8B/" style="font-size: 14px; color: #99a6b7">C#编程</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #99a6b7">Hexo</a> <a href="/tags/Nginx/" style="font-size: 14px; color: #999ca1">Nginx</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Shiro/" style="font-size: 14px; color: #999ca1">Shiro</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999ca1">SpringBoot</a> <a href="/tags/Unity/" style="font-size: 14px; color: #999fa8">Unity</a> <a href="/tags/Unity3D/" style="font-size: 14px; color: #999">Unity3D</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999fa8">hexo</a> <a href="/tags/nodejs/" style="font-size: 14px; color: #99a3b0">nodejs</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%AD%94%E6%94%B9/" style="font-size: 14px; color: #999fa8">博客魔改</a> <a href="/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/" style="font-size: 14px; color: #999">朋友圈</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 14px; color: #999ca1">游戏开发</a> <a href="/tags/%E8%B7%A8%E5%B9%B4/" style="font-size: 14px; color: #999">跨年</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/" style="font-size: 14px; color: #999">软件设计师</a> <a href="/tags/%E9%AD%94%E6%94%B9%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999ca1">魔改教程</a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://bpic.588ku.com/back_pic/17/30/17/2763467e586b6df.jpg')"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon fas fa-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://gmcj0816.top/" rel="external nofollow" title="前往七鳄主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="/img/tubiao001.png"/><span class="back-menu-item-text">主页          </span></a><a class="back-menu-item" href="https://pan.gmcj0816.top/" rel="external nofollow" title="前往云盘主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="/img/tubiao002.png"/><span class="back-menu-item-text">七鳄云盘</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">博客</div><div class="back-menu-list"><a class="back-menu-item" href="/" title="前往博客主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="/img/tubiao003.png"/><span class="back-menu-item-text">主线路</span></a><a class="back-menu-item" href="https://vblog.gmcj0816.top/" title="前往博客主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="/img/tubiao004.png"/><span class="back-menu-item-text">vercel线路</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span>SEVENE</span></a></span><span id="page_name"><a id="page-name-text" title="回到顶部" onclick="btf.scrollToDest(0,500)"><span>七鳄の学习格</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 文库</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-yongquan1"></i><span> 文章标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-zhifeiji"></i><span> 文章分类</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw iconfont icon-feiji"></i><span> 即刻短文</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 我的</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/webcollect/"><i class="fa-fw iconfont icon-jiangbei"></i><span> 网站收藏</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-kafei"></i><span> 电影推荐</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 书籍书虫</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 游戏仓库</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 友链</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-zhifengche"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw iconfont icon-diqiuyi"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 关于</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-cunqianguan"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/resume/"><i class="fa-fw iconfont icon-feidie"></i><span> 个人简历</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 博客更新</span></a></li></ul></div></div></div><div id="hotkey"><div id="search-button"><a class="site-page social-icon search" title="搜索"><i class="ri-search-eye-line"></i></a></div><div id="randompost-button"><a class="site-page social-icon search" href="javascript:;" onclick="randomPost()" title="随便看看 - 随机访问一篇本站文章"><i class="fas fa-splotch fa-fw"></i></a></div><div id="travellings"><a class="site-page social-icon search" target="_blank" rel="noopener" href="https://travellings.link/" title="开往 - 随机跳转到另一个加入开往的网页"><i class="ri-subway-fill"></i></a></div><div id="mode-button"><a class="site-page" title="浅色和深色模式转换" onclick="rmf.switchDarkMode()"><i class="ri-sun-fill"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="iconfont icon-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">给自己的博客加上新年喜庆</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-11T12:23:33.000Z" title="发表于 2023-01-11 20:23:33">2023-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-11T13:07:20.284Z" title="更新于 2023-01-11 21:07:20">2023-01-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%A6%84%E5%8D%9A%E5%AE%A2%E9%AD%94%E6%94%B9/">🦄博客魔改</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.5k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>14分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title="给自己的博客加上新年喜庆"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/da088714.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span><span class="post-meta-separator">|&nbsp <span class="post-meta-dianzan"><a class="dianzan" href="javascript:void(0)" onclick="dianzan()"><i class="fas fa-thumbs-up"></i></a><span class="post-meta-label"> 点赞:</span><span class="dianzan-count">0</span></span></span><span class="post-meta-separator">|&nbsp<span class="post-meta-position" title="作者IP属地为黑龙江.哈尔滨"><i class="fa-solid fa-location-dot post-meta-icon"></i><a id="address">黑龙江.哈尔滨</a></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><div class="js-pjax"><script src="https://cdn1.tianli0.top/npm/swiper/swiper-bundle.min.js" data-pjax=""></script><script>new Swiper('.swiper-container', {
+</head><body><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><div class="loading-img"></div><div class="loading-image-dot"></div></div></div><div id="web_bg"></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://blog.gmcj0816.top/img/SeriousWission_TouXiangPic.jpg" onerror="onerror=null;src='/img/404_friend.png'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">26</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">17</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">8</div></a></div><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" onclick="rmf.switchDarkMode()" title="显示模式切换" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="fas fa-moon" style="font-size: 1rem;"></i><span>显示模式</span></a></div><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" onclick="randomPost()" title="随便看看 - 随机访问一篇本站文章" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="fas fa-splotch fa-fw" style="font-size: 1rem;"></i><span>随便看看</span></a></div><!--hr--><div class="menus_items"><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 文库</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-yongquan1"></i><span> 文章标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-zhifeiji"></i><span> 文章分类</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw iconfont icon-feiji"></i><span> 即刻短文</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 我的</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/webcollect/"><i class="fa-fw iconfont icon-jiangbei"></i><span> 网站收藏</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-kafei"></i><span> 电影推荐</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 书籍书虫</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 游戏仓库</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 友链</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-zhifengche"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw iconfont icon-diqiuyi"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 关于</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-cunqianguan"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/resume/"><i class="fa-fw iconfont icon-feidie"></i><span> 个人简历</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 博客更新</span></a></li></ul></div></div><div class="card-widget card-tags"><div class="item-headline"><span>标签</span></div><div class="card-tag-cloud"><a href="/tags/Butterfly/" style="font-size: 14px; color: #99a9bf">Butterfly</a> <a href="/tags/C-%E7%BC%96%E7%A8%8B/" style="font-size: 14px; color: #99a6b7">C#编程</a> <a href="/tags/Hexo/" style="font-size: 14px; color: #99a6b7">Hexo</a> <a href="/tags/Nginx/" style="font-size: 14px; color: #999ca1">Nginx</a> <a href="/tags/Python/" style="font-size: 14px; color: #999">Python</a> <a href="/tags/Shiro/" style="font-size: 14px; color: #999ca1">Shiro</a> <a href="/tags/SpringBoot/" style="font-size: 14px; color: #999ca1">SpringBoot</a> <a href="/tags/Unity/" style="font-size: 14px; color: #999fa8">Unity</a> <a href="/tags/Unity3D/" style="font-size: 14px; color: #999">Unity3D</a> <a href="/tags/hexo/" style="font-size: 14px; color: #999fa8">hexo</a> <a href="/tags/nodejs/" style="font-size: 14px; color: #99a3b0">nodejs</a> <a href="/tags/%E5%8D%9A%E5%AE%A2%E9%AD%94%E6%94%B9/" style="font-size: 14px; color: #999fa8">博客魔改</a> <a href="/tags/%E6%9C%8B%E5%8F%8B%E5%9C%88/" style="font-size: 14px; color: #999">朋友圈</a> <a href="/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" style="font-size: 14px; color: #999ca1">游戏开发</a> <a href="/tags/%E8%B7%A8%E5%B9%B4/" style="font-size: 14px; color: #999">跨年</a> <a href="/tags/%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%B8%88/" style="font-size: 14px; color: #999">软件设计师</a> <a href="/tags/%E9%AD%94%E6%94%B9%E6%95%99%E7%A8%8B/" style="font-size: 14px; color: #999ca1">魔改教程</a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://bpic.588ku.com/back_pic/17/30/17/2763467e586b6df.jpg')"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button" tabindex="-1"><i class="back-home-button-icon fas fa-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://gmcj0816.top/" rel="external nofollow" title="前往七鳄主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="/img/tubiao001.png"/><span class="back-menu-item-text">主页          </span></a><a class="back-menu-item" href="https://pan.gmcj0816.top/" rel="external nofollow" title="前往云盘主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="/img/tubiao002.png"/><span class="back-menu-item-text">七鳄云盘</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">博客</div><div class="back-menu-list"><a class="back-menu-item" href="/" title="前往博客主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="/img/tubiao003.png"/><span class="back-menu-item-text">主线路</span></a><a class="back-menu-item" href="https://vblog.gmcj0816.top/" title="前往博客主页" target="_blank" one-link-mark="yes"><img class="back-menu-item-icon" src="/img/tubiao004.png"/><span class="back-menu-item-text">vercel线路</span></a></div></div></div></div><a id="site-name" href="/" title="返回博客主页"><span>SEVENE</span></a></span><span id="page_name"><a id="page-name-text" title="回到顶部" onclick="btf.scrollToDest(0,500)"><span>七鳄の学习格</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 文库</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/tags/"><i class="fa-fw iconfont icon-yongquan1"></i><span> 文章标签</span></a></li><li><a class="site-page child" href="/categories/"><i class="fa-fw iconfont icon-zhifeiji"></i><span> 文章分类</span></a></li><li><a class="site-page child" href="/essay/"><i class="fa-fw iconfont icon-feiji"></i><span> 即刻短文</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 我的</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/webcollect/"><i class="fa-fw iconfont icon-jiangbei"></i><span> 网站收藏</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw iconfont icon-kafei"></i><span> 电影推荐</span></a></li><li><a class="site-page child" href="/books/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 书籍书虫</span></a></li><li><a class="site-page child" href="/games/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 游戏仓库</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 友链</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw iconfont icon-zhifengche"></i><span> 友人帐</span></a></li><li><a class="site-page child" href="/comments/"><i class="fa-fw iconfont icon-yinliao2"></i><span> 留言板</span></a></li><li><a class="site-page child" href="/fcircle/"><i class="fa-fw iconfont icon-diqiuyi"></i><span> 朋友圈</span></a></li></ul></div><div class="menus_item"><!--a.site-page.group(class=`${hideClass}` href='javascript:void(0);')--><a class="site-page group" href="javascript:void(0);" data-pjax-state="data-pjax-state"><span> 关于</span></a><!--  i.fas.fa-chevron-down--><ul class="menus_item_child"><li><a class="site-page child" href="/about/"><i class="fa-fw iconfont icon-cunqianguan"></i><span> 关于我</span></a></li><li><a class="site-page child" href="/resume/"><i class="fa-fw iconfont icon-feidie"></i><span> 个人简历</span></a></li><li><a class="site-page child" href="/update/"><i class="fa-fw iconfont icon-xingqiu"></i><span> 博客更新</span></a></li></ul></div></div></div><div id="hotkey"><div id="search-button"><a class="site-page social-icon search" title="搜索"><i class="ri-search-eye-line"></i></a></div><div id="randompost-button"><a class="site-page social-icon search" href="javascript:;" onclick="randomPost()" title="随便看看 - 随机访问一篇本站文章"><i class="fas fa-splotch fa-fw"></i></a></div><div id="travellings"><a class="site-page social-icon search" target="_blank" rel="noopener" href="https://travellings.link/" title="开往 - 随机跳转到另一个加入开往的网页"><i class="ri-subway-fill"></i></a></div><div id="mode-button"><a class="site-page" title="浅色和深色模式转换" onclick="rmf.switchDarkMode()"><i class="ri-sun-fill"></i></a></div><div id="toggle-menu"><a class="site-page"><i class="iconfont icon-bars"></i></a></div></div></div></nav><div id="post-info"><h1 class="post-title">给自己的博客加上新年喜庆</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2023-01-11T12:23:33.000Z" title="发表于 2023-01-11 20:23:33">2023-01-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2023-01-13T03:59:58.194Z" title="更新于 2023-01-13 11:59:58">2023-01-13</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/%F0%9F%A6%84%E5%8D%9A%E5%AE%A2%E9%AD%94%E6%94%B9/">🦄博客魔改</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-wordcount"><i class="far fa-file-word fa-fw post-meta-icon"></i><span class="post-meta-label">字数总计:</span><span class="word-count">2.1k</span><span class="post-meta-separator">|</span><i class="far fa-clock fa-fw post-meta-icon"></i><span class="post-meta-label">阅读时长:</span><span>12分钟</span></span><span class="post-meta-separator">|</span><span id="" data-flag-title="给自己的博客加上新年喜庆"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="twikoo_visitors"><i class="fa-solid fa-spinner fa-spin"></i></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/da088714.html#post-comment"><span id="twikoo-count"><i class="fa-solid fa-spinner fa-spin"></i></span></a></span><span class="post-meta-separator">|&nbsp <span class="post-meta-dianzan"><a class="dianzan" href="javascript:void(0)" onclick="dianzan()"><i class="fas fa-thumbs-up"></i></a><span class="post-meta-label"> 点赞:</span><span class="dianzan-count">0</span></span></span><span class="post-meta-separator">|&nbsp<span class="post-meta-position" title="作者IP属地为黑龙江.哈尔滨"><i class="fa-solid fa-location-dot post-meta-icon"></i><a id="address">黑龙江.哈尔滨</a></span></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section></header><div class="js-pjax"><script src="https://cdn1.tianli0.top/npm/swiper/swiper-bundle.min.js" data-pjax=""></script><script>new Swiper('.swiper-container', {
     direction: 'vertical',
     loop: true,
     autoplay: {
@@ -162,301 +176,301 @@
 <h2 id="添加悬挂灯笼"><a href="#添加悬挂灯笼" class="headerlink" title="添加悬挂灯笼"></a>添加悬挂灯笼</h2><ul>
 <li>在BlogRoot/node_modules/hexo-theme-butterfly/source/css文件下新建 CSS 文件，我这里就以custom.css,并复制一下代码[此处感谢Ethan.Tzy的文章]</li>
 </ul>
-<pre class="language-none"><code class="language-none">&#x2F;* 灯笼 Start *&#x2F;
-* &#123;
-    box-sizing: border-box;
-&#125;
-&#x2F;* 移动端显示&#x2F;隐藏 &#x2F;none&#x2F;block，可自定义显示一个 *&#x2F;
-@media screen and (max-width: 970px) &#123;
-    .d-box1 &#123;
-        display: none;
-    &#125;
-    .dengl .d-box &#123;
-        right: 0px;
-        top: -40px;
-        &#x2F;* 自定义灯笼大小 *&#x2F;
-        transform: scale(0.4);
-    &#125;
-&#125;
-.dengl &#123;
-    position: fixed;
-    z-index: 9;
-&#125;
-.d-box &#123;
-    position: fixed;
-    &#x2F;* 自定义灯笼的位置 *&#x2F;
-    right: 85px;
-    top: 0;
-    &#x2F;* 自定义灯笼大小 *&#x2F;
-    transform: scale(0.8);
-&#125;
+<pre class="language-css" data-language="css"><code class="language-css"><span class="token comment">/* 灯笼 Start */</span>
+<span class="token selector">*</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">box-sizing</span><span class="token punctuation">:</span> border-box<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">/* 移动端显示/隐藏 /none/block，可自定义显示一个 */</span>
+<span class="token atrule"><span class="token rule">@media</span> screen <span class="token keyword">and</span> <span class="token punctuation">(</span><span class="token property">max-width</span><span class="token punctuation">:</span> 970px<span class="token punctuation">)</span></span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">.d-box1</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">display</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">.dengl .d-box</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">right</span><span class="token punctuation">:</span> 0px<span class="token punctuation">;</span>
+        <span class="token property">top</span><span class="token punctuation">:</span> -40px<span class="token punctuation">;</span>
+        <span class="token comment">/* 自定义灯笼大小 */</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>0.4<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.dengl</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> 9<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d-box</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+    <span class="token comment">/* 自定义灯笼的位置 */</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 85px<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token comment">/* 自定义灯笼大小 */</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>0.8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d-box1 &#123;
-    position: fixed;
-    &#x2F;* 自定义灯笼的位置 *&#x2F;
-    left: 0;
-    top: 0;
-    &#x2F;* 自定义灯笼大小 *&#x2F;
-    transform: scale(0.8);
-&#125;
-&#x2F;* 修改灯笼的字体 *&#x2F;
-.d-box .d1::after &#123;
-    content: &#39;黑兔降吉祥&#39;;
-&#125;
-.d-box1 .d1::after &#123;
-    content: &#39;招财进宝财&#39;;
-&#125;
-.d-box1 .d1,
+<span class="token selector">.d-box1</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> fixed<span class="token punctuation">;</span>
+    <span class="token comment">/* 自定义灯笼的位置 */</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token comment">/* 自定义灯笼大小 */</span>
+    <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>0.8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">/* 修改灯笼的字体 */</span>
+<span class="token selector">.d-box .d1::after</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'黑兔降吉祥'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d-box1 .d1::after</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">'招财进宝财'</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d-box1 .d1,
 .d-box1 .d2,
 .d-box1 .d1::after,
 .d-box1 .d1::before,
 .d-box1 .d2::after,
 .d-box1 .d2::before,
 .d-box1 .d2 ul li span,
-.d-box1 .d1 ul li span &#123;
-    background-color: #f01f1a;
-    border: 5px solid #5c1713;
-    &#x2F;* 自定义灯笼的阴影 *&#x2F;
-    &#x2F;* box-shadow: 0 5px 61px rgba(255, 240, 29, 0.88); *&#x2F;
-&#125;
-.d1,
+.d-box1 .d1 ul li span</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #f01f1a<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #5c1713<span class="token punctuation">;</span>
+    <span class="token comment">/* 自定义灯笼的阴影 */</span>
+    <span class="token comment">/* box-shadow: 0 5px 61px rgba(255, 240, 29, 0.88); */</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1,
 .d2,
 .d1::after,
 .d1::before,
 .d2::after,
 .d2::before,
 .d2 ul li span,
-.d1 ul li span &#123;
-    background-color: #f01f1a;
-    border: 5px solid #5c1713;
-    &#x2F;* 自定义灯笼的阴影 *&#x2F;
-    box-shadow: 0 5px 61px #ff1d1d;
-&#125;
-.d1::after,
-.d1::before &#123;
-    height: 82px;
-    position: absolute;
-    top: 0;
-    content: &#39;&#39;;
-    font-size: 17px;
-&#125;
-.d1,
-.d2 &#123;
-    position: relative;
-    animation: swing 4s linear infinite;
-    transform-origin: top center;
-&#125;
-.d1 &#123;
-    width: 160px;
-    top: 100px;
-    height: 90px;
-    right: 0;
-    border-radius: 80px&#x2F;49px;
-&#125;
-.d1::before &#123;
-    top: -5px;
-    right: 7px;
-    width: 123px;
-    border-radius: 62px&#x2F;52px;
-&#125;
-.d1::after &#123;
-    text-align: center;
-    line-height: 90px;
-    color: #ffe31d;
-    font-weight: 600;
-    top: -5px;
-    right: 35px;
-    width: 69px;
-    border-radius: 41px&#x2F;49px;
-&#125;
-.d1 span &#123;
-    position: absolute;
-    top: 84px;
-    left: 49px;
-    width: 50px;
-    height: 16px;
-    z-index: 2;
-    border-radius: 0 0 10px 10px;
-    background-color: #ffe31d;
-    border: 5px solid #5c1713;
-&#125;
-.d1 span:nth-child(2) &#123;
-    top: -17px;
-    border-radius: 10px 10px 0 0;
-&#125;
-.d1 p &#123;
-    position: absolute;
-    top: -31px;
-    left: 13px;
-    width: 16px;
-    height: 13px;
-    border-radius: 25px;
-    border: 5px solid #5c1713;
-    border-bottom: 0;
-&#125;
-.d1 ul &#123;
-    position: relative;
-    top: 80px;
-    left: 13px;
-    width: 54px;
-    display: flex;
-&#125;
-.d1 li &#123;
-    flex: 1;
-    list-style: none;
-    height: 24px;
-    margin: 0px 2.5px;
-    width: 5px;
-    border-radius: 5px;
-    border-right: 3.5px solid #5c1713;
-&#125;
-.d1 ul li:nth-child(3) &#123;
-    content: &#39;&#39;;
-    height: 50px;
-&#125;
-.d1 ul li:nth-child(3)::before &#123;
-    content: &#39;&#39;;
-    position: absolute;
-    top: 47px;
-    left: 54px;
-    width: 5px;
-    height: 5px;
-    border-radius: 5px 5px 10px 10px;
-    background-color: #ffe31d;
-    border: 5px solid #5c1713;
-&#125;
-.d1 ul li span &#123;
-    position: absolute;
-    top: 20px;
-    left: 55px;
-    width: 13px;
-    height: 19px;
-    border-radius: 14px;
-&#125;
-.d2::after,
-.d2::before &#123;
-    position: absolute;
-    height: 128px;
-    top: -3px;
-    content: &#39;&#39;;
-&#125;
-.d2 &#123;
-    width: 199px;
-    height: 128px;
-    top: -61px;
-    right: -122px;
-    border-radius: 98px&#x2F;70px;
-&#125;
-.d2::before &#123;
-    top: -8px;
-    right: 18px;
-    width: 143px;
-    border-radius: 69px&#x2F;67px;
-&#125;
+.d1 ul li span</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #f01f1a<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #5c1713<span class="token punctuation">;</span>
+    <span class="token comment">/* 自定义灯笼的阴影 */</span>
+    <span class="token property">box-shadow</span><span class="token punctuation">:</span> 0 5px 61px #ff1d1d<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1::after,
+.d1::before</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 82px<span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token property">font-size</span><span class="token punctuation">:</span> 17px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1,
+.d2</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">animation</span><span class="token punctuation">:</span> swing 4s linear infinite<span class="token punctuation">;</span>
+    <span class="token property">transform-origin</span><span class="token punctuation">:</span> top center<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 160px<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 100px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 90px<span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 80px/49px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1::before</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 7px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 123px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 62px/52px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1::after</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">line-height</span><span class="token punctuation">:</span> 90px<span class="token punctuation">;</span>
+    <span class="token property">color</span><span class="token punctuation">:</span> #ffe31d<span class="token punctuation">;</span>
+    <span class="token property">font-weight</span><span class="token punctuation">:</span> 600<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -5px<span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 35px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 69px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 41px/49px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1 span</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 84px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 49px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 0 0 10px 10px<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #ffe31d<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #5c1713<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1 span:nth-child(2)</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -17px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 10px 10px 0 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1 p</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -31px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 13px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 16px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 13px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #5c1713<span class="token punctuation">;</span>
+    <span class="token property">border-bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1 ul</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 80px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 13px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 54px<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1 li</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0px 2.5px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+    <span class="token property">border-right</span><span class="token punctuation">:</span> 3.5px solid #5c1713<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1 ul li:nth-child(3)</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1 ul li:nth-child(3)::before</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 47px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 54px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px 5px 10px 10px<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #ffe31d<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #5c1713<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d1 ul li span</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 55px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 13px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 19px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d2::after,
+.d2::before</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 128px<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -3px<span class="token punctuation">;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d2</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 199px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 128px<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -61px<span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> -122px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 98px/70px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token selector">.d2::before</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -8px<span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 143px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 69px/67px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
 
-&#x2F;* 自定义背景图片 *&#x2F;
-.d2::after &#123;
-    top: -8px;
-    right: 51px;
-    width: 75px;
-    border-radius: 57px&#x2F;89px;
-    &#x2F;*这里可以改为自己喜欢的图片*&#x2F;
-    background: url(https:&#x2F;&#x2F;img.zcool.cn&#x2F;community&#x2F;017a145e600137a801216518ad5168.jpg@1280w_1l_2o_100sh.jpg) no-repeat;
-    background-position: center;
-    background-size: 92px auto;
-&#125;
+<span class="token comment">/* 自定义背景图片 */</span>
+<span class="token selector">.d2::after</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -8px<span class="token punctuation">;</span>
+    <span class="token property">right</span><span class="token punctuation">:</span> 51px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 75px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 57px/89px<span class="token punctuation">;</span>
+    <span class="token comment">/*这里可以改为自己喜欢的图片*/</span>
+    <span class="token property">background</span><span class="token punctuation">:</span> <span class="token url"><span class="token function">url</span><span class="token punctuation">(</span>https://img.zcool.cn/community/017a145e600137a801216518ad5168.jpg@1280w_1l_2o_100sh.jpg<span class="token punctuation">)</span></span> no-repeat<span class="token punctuation">;</span>
+    <span class="token property">background-position</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+    <span class="token property">background-size</span><span class="token punctuation">:</span> 92px auto<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d2 span &#123;
-    position: absolute;
-    top: 123px;
-    left: 68px;
-    width: 55px;
-    height: 14px;
-    z-index: 2;
-    border-radius: 0 0 10px 10px;
-    background-color: #ffe31d;
-    border: 5px solid #5c1713;
-&#125;
+<span class="token selector">.d2 span</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 123px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 68px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 55px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 14px<span class="token punctuation">;</span>
+    <span class="token property">z-index</span><span class="token punctuation">:</span> 2<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 0 0 10px 10px<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #ffe31d<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #5c1713<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d2 span:nth-child(2) &#123;
-    top: -16px;
-    border-radius: 10px 10px 0 0;
-&#125;
+<span class="token selector">.d2 span:nth-child(2)</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -16px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 10px 10px 0 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d2 p &#123;
-    position: absolute;
-    top: -32px;
-    left: 13px;
-    width: 19px;
-    height: 13px;
-    border-radius: 25px;
-    border: 5px solid #5c1713;
-    border-bottom: 0;
-&#125;
+<span class="token selector">.d2 p</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> -32px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 13px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 19px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 13px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #5c1713<span class="token punctuation">;</span>
+    <span class="token property">border-bottom</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d2 ul &#123;
-    position: relative;
-    top: 121px;
-    left: 32px;
-    width: 53px;
-    display: flex;
-&#125;
+<span class="token selector">.d2 ul</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> relative<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 121px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 32px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 53px<span class="token punctuation">;</span>
+    <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d2 li &#123;
-    flex: 1;
-    list-style: none;
-    height: 24px;
-    margin: 0px 3px;
-    width: 4px;
-    border-radius: 7px;
-    border-right: 3px solid #5c1713;
-&#125;
+<span class="token selector">.d2 li</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">flex</span><span class="token punctuation">:</span> 1<span class="token punctuation">;</span>
+    <span class="token property">list-style</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 24px<span class="token punctuation">;</span>
+    <span class="token property">margin</span><span class="token punctuation">:</span> 0px 3px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 4px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 7px<span class="token punctuation">;</span>
+    <span class="token property">border-right</span><span class="token punctuation">:</span> 3px solid #5c1713<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d2 ul li:nth-child(3) &#123;
-    content: &#39;&#39;;
-    height: 60px;
-&#125;
+<span class="token selector">.d2 ul li:nth-child(3)</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 60px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d2 ul li:nth-child(3)::before &#123;
-    content: &#39;&#39;;
-    position: absolute;
-    top: 59px;
-    left: 53px;
-    width: 9px;
-    height: 6px;
-    border-radius: 5px 5px 10px 10px;
-    background-color: #ffe31d;
-    border: 5px solid #5c1713;
-&#125;
+<span class="token selector">.d2 ul li:nth-child(3)::before</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">content</span><span class="token punctuation">:</span> <span class="token string">''</span><span class="token punctuation">;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 59px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 53px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 9px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 6px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px 5px 10px 10px<span class="token punctuation">;</span>
+    <span class="token property">background-color</span><span class="token punctuation">:</span> #ffe31d<span class="token punctuation">;</span>
+    <span class="token property">border</span><span class="token punctuation">:</span> 5px solid #5c1713<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-.d2 ul li span &#123;
-    position: absolute;
-    top: 21px;
-    left: 54px;
-    width: 18px;
-    height: 17px;
-    border-radius: 20px;
-&#125;
+<span class="token selector">.d2 ul li span</span> <span class="token punctuation">&#123;</span>
+    <span class="token property">position</span><span class="token punctuation">:</span> absolute<span class="token punctuation">;</span>
+    <span class="token property">top</span><span class="token punctuation">:</span> 21px<span class="token punctuation">;</span>
+    <span class="token property">left</span><span class="token punctuation">:</span> 54px<span class="token punctuation">;</span>
+    <span class="token property">width</span><span class="token punctuation">:</span> 18px<span class="token punctuation">;</span>
+    <span class="token property">height</span><span class="token punctuation">:</span> 17px<span class="token punctuation">;</span>
+    <span class="token property">border-radius</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span>
 
-@keyframes swing &#123;
-    0% &#123;
-        transform: rotate(0);
-    &#125;
-    25% &#123;
-        transform: rotate(-13deg);
-    &#125;
-    50% &#123;
-        transform: rotate(0);
-    &#125;
-    75% &#123;
-        transform: rotate(13deg);
-    &#125;
-    100% &#123;
-        transform: rotate(0);
-    &#125;
-&#125;
-&#x2F;* 灯笼 END *&#x2F;</code></pre>
+<span class="token atrule"><span class="token rule">@keyframes</span> swing</span> <span class="token punctuation">&#123;</span>
+    <span class="token selector">0%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">25%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>-13deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">50%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">75%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>13deg<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token selector">100%</span> <span class="token punctuation">&#123;</span>
+        <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">rotate</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span>
+<span class="token comment">/* 灯笼 END */</span></code></pre>
 <ul>
 <li>在BlogRoot/node_modules/hexo-theme-butterfly/layout/includes文件夹下新建lantern.pug,并复制以下pug代码</li>
 </ul>
@@ -526,222 +540,220 @@
   head:
 	- &lt;link rel&#x3D;&quot;stylesheet&quot; href&#x3D;&quot;&#x2F;css&#x2F;custom.css&quot; type&#x3D;&quot;text&#x2F;css&quot;&gt;</code></pre>
 <h2 id="下雪效果"><a href="#下雪效果" class="headerlink" title="下雪效果"></a>下雪效果</h2><p>在\themes\butterfly\source\js目录下新建一个snowflake.js文件，然后将以下内容写入该文件：[此处感谢花猪的文章]</p>
-<pre class="language-none"><code class="language-none">document.write(&#39;&lt;canvas id&#x3D;&quot;snow&quot; style&#x3D;&quot;position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;pointer-events:none&quot;&gt;&lt;&#x2F;canvas&gt;&#39;);
-    window &amp;&amp; (()&#x3D;&gt;&#123;
-      let e &#x3D; &#123;
-          flakeCount: 50,
-          minDist: 150,
-          color: &quot;255, 255, 255&quot;,
-          size: 2,
-          speed: .5,
-          opacity: .2,
-          stepsize: .5
-      &#125;;
-      const t &#x3D; window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(e) &#123;
-          window.setTimeout(e, 1e3 &#x2F; 60)
-      &#125;
-      ;
-      window.requestAnimationFrame &#x3D; t;
-      const i &#x3D; document.getElementById(&quot;snow&quot;), 
-      n &#x3D; i.getContext(&quot;2d&quot;), 
-      o &#x3D; e.flakeCount;
-      let a &#x3D; -100, 
-      d &#x3D; -100, 
-      s &#x3D; [];
-      i.width &#x3D; window.innerWidth,
-      i.height &#x3D; window.innerHeight;
-      const h &#x3D; ()&#x3D;&gt;&#123;
-          n.clearRect(0, 0, i.width, i.height);
-          const r &#x3D; e.minDist;
-          for (let t &#x3D; 0; t &lt; o; t++) &#123;
-              let o &#x3D; s[t];
-              const h &#x3D; a, 
-              w &#x3D; d, 
-              m &#x3D; o.x, 
-              c &#x3D; o.y, 
-              p &#x3D; Math.sqrt((h - m) * (h - m) + (w - c) * (w - c));
-              if (p &lt; r) &#123;
-                  const e &#x3D; (h - m) &#x2F; p, 
-                  t &#x3D; (w - c) &#x2F; p, 
-                  i &#x3D; r &#x2F; (p * p) &#x2F; 2;
-                  o.velX -&#x3D; i * e,
-                  o.velY -&#x3D; i * t
-              &#125; else
-                  o.velX *&#x3D; .98,
-                  o.velY &lt; o.speed &amp;&amp; o.speed - o.velY &gt; .01 &amp;&amp; (o.velY +&#x3D; .01 * (o.speed - o.velY)),
-                  o.velX +&#x3D; Math.cos(o.step +&#x3D; .05) * o.stepSize;
-              n.fillStyle &#x3D; &quot;rgba(&quot; + e.color + &quot;, &quot; + o.opacity + &quot;)&quot;,
-              o.y +&#x3D; o.velY,
-              o.x +&#x3D; o.velX,
-              (o.y &gt;&#x3D; i.height || o.y &lt;&#x3D; 0) &amp;&amp; l(o),
-              (o.x &gt;&#x3D; i.width || o.x &lt;&#x3D; 0) &amp;&amp; l(o),
-              n.beginPath(),
-              n.arc(o.x, o.y, o.size, 0, 2 * Math.PI),
-              n.fill()
-          &#125;
-          t(h)
-      &#125;
-        , l &#x3D; e&#x3D;&gt;&#123;
-          e.x &#x3D; Math.floor(Math.random() * i.width),
-          e.y &#x3D; 0,
-          e.size &#x3D; 3 * Math.random() + 2,
-          e.speed &#x3D; 1 * Math.random() + .5,
-          e.velY &#x3D; e.speed,
-          e.velX &#x3D; 0,
-          e.opacity &#x3D; .5 * Math.random() + .3
-      &#125;
-      ;
-      document.addEventListener(&quot;mousemove&quot;, (e&#x3D;&gt;&#123;
-          a &#x3D; e.clientX,
-          d &#x3D; e.clientY
-      &#125;
-      )),
-      window.addEventListener(&quot;resize&quot;, (()&#x3D;&gt;&#123;
-          i.width &#x3D; window.innerWidth,
-          i.height &#x3D; window.innerHeight
-      &#125;
-      )),
-      (()&#x3D;&gt;&#123;
-          for (let t &#x3D; 0; t &lt; o; t++) &#123;
-              const t &#x3D; Math.floor(Math.random() * i.width)
-                , n &#x3D; Math.floor(Math.random() * i.height)
-                , o &#x3D; 3 * Math.random() + e.size
-                , a &#x3D; 1 * Math.random() + e.speed
-                , d &#x3D; .5 * Math.random() + e.opacity;
-              s.push(&#123;
-                  speed: a,
-                  velX: 0,
-                  velY: a,
-                  x: t,
-                  y: n,
-                  size: o,
-                  stepSize: Math.random() &#x2F; 30 * e.stepsize,
-                  step: 0,
-                  angle: 180,
-                  opacity: d
-              &#125;)
-          &#125;
-          h()
-      &#125;
-      )()
-    &#125;
-    )();
-  if((navigator.userAgent.match(&#x2F;(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)&#x2F;i))) &#123;
-  &#x2F;&#x2F; 移动端不显示
-&#125;
-else&#123;
-  document.write(&#39;&lt;canvas id&#x3D;&quot;snow&quot; style&#x3D;&quot;position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;pointer-events:none&quot;&gt;&lt;&#x2F;canvas&gt;&#39;);
+<pre class="language-javascript" data-language="javascript"><code class="language-javascript">document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;canvas id="snow" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;pointer-events:none">&lt;/canvas>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    window <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+      <span class="token keyword">let</span> e <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+          <span class="token literal-property property">flakeCount</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">minDist</span><span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"255, 255, 255"</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">size</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">speed</span><span class="token operator">:</span> <span class="token number">.5</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">.2</span><span class="token punctuation">,</span>
+          <span class="token literal-property property">stepsize</span><span class="token operator">:</span> <span class="token number">.5</span>
+      <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+      <span class="token keyword">const</span> t <span class="token operator">=</span> window<span class="token punctuation">.</span>requestAnimationFrame <span class="token operator">||</span> window<span class="token punctuation">.</span>mozRequestAnimationFrame <span class="token operator">||</span> window<span class="token punctuation">.</span>webkitRequestAnimationFrame <span class="token operator">||</span> window<span class="token punctuation">.</span>msRequestAnimationFrame <span class="token operator">||</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+          window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token number">1e3</span> <span class="token operator">/</span> <span class="token number">60</span><span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">;</span>
+      window<span class="token punctuation">.</span>requestAnimationFrame <span class="token operator">=</span> t<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> i <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"snow"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+      n <span class="token operator">=</span> i<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">"2d"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+      o <span class="token operator">=</span> e<span class="token punctuation">.</span>flakeCount<span class="token punctuation">;</span>
+      <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span> 
+      d <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span> 
+      s <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+      i<span class="token punctuation">.</span>width <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span>
+      i<span class="token punctuation">.</span>height <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span>
+      <span class="token keyword">const</span> <span class="token function-variable function">h</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+          n<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">.</span>width<span class="token punctuation">,</span> i<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token keyword">const</span> r <span class="token operator">=</span> e<span class="token punctuation">.</span>minDist<span class="token punctuation">;</span>
+          <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> t <span class="token operator">&lt;</span> o<span class="token punctuation">;</span> t<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+              <span class="token keyword">let</span> o <span class="token operator">=</span> s<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">;</span>
+              <span class="token keyword">const</span> h <span class="token operator">=</span> a<span class="token punctuation">,</span> 
+              w <span class="token operator">=</span> d<span class="token punctuation">,</span> 
+              m <span class="token operator">=</span> o<span class="token punctuation">.</span>x<span class="token punctuation">,</span> 
+              c <span class="token operator">=</span> o<span class="token punctuation">.</span>y<span class="token punctuation">,</span> 
+              p <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>h <span class="token operator">-</span> m<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>h <span class="token operator">-</span> m<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>w <span class="token operator">-</span> c<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>w <span class="token operator">-</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+              <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">&lt;</span> r<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                  <span class="token keyword">const</span> e <span class="token operator">=</span> <span class="token punctuation">(</span>h <span class="token operator">-</span> m<span class="token punctuation">)</span> <span class="token operator">/</span> p<span class="token punctuation">,</span> 
+                  t <span class="token operator">=</span> <span class="token punctuation">(</span>w <span class="token operator">-</span> c<span class="token punctuation">)</span> <span class="token operator">/</span> p<span class="token punctuation">,</span> 
+                  i <span class="token operator">=</span> r <span class="token operator">/</span> <span class="token punctuation">(</span>p <span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                  o<span class="token punctuation">.</span>velX <span class="token operator">-=</span> i <span class="token operator">*</span> e<span class="token punctuation">,</span>
+                  o<span class="token punctuation">.</span>velY <span class="token operator">-=</span> i <span class="token operator">*</span> t
+              <span class="token punctuation">&#125;</span> <span class="token keyword">else</span>
+                  o<span class="token punctuation">.</span>velX <span class="token operator">*=</span> <span class="token number">.98</span><span class="token punctuation">,</span>
+                  o<span class="token punctuation">.</span>velY <span class="token operator">&lt;</span> o<span class="token punctuation">.</span>speed <span class="token operator">&amp;&amp;</span> o<span class="token punctuation">.</span>speed <span class="token operator">-</span> o<span class="token punctuation">.</span>velY <span class="token operator">></span> <span class="token number">.01</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>o<span class="token punctuation">.</span>velY <span class="token operator">+=</span> <span class="token number">.01</span> <span class="token operator">*</span> <span class="token punctuation">(</span>o<span class="token punctuation">.</span>speed <span class="token operator">-</span> o<span class="token punctuation">.</span>velY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                  o<span class="token punctuation">.</span>velX <span class="token operator">+=</span> Math<span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>step <span class="token operator">+=</span> <span class="token number">.05</span><span class="token punctuation">)</span> <span class="token operator">*</span> o<span class="token punctuation">.</span>stepSize<span class="token punctuation">;</span>
+              n<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> <span class="token string">"rgba("</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">", "</span> <span class="token operator">+</span> o<span class="token punctuation">.</span>opacity <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">,</span>
+              o<span class="token punctuation">.</span>y <span class="token operator">+=</span> o<span class="token punctuation">.</span>velY<span class="token punctuation">,</span>
+              o<span class="token punctuation">.</span>x <span class="token operator">+=</span> o<span class="token punctuation">.</span>velX<span class="token punctuation">,</span>
+              <span class="token punctuation">(</span>o<span class="token punctuation">.</span>y <span class="token operator">>=</span> i<span class="token punctuation">.</span>height <span class="token operator">||</span> o<span class="token punctuation">.</span>y <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">l</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              <span class="token punctuation">(</span>o<span class="token punctuation">.</span>x <span class="token operator">>=</span> i<span class="token punctuation">.</span>width <span class="token operator">||</span> o<span class="token punctuation">.</span>x <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">l</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">,</span>
+              n<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              n<span class="token punctuation">.</span><span class="token function">arc</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>x<span class="token punctuation">,</span> o<span class="token punctuation">.</span>y<span class="token punctuation">,</span> o<span class="token punctuation">.</span>size<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+              n<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+          <span class="token punctuation">&#125;</span>
+          <span class="token function">t</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span>
+        <span class="token punctuation">,</span> <span class="token function-variable function">l</span> <span class="token operator">=</span> <span class="token parameter">e</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+          e<span class="token punctuation">.</span>x <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> i<span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">,</span>
+          e<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          e<span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">,</span>
+          e<span class="token punctuation">.</span>speed <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">.5</span><span class="token punctuation">,</span>
+          e<span class="token punctuation">.</span>velY <span class="token operator">=</span> e<span class="token punctuation">.</span>speed<span class="token punctuation">,</span>
+          e<span class="token punctuation">.</span>velX <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+          e<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token number">.5</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">.3</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">;</span>
+      document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mousemove"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+          a <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX<span class="token punctuation">,</span>
+          d <span class="token operator">=</span> e<span class="token punctuation">.</span>clientY
+      <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"resize"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+          i<span class="token punctuation">.</span>width <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span>
+          i<span class="token punctuation">.</span>height <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight
+      <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+      <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+          <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> t <span class="token operator">&lt;</span> o<span class="token punctuation">;</span> t<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+              <span class="token keyword">const</span> t <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> i<span class="token punctuation">.</span>width<span class="token punctuation">)</span>
+                <span class="token punctuation">,</span> n <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> i<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+                <span class="token punctuation">,</span> o <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>size
+                <span class="token punctuation">,</span> a <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>speed
+                <span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">.5</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>opacity<span class="token punctuation">;</span>
+              s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                  <span class="token literal-property property">speed</span><span class="token operator">:</span> a<span class="token punctuation">,</span>
+                  <span class="token literal-property property">velX</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                  <span class="token literal-property property">velY</span><span class="token operator">:</span> a<span class="token punctuation">,</span>
+                  <span class="token literal-property property">x</span><span class="token operator">:</span> t<span class="token punctuation">,</span>
+                  <span class="token literal-property property">y</span><span class="token operator">:</span> n<span class="token punctuation">,</span>
+                  <span class="token literal-property property">size</span><span class="token operator">:</span> o<span class="token punctuation">,</span>
+                  <span class="token literal-property property">stepSize</span><span class="token operator">:</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">30</span> <span class="token operator">*</span> e<span class="token punctuation">.</span>stepsize<span class="token punctuation">,</span>
+                  <span class="token literal-property property">step</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                  <span class="token literal-property property">angle</span><span class="token operator">:</span> <span class="token number">180</span><span class="token punctuation">,</span>
+                  <span class="token literal-property property">opacity</span><span class="token operator">:</span> d
+              <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+          <span class="token punctuation">&#125;</span>
+          <span class="token function">h</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+      <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token keyword">if</span><span class="token punctuation">(</span><span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">.</span><span class="token function">match</span><span class="token punctuation">(</span><span class="token regex"><span class="token regex-delimiter">/</span><span class="token regex-source language-regex">(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)</span><span class="token regex-delimiter">/</span><span class="token regex-flags">i</span></span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 移动端不显示</span>
+<span class="token punctuation">&#125;</span>
+<span class="token keyword">else</span><span class="token punctuation">&#123;</span>
+  document<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span><span class="token string">'&lt;canvas id="snow" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:100;pointer-events:none">&lt;/canvas>'</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-  window &amp;&amp; (()&#x3D;&gt;&#123;
-    let e &#x3D; &#123;
-        flakeCount: 50,
-        minDist: 150,
-        color: &quot;255, 255, 255&quot;,
-        size: 2,
-        speed: .5,
-        opacity: .2,
-        stepsize: .5
-    &#125;;
-    const t &#x3D; window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || function(e) &#123;
-        window.setTimeout(e, 1e3 &#x2F; 60)
-    &#125;
-    ;
-    window.requestAnimationFrame &#x3D; t;
-    const i &#x3D; document.getElementById(&quot;snow&quot;), 
-    n &#x3D; i.getContext(&quot;2d&quot;), 
-    o &#x3D; e.flakeCount;
-    let a &#x3D; -100, 
-    d &#x3D; -100, 
-    s &#x3D; [];
-    i.width &#x3D; window.innerWidth,
-    i.height &#x3D; window.innerHeight;
-    const h &#x3D; ()&#x3D;&gt;&#123;
-        n.clearRect(0, 0, i.width, i.height);
-        const r &#x3D; e.minDist;
-        for (let t &#x3D; 0; t &lt; o; t++) &#123;
-            let o &#x3D; s[t];
-            const h &#x3D; a, 
-            w &#x3D; d, 
-            m &#x3D; o.x, 
-            c &#x3D; o.y, 
-            p &#x3D; Math.sqrt((h - m) * (h - m) + (w - c) * (w - c));
-            if (p &lt; r) &#123;
-                const e &#x3D; (h - m) &#x2F; p, 
-                t &#x3D; (w - c) &#x2F; p, 
-                i &#x3D; r &#x2F; (p * p) &#x2F; 2;
-                o.velX -&#x3D; i * e,
-                o.velY -&#x3D; i * t
-            &#125; else
-                o.velX *&#x3D; .98,
-                o.velY &lt; o.speed &amp;&amp; o.speed - o.velY &gt; .01 &amp;&amp; (o.velY +&#x3D; .01 * (o.speed - o.velY)),
-                o.velX +&#x3D; Math.cos(o.step +&#x3D; .05) * o.stepSize;
-            n.fillStyle &#x3D; &quot;rgba(&quot; + e.color + &quot;, &quot; + o.opacity + &quot;)&quot;,
-            o.y +&#x3D; o.velY,
-            o.x +&#x3D; o.velX,
-            (o.y &gt;&#x3D; i.height || o.y &lt;&#x3D; 0) &amp;&amp; l(o),
-            (o.x &gt;&#x3D; i.width || o.x &lt;&#x3D; 0) &amp;&amp; l(o),
-            n.beginPath(),
-            n.arc(o.x, o.y, o.size, 0, 2 * Math.PI),
-            n.fill()
-        &#125;
-        t(h)
-    &#125;
-      , l &#x3D; e&#x3D;&gt;&#123;
-        e.x &#x3D; Math.floor(Math.random() * i.width),
-        e.y &#x3D; 0,
-        e.size &#x3D; 3 * Math.random() + 2,
-        e.speed &#x3D; 1 * Math.random() + .5,
-        e.velY &#x3D; e.speed,
-        e.velX &#x3D; 0,
-        e.opacity &#x3D; .5 * Math.random() + .3
-    &#125;
-    ;
-    document.addEventListener(&quot;mousemove&quot;, (e&#x3D;&gt;&#123;
-        a &#x3D; e.clientX,
-        d &#x3D; e.clientY
-    &#125;
-    )),
-    window.addEventListener(&quot;resize&quot;, (()&#x3D;&gt;&#123;
-        i.width &#x3D; window.innerWidth,
-        i.height &#x3D; window.innerHeight
-    &#125;
-    )),
-    (()&#x3D;&gt;&#123;
-        for (let t &#x3D; 0; t &lt; o; t++) &#123;
-            const t &#x3D; Math.floor(Math.random() * i.width)
-              , n &#x3D; Math.floor(Math.random() * i.height)
-              , o &#x3D; 3 * Math.random() + e.size
-              , a &#x3D; 1 * Math.random() + e.speed
-              , d &#x3D; .5 * Math.random() + e.opacity;
-            s.push(&#123;
-                speed: a,
-                velX: 0,
-                velY: a,
-                x: t,
-                y: n,
-                size: o,
-                stepSize: Math.random() &#x2F; 30 * e.stepsize,
-                step: 0,
-                angle: 180,
-                opacity: d
-            &#125;)
-        &#125;
-        h()
-    &#125;
-    )()
-  &#125;
-  )();
-&#125;</code></pre>
+  window <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+    <span class="token keyword">let</span> e <span class="token operator">=</span> <span class="token punctuation">&#123;</span>
+        <span class="token literal-property property">flakeCount</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">minDist</span><span class="token operator">:</span> <span class="token number">150</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">color</span><span class="token operator">:</span> <span class="token string">"255, 255, 255"</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">size</span><span class="token operator">:</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">speed</span><span class="token operator">:</span> <span class="token number">.5</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">opacity</span><span class="token operator">:</span> <span class="token number">.2</span><span class="token punctuation">,</span>
+        <span class="token literal-property property">stepsize</span><span class="token operator">:</span> <span class="token number">.5</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> t <span class="token operator">=</span> window<span class="token punctuation">.</span>requestAnimationFrame <span class="token operator">||</span> window<span class="token punctuation">.</span>mozRequestAnimationFrame <span class="token operator">||</span> window<span class="token punctuation">.</span>webkitRequestAnimationFrame <span class="token operator">||</span> window<span class="token punctuation">.</span>msRequestAnimationFrame <span class="token operator">||</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+        window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>e<span class="token punctuation">,</span> <span class="token number">1e3</span> <span class="token operator">/</span> <span class="token number">60</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">;</span>
+    window<span class="token punctuation">.</span>requestAnimationFrame <span class="token operator">=</span> t<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> i <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">"snow"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    n <span class="token operator">=</span> i<span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token string">"2d"</span><span class="token punctuation">)</span><span class="token punctuation">,</span> 
+    o <span class="token operator">=</span> e<span class="token punctuation">.</span>flakeCount<span class="token punctuation">;</span>
+    <span class="token keyword">let</span> a <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span> 
+    d <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">100</span><span class="token punctuation">,</span> 
+    s <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    i<span class="token punctuation">.</span>width <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span>
+    i<span class="token punctuation">.</span>height <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token function-variable function">h</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+        n<span class="token punctuation">.</span><span class="token function">clearRect</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> i<span class="token punctuation">.</span>width<span class="token punctuation">,</span> i<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">const</span> r <span class="token operator">=</span> e<span class="token punctuation">.</span>minDist<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> t <span class="token operator">&lt;</span> o<span class="token punctuation">;</span> t<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">let</span> o <span class="token operator">=</span> s<span class="token punctuation">[</span>t<span class="token punctuation">]</span><span class="token punctuation">;</span>
+            <span class="token keyword">const</span> h <span class="token operator">=</span> a<span class="token punctuation">,</span> 
+            w <span class="token operator">=</span> d<span class="token punctuation">,</span> 
+            m <span class="token operator">=</span> o<span class="token punctuation">.</span>x<span class="token punctuation">,</span> 
+            c <span class="token operator">=</span> o<span class="token punctuation">.</span>y<span class="token punctuation">,</span> 
+            p <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">sqrt</span><span class="token punctuation">(</span><span class="token punctuation">(</span>h <span class="token operator">-</span> m<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>h <span class="token operator">-</span> m<span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token punctuation">(</span>w <span class="token operator">-</span> c<span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>w <span class="token operator">-</span> c<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>p <span class="token operator">&lt;</span> r<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+                <span class="token keyword">const</span> e <span class="token operator">=</span> <span class="token punctuation">(</span>h <span class="token operator">-</span> m<span class="token punctuation">)</span> <span class="token operator">/</span> p<span class="token punctuation">,</span> 
+                t <span class="token operator">=</span> <span class="token punctuation">(</span>w <span class="token operator">-</span> c<span class="token punctuation">)</span> <span class="token operator">/</span> p<span class="token punctuation">,</span> 
+                i <span class="token operator">=</span> r <span class="token operator">/</span> <span class="token punctuation">(</span>p <span class="token operator">*</span> p<span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">2</span><span class="token punctuation">;</span>
+                o<span class="token punctuation">.</span>velX <span class="token operator">-=</span> i <span class="token operator">*</span> e<span class="token punctuation">,</span>
+                o<span class="token punctuation">.</span>velY <span class="token operator">-=</span> i <span class="token operator">*</span> t
+            <span class="token punctuation">&#125;</span> <span class="token keyword">else</span>
+                o<span class="token punctuation">.</span>velX <span class="token operator">*=</span> <span class="token number">.98</span><span class="token punctuation">,</span>
+                o<span class="token punctuation">.</span>velY <span class="token operator">&lt;</span> o<span class="token punctuation">.</span>speed <span class="token operator">&amp;&amp;</span> o<span class="token punctuation">.</span>speed <span class="token operator">-</span> o<span class="token punctuation">.</span>velY <span class="token operator">></span> <span class="token number">.01</span> <span class="token operator">&amp;&amp;</span> <span class="token punctuation">(</span>o<span class="token punctuation">.</span>velY <span class="token operator">+=</span> <span class="token number">.01</span> <span class="token operator">*</span> <span class="token punctuation">(</span>o<span class="token punctuation">.</span>speed <span class="token operator">-</span> o<span class="token punctuation">.</span>velY<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+                o<span class="token punctuation">.</span>velX <span class="token operator">+=</span> Math<span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>step <span class="token operator">+=</span> <span class="token number">.05</span><span class="token punctuation">)</span> <span class="token operator">*</span> o<span class="token punctuation">.</span>stepSize<span class="token punctuation">;</span>
+            n<span class="token punctuation">.</span>fillStyle <span class="token operator">=</span> <span class="token string">"rgba("</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>color <span class="token operator">+</span> <span class="token string">", "</span> <span class="token operator">+</span> o<span class="token punctuation">.</span>opacity <span class="token operator">+</span> <span class="token string">")"</span><span class="token punctuation">,</span>
+            o<span class="token punctuation">.</span>y <span class="token operator">+=</span> o<span class="token punctuation">.</span>velY<span class="token punctuation">,</span>
+            o<span class="token punctuation">.</span>x <span class="token operator">+=</span> o<span class="token punctuation">.</span>velX<span class="token punctuation">,</span>
+            <span class="token punctuation">(</span>o<span class="token punctuation">.</span>y <span class="token operator">>=</span> i<span class="token punctuation">.</span>height <span class="token operator">||</span> o<span class="token punctuation">.</span>y <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">l</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            <span class="token punctuation">(</span>o<span class="token punctuation">.</span>x <span class="token operator">>=</span> i<span class="token punctuation">.</span>width <span class="token operator">||</span> o<span class="token punctuation">.</span>x <span class="token operator">&lt;=</span> <span class="token number">0</span><span class="token punctuation">)</span> <span class="token operator">&amp;&amp;</span> <span class="token function">l</span><span class="token punctuation">(</span>o<span class="token punctuation">)</span><span class="token punctuation">,</span>
+            n<span class="token punctuation">.</span><span class="token function">beginPath</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            n<span class="token punctuation">.</span><span class="token function">arc</span><span class="token punctuation">(</span>o<span class="token punctuation">.</span>x<span class="token punctuation">,</span> o<span class="token punctuation">.</span>y<span class="token punctuation">,</span> o<span class="token punctuation">.</span>size<span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">2</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+            n<span class="token punctuation">.</span><span class="token function">fill</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token function">t</span><span class="token punctuation">(</span>h<span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+      <span class="token punctuation">,</span> <span class="token function-variable function">l</span> <span class="token operator">=</span> <span class="token parameter">e</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+        e<span class="token punctuation">.</span>x <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> i<span class="token punctuation">.</span>width<span class="token punctuation">)</span><span class="token punctuation">,</span>
+        e<span class="token punctuation">.</span>y <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        e<span class="token punctuation">.</span>size <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">2</span><span class="token punctuation">,</span>
+        e<span class="token punctuation">.</span>speed <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">.5</span><span class="token punctuation">,</span>
+        e<span class="token punctuation">.</span>velY <span class="token operator">=</span> e<span class="token punctuation">.</span>speed<span class="token punctuation">,</span>
+        e<span class="token punctuation">.</span>velX <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">,</span>
+        e<span class="token punctuation">.</span>opacity <span class="token operator">=</span> <span class="token number">.5</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">.3</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">;</span>
+    document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"mousemove"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+        a <span class="token operator">=</span> e<span class="token punctuation">.</span>clientX<span class="token punctuation">,</span>
+        d <span class="token operator">=</span> e<span class="token punctuation">.</span>clientY
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"resize"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+        i<span class="token punctuation">.</span>width <span class="token operator">=</span> window<span class="token punctuation">.</span>innerWidth<span class="token punctuation">,</span>
+        i<span class="token punctuation">.</span>height <span class="token operator">=</span> window<span class="token punctuation">.</span>innerHeight
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">&#123;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> t <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> t <span class="token operator">&lt;</span> o<span class="token punctuation">;</span> t<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+            <span class="token keyword">const</span> t <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> i<span class="token punctuation">.</span>width<span class="token punctuation">)</span>
+              <span class="token punctuation">,</span> n <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> i<span class="token punctuation">.</span>height<span class="token punctuation">)</span>
+              <span class="token punctuation">,</span> o <span class="token operator">=</span> <span class="token number">3</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>size
+              <span class="token punctuation">,</span> a <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>speed
+              <span class="token punctuation">,</span> d <span class="token operator">=</span> <span class="token number">.5</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> e<span class="token punctuation">.</span>opacity<span class="token punctuation">;</span>
+            s<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+                <span class="token literal-property property">speed</span><span class="token operator">:</span> a<span class="token punctuation">,</span>
+                <span class="token literal-property property">velX</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">velY</span><span class="token operator">:</span> a<span class="token punctuation">,</span>
+                <span class="token literal-property property">x</span><span class="token operator">:</span> t<span class="token punctuation">,</span>
+                <span class="token literal-property property">y</span><span class="token operator">:</span> n<span class="token punctuation">,</span>
+                <span class="token literal-property property">size</span><span class="token operator">:</span> o<span class="token punctuation">,</span>
+                <span class="token literal-property property">stepSize</span><span class="token operator">:</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">/</span> <span class="token number">30</span> <span class="token operator">*</span> e<span class="token punctuation">.</span>stepsize<span class="token punctuation">,</span>
+                <span class="token literal-property property">step</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">angle</span><span class="token operator">:</span> <span class="token number">180</span><span class="token punctuation">,</span>
+                <span class="token literal-property property">opacity</span><span class="token operator">:</span> d
+            <span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">&#125;</span>
+        <span class="token function">h</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">&#125;</span>
+  <span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
 <ul>
 <li>找到主题配置文件_config.butterfly.yml，在inject的bottom引入该js文件:</li>
 </ul>
 <pre class="language-none"><code class="language-none">inject:
   bottom:
-  	- &lt;div&gt;&lt;canvas id&#x3D;&quot;snow&quot; style&#x3D;&quot;position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none&quot;&gt;&lt;&#x2F;canvas&gt;&lt;&#x2F;div&gt;
-    - &lt;script&gt;const notMobile &#x3D; (!(navigator.userAgent.match(&#x2F;(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobile|BlackBerry|IEMobile|MQQBrowser|JUC|Fennec|wOSBrowser|BrowserNG|WebOS|Symbian|Windows Phone)&#x2F;i)));&lt;&#x2F;script&gt;
-    - &lt;script async type&#x3D;&quot;text&#x2F;javascript&quot; src&#x3D;&quot;https:&#x2F;&#x2F;cdn.jsdelivr.net&#x2F;gh&#x2F;Candinya&#x2F;Kratos-Rebirth@latest&#x2F;source&#x2F;js&#x2F;snow.min.js&quot;&gt;&lt;&#x2F;script&gt;
-    - &lt;script src&#x3D;&quot;&#x2F;js&#x2F;snowflake.js&quot;&gt;&lt;&#x2F;script&gt;</code></pre>
-</article><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul><a class="reward-main-btn" href="/about/" target="_blank" title="赞赏作者"> 打赏作者<div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div><div class="reward-link mode"><a class="reward-link-button" href="/wechat/" data-pjax-state="data-pjax-state"><i class="fa-solid fa-seedling"></i>运营模式与责任</a></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=给自己的博客加上新年喜庆&amp;url=https://blog.gmcj0816.top/da088714.html&amp;pic=https://bpic.588ku.com/back_pic/17/30/17/2763467e586b6df.jpg" title="分享到微博" rel="noopener external nofollow noreferrer noopener"><i class="fab fa-weibo" style="font-size:22px"></i></a></div><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="rm.copyPageUrl()"><i class="fas fa-link">       </i></div></div></div></div><div class="post-copyright"><div class="post-copyright__title"><a class="post-copyright__original" title="本文为原创文章，注意版权协议,如需引用请标注来源" href="/cc/" data-pjax-state>原创</a><span class="post-copyright-info"><h>给自己的博客加上新年喜庆</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.gmcj0816.top/da088714.html">https://blog.gmcj0816.top/da088714.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a" style="display: inline-block;width: 120px"><h>作者</h><div class="post-copyright-cc-info"><h>爱吃大饼的小虎</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>发布于</h><div class="post-copyright-cc-info"><h>2023-01-11</h></div></div><div class="post-copyright-u" style="display: inline-block;width: 120px"><h>更新于</h><div class="post-copyright-cc-info"><h>2023-01-11</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY 4.0" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a></div></div></div></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Butterfly/">Butterfly</a><a class="post-meta__tags" href="/tags/Hexo/">Hexo</a></div><div class="post_share"><div class="social-share" data-image="https://bpic.588ku.com/back_pic/17/30/17/2763467e586b6df.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/19624.html"><img class="next-cover" src="https://img2.baidu.com/it/u=1048344763,2625402437&amp;fm=253&amp;fmt=auto&amp;app=138&amp;f=JPG?w=1070&amp;h=371" onerror="onerror=null;src='/img/404.png'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Unity热更新-Lua基础语法</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/37813967.html" title="如何实现Twikoo自有服务器部署"><img class="cover" src="https://twikoo.js.org/assets/logo.5707582f.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-16</div><div class="title">如何实现Twikoo自有服务器部署</div></div></a></div><div><a href="/43183.html" title="Butterfly主题外挂标签"><img class="cover" src="https://blog.gmcj0816.top/img/wz/wz003.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-12</div><div class="title">Butterfly主题外挂标签</div></div></a></div><div><a href="/4573.html" title="Hexo Butterfly github徽标"><img class="cover" src="https://img.zcool.cn/community/01a1af5b72ac27a80120d8c07bfd16.jpg@1280w_1l_2o_100sh.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-29</div><div class="title">Hexo Butterfly github徽标</div></div></a></div><div><a href="/a08aed7d.html" title="Butterfly重装日记"><img class="cover" src="https://blog.gmcj0816.top/img/wz/wz010.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-02</div><div class="title">Butterfly重装日记</div></div></a></div><div><a href="/ae16211c.html" title="Hexo circle Friend 服务器部署"><img class="cover" src="https://img.tt98.com/d/file/96kaifa/2019012816221140/5c4d7a20626ca.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-13</div><div class="title">Hexo circle Friend 服务器部署</div></div></a></div><div><a href="/47c1249e.html" title="使用轻量级服务器部署Hexo"><img class="cover" src="https://pic.ntimg.cn/file/20210103/3918084_111905725000_2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-12</div><div class="title">使用轻量级服务器部署Hexo</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><!--if theme.aside.card_author.enable.card-widget.card-info
+  	- &lt;canvas id&#x3D;&quot;snow&quot; style&#x3D;&quot;position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none&quot;&gt;&lt;&#x2F;canvas&gt; # 雪花画布
+    - &lt;script async src&#x3D;&quot;&#x2F;js&#x2F;custom_mg&#x2F;snow.js&quot;&gt;&lt;&#x2F;script&gt;</code></pre>
+</article><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="post-reward" onclick="AddRewardMask()"><div class="reward-button button--animated"><i class="fas fa-qrcode"></i> 打赏作者</div><div class="reward-main"><ul class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="/img/wechat.png" target="_blank"><img class="post-qr-code-img" src="/img/wechat.png" alt="wechat"/></a><div class="post-qr-code-desc">wechat</div></li><li class="reward-item"><a href="/img/alipay.png" target="_blank"><img class="post-qr-code-img" src="/img/alipay.png" alt="alipay"/></a><div class="post-qr-code-desc">alipay</div></li></ul><a class="reward-main-btn" href="/about/" target="_blank" title="赞赏作者"> 打赏作者<div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></ul></div></div><div class="reward-link mode"><a class="reward-link-button" href="/wechat/" data-pjax-state="data-pjax-state"><i class="fa-solid fa-seedling"></i>运营模式与责任</a></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Butterfly/">Butterfly       </a><a class="post-meta__tags" href="/tags/Hexo/">Hexo       </a></div></div></div></div><div class="post-copyright"><div class="post-copyright__title"><a class="post-copyright__original" title="本文为原创文章，注意版权协议,如需引用请标注来源" href="/cc/" data-pjax-state>原创</a><span class="post-copyright-info"><h>给自己的博客加上新年喜庆</h></span></div><div class="post-copyright__type"><span class="post-copyright-info"><a href="https://blog.gmcj0816.top/da088714.html">https://blog.gmcj0816.top/da088714.html</a></span></div><div class="post-copyright-m"><div class="post-copyright-m-info"><div class="post-copyright-a" style="display: inline-block;width: 120px"><h>作者</h><div class="post-copyright-cc-info"><h>爱吃大饼的小虎</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>发布于</h><div class="post-copyright-cc-info"><h>2023-01-11</h></div></div><div class="post-copyright-u" style="display: inline-block;width: 120px"><h>更新于</h><div class="post-copyright-cc-info"><h>2023-01-13</h></div></div><div class="post-copyright-c" style="display: inline-block;width: 120px"><h>许可协议</h><div class="post-copyright-cc-info"><a class="icon" rel="noopener" target="_blank" title="Creative Commons" href="https://creativecommons.org/"><i class="fab fa-creative-commons"></i></a><a rel="noopener" target="_blank" title="CC BY 4.0" href="https://creativecommons.org/licenses/by/4.0/deed.zh">CC BY 4.0</a></div></div></div></div></div><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/37813967.html" title="如何实现Twikoo自有服务器部署"><img class="cover" src="https://ts1.cn.mm.bing.net/th/id/R-C.cb7ce99f86fdec58c30c2f2f03f7471a?rik=F36n5HoTJde1Xg&riu=http%3a%2f%2fbpic.588ku.com%2fback_pic%2f05%2f85%2f07%2f045c77532adc1fb.jpg!%2ffh%2f300%2fquality%2f90%2funsharp%2ftrue%2fcompress%2ftrue&ehk=6fOaWOLgSkFLFNYlaZs%2f9Hhp53AbcEmpjdxMlblXiP8%3d&risl=&pid=ImgRaw&r=0" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-09-16</div><div class="title">如何实现Twikoo自有服务器部署</div></div></a></div><div><a href="/43183.html" title="Butterfly主题外挂标签"><img class="cover" src="https://blog.gmcj0816.top/img/wz/wz003.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-12</div><div class="title">Butterfly主题外挂标签</div></div></a></div><div><a href="/4573.html" title="Hexo Butterfly github徽标"><img class="cover" src="https://img.zcool.cn/community/01a1af5b72ac27a80120d8c07bfd16.jpg@1280w_1l_2o_100sh.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-08-29</div><div class="title">Hexo Butterfly github徽标</div></div></a></div><div><a href="/a08aed7d.html" title="Butterfly重装日记"><img class="cover" src="https://blog.gmcj0816.top/img/wz/wz010.png" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-02</div><div class="title">Butterfly重装日记</div></div></a></div><div><a href="/ae16211c.html" title="Hexo circle Friend 服务器部署"><img class="cover" src="https://img.tt98.com/d/file/96kaifa/2019012816221140/5c4d7a20626ca.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-10-13</div><div class="title">Hexo circle Friend 服务器部署</div></div></a></div><div><a href="/47c1249e.html" title="使用轻量级服务器部署Hexo"><img class="cover" src="https://pic.ntimg.cn/file/20210103/3918084_111905725000_2.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-12</div><div class="title">使用轻量级服务器部署Hexo</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div><div class="aside-content" id="aside-content"><!--if theme.aside.card_author.enable.card-widget.card-info
   .is-center
     .avatar-img
       img(src=url_for(theme.avatar.img) onerror=`this.onerror=null;this.src='` + url_for(theme.error_img.flink) + `'` alt="avatar")
@@ -882,7 +894,7 @@ window.addEventListener('load',preloader.endLoading())</script><div class="js-pj
       loadTwikoo()
     }
   }
-})()</script></div><script type="text/javascript" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/gsap/3.9.1/gsap.min.js"></script><script type="text/javascript"src="https://cdnimage.gmcj0816.top/js/jquery.min.js"></script><script async data-pjax src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><script data-pjax='' src="/js/custom_mg/rightmenu.js?version=1.0.6"></script><script async data-pjax src="/js/anzhiyufunction.js?version=1.0.1"></script><script async data-pjax src="/js/custom_mg/qrcode.js"></script><canvas id="snow"></canvas><script async data-pjax src="/js/custom_mg/snow.js?version=1.0.1"></script><script type="text/javascript" src="/js/custom_mg/dianzan.js"></script><script src="/js/custom_mg/nav_menu.js"></script><script src="/js/custom_mg/sun_moon.js" async></script><script src="/js/custom_mg/nav.js" async></script><script async data-pjax src="/js/custom_mg/fps.js?version=1.1.15"></script><script async data-pjax src="/js/custom_mg/txmap.js?version=1.0.3"></script><script async data-pjax src="/js/custom_mg/essay.js?version=1.0.1"></script><script async data-pjax src="/js/custom_mg/grayscale.js?version=1.0.5"></script><script src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script type="text/javascript" src="/js/custom_mg/ca_and_tag.js?version=1.0.2"></script><script type="text/javascript" src="/js/custom_mg/share.js?version=1.0.2"></script><script type="text/javascript" src="/js/custom_mg/readNum.js?version=1.0.2"></script><script async src="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.js?version=0.0.1"></script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdnimage.gmcj0816.top/js/Meting2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax","#web_bg"]
+})()</script></div><script type="text/javascript" src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/gsap/3.9.1/gsap.min.js"></script><script type="text/javascript"src="https://cdnimage.gmcj0816.top/js/jquery.min.js"></script><script async data-pjax src="https://cdn.wpon.cn/2022-sucai/Gold-ingot.js"></script><script data-pjax='' src="/js/custom_mg/rightmenu.js?version=1.0.6"></script><script async data-pjax src="/js/anzhiyufunction.js?version=1.0.1"></script><script async data-pjax src="/js/custom_mg/qrcode.js"></script><canvas id="snow" style="position:fixed;top:0;left:0;width:100%;height:100%;z-index:99999;pointer-events:none"></canvas><script async src="/js/custom_mg/snow.js?version=1.0.1"></script><script type="text/javascript" src="/js/custom_mg/dianzan.js"></script><script src="/js/custom_mg/nav_menu.js"></script><script src="/js/custom_mg/sun_moon.js" async></script><script src="/js/custom_mg/nav.js" async></script><script async data-pjax src="/js/custom_mg/fps.js?version=1.1.15"></script><script async data-pjax src="/js/custom_mg/txmap.js?version=1.0.3"></script><script async data-pjax src="/js/custom_mg/essay.js?version=1.0.1"></script><script async data-pjax src="/js/custom_mg/grayscale.js?version=1.0.5"></script><script src="//npm.elemecdn.com/pace-js@1.2.4/pace.min.js"></script><script type="text/javascript" src="/js/custom_mg/ca_and_tag.js?version=1.0.2"></script><script type="text/javascript" src="/js/custom_mg/share.js?version=1.0.2"></script><script type="text/javascript" src="/js/custom_mg/readNum.js?version=1.0.2"></script><script async src="https://cdn.jsdelivr.net/npm/js-heo@1.0.11/categoryBar/categoryBar.js?version=0.0.1"></script><link rel="stylesheet" href="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://lf26-cdn-tos.bytecdntp.com/cdn/expire-1-M/aplayer/1.10.1/APlayer.min.js"></script><script src="https://cdnimage.gmcj0816.top/js/Meting2.min.js"></script><script src="https://cdn.jsdelivr.net/npm/pjax/pjax.min.js"></script><script>let pjaxSelectors = ["head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax","#web_bg"]
 
 var pjax = new Pjax({
   elements: 'a:not([target="_blank"]):not([href="/movies/"]):not([href="/games/"]):not([href="/books/"])',
@@ -952,4 +964,4 @@ document.addEventListener('pjax:error', (e) => {
   if (e.request.status === 404) {
     pjax.loadUrl('/404.html')
   }
-})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html><script>var posts=["/9322.html","/30495.html","/ae16211c.html","/6e209c5.html","/322f97ea.html","/eb9ae3a0.html","/9723.html","/aa9026d9.html","/231998e7.html","/51d4821b.html","/9c3bcc4d.html","/41434.html","/16479.html","/6bb0576e.html","/47c1249e.html","/e44940b1.html","/cd385a2a.html","/37813967.html","/da088714.html","/53425.html","/43183.html","/34732.html","/49248.html","/4573.html","/19624.html","/a08aed7d.html"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><!-- hexo injector body_end start --><script async src="//at.alicdn.com/t/font_2032782_8d5kxvn09md.js"></script><!-- hexo injector body_end end --></body></html><script>var posts=["/30495.html","/9322.html","/ae16211c.html","/6e209c5.html","/eb9ae3a0.html","/9723.html","/322f97ea.html","/aa9026d9.html","/51d4821b.html","/41434.html","/231998e7.html","/9c3bcc4d.html","/16479.html","/6bb0576e.html","/47c1249e.html","/53425.html","/e44940b1.html","/cd385a2a.html","/37813967.html","/da088714.html","/43183.html","/49248.html","/34732.html","/4573.html","/19624.html","/a08aed7d.html"];function toRandomPost(){ window.pjax ? pjax.loadUrl('/'+posts[Math.floor(Math.random()*posts.length)]) : window.open('/'+posts[Math.floor(Math.random()*posts.length)], "_self"); };</script>

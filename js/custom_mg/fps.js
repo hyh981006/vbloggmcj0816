@@ -69,9 +69,9 @@ function whenDOMReady() {
   whenDOMReady() // 打开网站先执行一次
   document.addEventListener("pjax:complete", whenDOMReady) // pjax加载完成（切换页面）后再执行一次
   
-//document.onkeydown = function (e) {
-//    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("别想了，我已经猜到了，已经禁用F12了🍕🍔"), event.keyCode = 0, event.returnValue = !1, !1
-//};
+document.onkeydown = function (e) {
+    if (123 == e.keyCode || (e.ctrlKey && e.shiftKey && (74 === e.keyCode || 73 === e.keyCode || 67 === e.keyCode)) || (e.ctrlKey && 85 === e.keyCode)) return btf.snackbarShow("别想了，我已经猜到了，已经禁用F12了🍕🍔"), event.keyCode = 0, event.returnValue = !1, !1
+};
 // 切换热评
 function switchCommentBarrage () {
     let flag = window.localStorage.getItem('commentBarrageDisplay') // undefined || false
