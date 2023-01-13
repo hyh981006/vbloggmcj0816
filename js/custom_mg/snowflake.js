@@ -6,7 +6,7 @@ if((navigator.userAgent.match(/(phone|pad|pod|iPhone|iPod|ios|iPad|Android|Mobil
   
     window && (()=>{
       let e = {
-          flakeCount: 50,
+          flakeCount: 15,
           minDist: 150,
           color: "255, 255, 255",
           size: 2,
