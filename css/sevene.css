@@ -15928,7 +15928,7 @@ span.hexo-douban-pagenum {
 #about-page .about-statistic {
   min-height: 380px;
   width: 39%;
-  background: url(https://p.zhheo.com/202301469892c749fa4cf63fa351f8171566082902.png!cover) no-repeat top;
+  background: url(/img/202301469892c749fa4cf63fa351f8171566082902.png!cover) no-repeat top;
   background-size: cover;
   color: var(--sevene-white);
   overflow: hidden;
