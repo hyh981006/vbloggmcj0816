@@ -5,6 +5,7 @@ let heo_intype = false;
 let heo_showFPS = false;
 // 私有函数
 var heo = {
+  
   // 检测显示模式
   darkModeStatus: function () {
     let theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'

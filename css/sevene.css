@@ -6768,6 +6768,7 @@ img.footer_mini_logo {
   margin: 0 1rem;
   cursor: pointer;
   transition: cubic-bezier(0, 0, 0, 1.29) 0.5s;
+  border-radius: 25px;
 }
 
 img.footer_mini_logo:hover {
@@ -9931,7 +9932,7 @@ div#author-info__sayhi {
 
 
 #aside-content>.card-widget.card-info {
-  background: var(--heo-card-bg);
+  /*background: var(--heo-card-bg);*/
   box-shadow: var(--heo-shadow-black);
   position: relative;
 }
@@ -18536,4 +18537,15 @@ body:has(#anMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time
 #aside-content .card-archives ul.card-archive-list>.card-archive-list-item, #aside-content .card-categories ul.card-category-list>.card-category-list-item {
   width: calc(50% - .25rem);
   margin-top: .5rem;
+}
+
+/*地理位置欢迎*/
+/* 欢迎信息 */
+#welcome-info {
+  background: linear-gradient(45deg, #b9f4f3, #e3fbf9);
+  border-radius: 18px;
+  padding: 8px;
+}
+[data-theme="dark"] #welcome-info {
+  background: #212121;
 }
