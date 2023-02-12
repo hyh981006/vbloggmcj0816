@@ -23,22 +23,22 @@ function coverColor() {
                   if (getContrastYIQ(colorHex(value)) == "light") {
                       value = LightenDarkenColor(colorHex(value), -40)
                   }
-                  document.styleSheets[0].addRule(':root', '--heo-main:' + value + '!important');
-                  document.styleSheets[0].addRule(':root', '--heo-main-op:' + value + '23!important');
-                  document.styleSheets[0].addRule(':root', '--heo-main-op-deep:' + value + 'dd!important');
-                  document.styleSheets[0].addRule(':root', '--heo-main-none:' + value + '00!important');
-                  heo.initThemeColor()
+                  document.styleSheets[0].addRule(':root', '--sevene-main:' + value + '!important');
+                  document.styleSheets[0].addRule(':root', '--sevene-main-op:' + value + '23!important');
+                  document.styleSheets[0].addRule(':root', '--sevene-main-op-deep:' + value + 'dd!important');
+                  document.styleSheets[0].addRule(':root', '--sevene-main-none:' + value + '00!important');
+                  sevene.initThemeColor()
                   document.getElementById("coverdiv").classList.add("loaded");
               }
           }
       });
 
   } else {
-      document.styleSheets[0].addRule(':root', '--heo-main: var(--heo-theme)!important');
-      document.styleSheets[0].addRule(':root', '--heo-main-op: var(--heo-theme-op)!important');
-      document.styleSheets[0].addRule(':root', '--heo-main-op-deep:var(--heo-theme-op-deep)!important');
-      document.styleSheets[0].addRule(':root', '--heo-main-none: var(--heo-theme-none)!important');
-      heo.initThemeColor()
+      document.styleSheets[0].addRule(':root', '--sevene-main: var(--sevene-theme)!important');
+      document.styleSheets[0].addRule(':root', '--sevene-main-op: var(--sevene-theme-op)!important');
+      document.styleSheets[0].addRule(':root', '--sevene-main-op-deep:var(--sevene-theme-op-deep)!important');
+      document.styleSheets[0].addRule(':root', '--sevene-main-none: var(--sevene-theme-none)!important');
+      sevene.initThemeColor()
   }
 }
 
@@ -160,7 +160,7 @@ window.onload = function () {
       showcopy();
     });
   }
-  heo.initThemeColor();
+  sevene.initThemeColor();
 }
 
 function showcopy() {
@@ -176,23 +176,7 @@ function showcopy() {
   }
 }
 
-//导航栏上显示标题
-// var OriginTitile = document.title;
-// var titleTime;
-// document.addEventListener('visibilitychange', function () {
-//     if (document.hidden) {
-//         // $('[rel="shortcut icon"]').attr('href', "https://cdn.jsdelivr.net/gh/Akilarlxh/Akilarlxh.github.io@v3.3.3_3/img/siteicon/favicon.png");
-//         document.title = '张洪Heo';
-//         clearTimeout(titleTime);
-//     }
-//     else {
-//         // $('[rel="shortcut icon"]').attr('href', "https://cdn.jsdelivr.net/gh/Akilarlxh/Akilarlxh.github.io@v3.3.3_3/img/siteicon/favicon.png");
-//         document.title = OriginTitile;
-//         // titleTime = setTimeout(function () {
-//         //     document.title = OriginTitile;
-//         // }, 2000);
-//     }
-// });
+
 
 // 早上好问好
 // 获取时间
@@ -306,23 +290,10 @@ $(document).unbind('keydown').bind('keydown', function (e) {
   }
 })
 
-//判断国内国外
-// var foreignTips = (function () {
-//   var fetchUrl = "https://api.ooomn.com/api/ip"
-//   fetch(fetchUrl)
-//     .then(res => res.json())
-//     .then(json =>{
-//       var country = json.country;
-//       console.log(country);
-//       if (country != '中国'){
-//         btf.snackbarShow('使用国外网络访问可能无法访问文章图片，敬请谅解。Blog pictures only serve mainland China.')
-//       }
-//     })
-// });
 
 //颜色
 document.addEventListener('scroll', btf.throttle(function () {
-  heo.initThemeColor()
+  sevene.initThemeColor()
 }, 200))
 
 //友链随机传送
@@ -334,7 +305,7 @@ function travelling() {
       var name = json.name;
       var link = json.link;
       var msg = "点击前往按钮进入随机一个友链，不保证跳转网站的安全性和可用性。本次随机到的是本站友链：「" + name + "」";
-      document.styleSheets[0].addRule(':root', '--heo-snackbar-time:' + 8000 + 'ms!important');
+      document.styleSheets[0].addRule(':root', '--sevene-snackbar-time:' + 8000 + 'ms!important');
       Snackbar.show({
         text: msg,
         duration: 8000,
@@ -393,7 +364,7 @@ function addFriendLink() {
   evt.initEvent('input', true, true);
   input.value = '昵称（请勿包含博客等字样）：\n网站地址（要求博客地址，请勿提交个人主页）：\n头像图片url（请提供尽可能清晰的图片，我会上传到我自己的图床）：\n描述：\n';
   input.dispatchEvent(evt);
-  heo.scrollTo("#post-comment");
+  sevene.scrollTo("#post-comment");
   input.focus();
   input.setSelectionRange(-1, -1);
 }
@@ -431,21 +402,12 @@ window.onkeydown = function (e) {
   }
 }
 
-// 阻止搜索滚动
-// document.querySelector('#algolia-search').addEventListener('wheel', (e) => {
-//   e.preventDefault()
-// })
-// document.querySelector('#console').addEventListener('wheel', (e) => {
-//   e.preventDefault()
-// })
-// document.querySelector('#loading-box').addEventListener('wheel', (e) => {
-//   e.preventDefault()
-// })
+
 
 //自动调整即刻短文尺寸
 window.addEventListener('resize', function () {
   if (document.querySelector('#waterfall')) {
-    heo.reflashEssayWaterFall();
+    sevene.reflashEssayWaterFall();
   }
 });
 
@@ -569,10 +531,10 @@ function percent() {
 //检查是否开启快捷键
 if (localStorage.getItem('keyboardToggle') == 'true') {
   //document.querySelector("#consoleKeyboard").classList.add("on");
-  heo_keyboard = true;
+  sevene_keyboard = true;
 } else {
   //document.querySelector("#consoleKeyboard").classList.remove("on");
-  heo_keyboard = false;
+  sevene_keyboard = false;
 }
 
 //响应esc键
@@ -580,12 +542,12 @@ $(window).on('keydown', function (ev) {
 
   // Escape
   if (ev.keyCode == 27) {
-    heo.hideLoading();
-    heo.hideConsole();
+    sevene.hideLoading();
+    sevene.hideConsole();
     rm.hideRightMenu();
   }
 
-  if (heo_keyboard && ev.shiftKey && !heo_intype) {
+  if (sevene_keyboard && ev.shiftKey && !sevene_intype) {
 
     // 显示快捷键面板 shift键
     if (ev.keyCode == 16) {
@@ -594,19 +556,19 @@ $(window).on('keydown', function (ev) {
 
     //关闭快捷键 shift+K
     if (ev.keyCode == 75) {
-      heo.keyboardToggle();
+      sevene.keyboardToggle();
       return false;
     }
 
     //响应打开控制台键 shift+A
     if (ev.keyCode == 65) {
-      heo.showConsole();
+      sevene.showConsole();
       return false;
     }
 
     //音乐控制 shift+M
     if (ev.keyCode == 77) {
-      heo.musicToggle();
+      sevene.musicToggle();
       return false;
     }
 
@@ -665,13 +627,13 @@ $(window).on('keyup', function (ev) {
 
 //检查是否开启FPS
 if (localStorage.getItem('showFPS') == 'true') {
-  heo_showFPS = true;
-  //document.querySelector("#fps-group").classList.add("show");
-  //document.querySelector("#consoleFPS").classList.add("on");
+  sevene_showFPS = true;
+  document.querySelector("#fps-group").classList.add("show");
+  document.querySelector("#consoleFPS").classList.add("on");
 } else {
-  heo_showFPS = false;
-  //document.querySelector("#fps-group").classList.remove("show");
-  //document.querySelector("#consoleFPS").classList.remove("on");
+  sevene_showFPS = false;
+  document.querySelector("#fps-group").classList.remove("show");
+  document.querySelector("#consoleFPS").classList.remove("on");
 }
 
 // fps
@@ -707,16 +669,16 @@ var showFPS = (function(){
 
 //输入状态检测
 $("input").focus(function () {
-  heo_intype = true;
+  sevene_intype = true;
 });
 $("textarea").focus(function () {
-  heo_intype = true;
+  sevene_intype = true;
 });
 $("input").focusout(function () {
-  heo_intype = false;
+  sevene_intype = false;
 });
 $("textarea").focusout(function () {
-  heo_intype = false;
+  sevene_intype = false;
 });
 
 //当前窗口得到焦点 
@@ -731,7 +693,7 @@ window.onresize = () => {
 document.addEventListener('pjax:send', function () {
   console.clear();
   Pace.restart();
-  heo.showLoading();
+  sevene.showLoading();
   $(window).prop("keydown",null).off("keydown");
 })
 function whenDoMReady(){
@@ -739,27 +701,26 @@ function whenDoMReady(){
   addRightMenuClickEvent()
   navTitle()
   percent()
-  heo.topPostScroll()
-  heo.topCategoriesBarScroll()
-  heo.sayhi()
-  heo.addTag()
-  heo.stopImgRightDrag()
-  heo.addFriendLinksInFooter()
-  heo.qrcodeCreate()
-  heo.hidecookie()
-  heo.onlyHome()
-  heo.addNavBackgroundInit()
-  heo.initIndexEssay()
-  heo.changeTimeInEssay()
-  heo.reflashEssayWaterFall()
-  heo.addMediumInEssay()
-  heo.darkModeStatus()
-  heo.categoriesBarActive()
-  heo.initThemeColor()
-  heo.hideLoading()
-  heo.tagPageActive()
-  heo.removeBodyPaceClass()
-  if (location.pathname == '/photos/') heo.photos();
+  sevene.topPostScroll()
+  sevene.topCategoriesBarScroll()
+  sevene.sayhi()
+  sevene.addTag()
+  sevene.stopImgRightDrag()
+  sevene.qrcodeCreate()
+  sevene.hidecookie()
+  sevene.onlyHome()
+  sevene.addNavBackgroundInit()
+  sevene.initIndexEssay()
+  sevene.changeTimeInEssay()
+  sevene.reflashEssayWaterFall()
+  sevene.addMediumInEssay()
+  sevene.darkModeStatus()
+  sevene.categoriesBarActive()
+  sevene.initThemeColor()
+  sevene.hideLoading()
+  sevene.tagPageActive()
+  sevene.removeBodyPaceClass()
+  if (location.pathname == '/photos/') sevene.photos();
 }
 whenDoMReady()
 document.addEventListener('pjax:complete',whenDoMReady)

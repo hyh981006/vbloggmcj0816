@@ -202,7 +202,7 @@ async function copyImage(imageURL){
 rm.switchDarkMode = function() {
   navFn.switchDarkMode();
   rm.hideRightMenu();
-  heo.darkModeStatus();
+  sevene.darkModeStatus();
 }
 
 rm.copyUrl = function(id) {
@@ -364,7 +364,7 @@ function addRightMenuClickEvent(){
   $('#menu-randomPost').on('click',function(){toRandomPost()});
 
   $("#menu-commentBarrage").prop("onclick",null).off("click");
-  $('#menu-commentBarrage').on('click',heo.switchCommentBarrage);
+  $('#menu-commentBarrage').on('click',sevene.switchCommentBarrage);
 
   $('#rightmenu-mask').on('click',rm.hideRightMenu);
   $('#rightmenu-mask').contextmenu(function(){
@@ -381,12 +381,12 @@ function addRightMenuClickEvent(){
   $('#menu-commenttext').on('click',function(){rm.rightMenuCommentText(selectTextNow);});
   $('#menu-newwindow').on('click',function(){window.open(domhref);rm.hideRightMenu();});
   $('#menu-copylink').on('click',rm.copyLink);
-  $('#menu-downloadimg').on('click',function(){heo.downloadImage(domImgSrc,'zhheo');});
+  $('#menu-downloadimg').on('click',function(){sevene.downloadImage(domImgSrc,'zhsevene');});
   $('#menu-copyimg').on('click',function(){rm.writeClipImg(domImgSrc);});
   $('#menu-searchBaidu').on('click',rm.searchBaidu);
   //音乐
-  $('#menu-music-toggle').on('click',heo.musicToggle);
-  $('#menu-music-back').on('click',heo.musicSkipBack);
-  $('#menu-music-forward').on('click',heo.musicSkipForward);
-  $('#menu-music-copyMusicName').on('click',function(){rm.rightmenuCopyText(heo.musicGetName());btf.snackbarShow('复制歌曲名称成功',false,3000);});
+  $('#menu-music-toggle').on('click',sevene.musicToggle);
+  $('#menu-music-back').on('click',sevene.musicSkipBack);
+  $('#menu-music-forward').on('click',sevene.musicSkipForward);
+  $('#menu-music-copyMusicName').on('click',function(){rm.rightmenuCopyText(sevene.musicGetName());btf.snackbarShow('复制歌曲名称成功',false,3000);});
 }

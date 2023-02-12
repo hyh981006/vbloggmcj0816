@@ -48,7 +48,39 @@ var btf = {
 
     return throttled
   },
-
+  loadLightbox: e=>{
+    const t = GLOBAL_CONFIG.lightbox;
+    if ("mediumZoom" === t) {
+        const t = mediumZoom(e);
+        t.on("open", (e=>{
+            const n = "dark" === document.documentElement.getAttribute("data-theme") ? "#121212" : "#fff";
+            t.update({
+                background: n
+            })
+        }
+        ))
+    }
+    "fancybox" === t && (e.forEach((e=>{
+        if ("A" !== e.parentNode.tagName) {
+            const t = e.dataset.lazySrc || e.src
+              , n = e.title || e.alt || "";
+            btf.wrap(e, "a", {
+                href: t,
+                "data-fancybox": "gallery",
+                "data-caption": n,
+                "data-thumb": t
+            })
+        }
+    }
+    )),
+    window.fancyboxRun || (Fancybox.bind("[data-fancybox]", {
+        Hash: !1,
+        Thumbs: {
+            autoStart: !1
+        }
+    }),
+    window.fancyboxRun = !0))
+  },
   sidebarPaddingR: () => {
     const innerWidth = window.innerWidth
     const clientWidth = document.body.clientWidth
@@ -63,7 +95,7 @@ var btf = {
     const dur = (typeof duration !== 'undefined') ? duration : 5000
     const position = GLOBAL_CONFIG.Snackbar.position
     const bg = document.documentElement.getAttribute('data-theme') === 'light' ? GLOBAL_CONFIG.Snackbar.bgLight : GLOBAL_CONFIG.Snackbar.bgDark
-    document.styleSheets[0].addRule(':root','--heo-snackbar-time:'+ dur +'ms!important')
+    document.styleSheets[0].addRule(':root','--sevene-snackbar-time:'+ dur +'ms!important')
     Snackbar.show({
       text: text,
       backgroundColor: bg,
@@ -224,7 +256,19 @@ var btf = {
     selector.parentNode.insertBefore(creatEle, selector)
     creatEle.appendChild(selector)
   },
+  animateIn: (ele, text) => {
+    ele.style.display = 'block'
+    ele.style.animation = text
+  },
 
+  animateOut: (ele, text) => {
+    ele.addEventListener('animationend', function f () {
+      ele.style.display = ''
+      ele.style.animation = ''
+      ele.removeEventListener('animationend', f)
+    })
+    ele.style.animation = text
+  },
   unwrap: function (el) {
     const elParentNode = el.parentNode
     if (elParentNode !== document.body) {

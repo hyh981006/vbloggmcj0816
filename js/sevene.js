@@ -1,10 +1,10 @@
-let heo_cookiesTime = null;
-let heo_musicPlaying = false;
-let heo_keyboard = false;
-let heo_intype = false;
-let heo_showFPS = false;
+let sevene_cookiesTime = null;
+let sevene_musicPlaying = false;
+let sevene_keyboard = false;
+let sevene_intype = false;
+let sevene_showFPS = false;
 // 私有函数
-var heo = {
+var sevene = {
   
   // 检测显示模式
   darkModeStatus: function () {
@@ -143,24 +143,7 @@ var heo = {
     }
   },
 
-  // 页脚友链
-  addFriendLinksInFooter: function() {
-    var fetchUrl = "https://moments.zhheo.com/randomfriend?num=3"
-    fetch(fetchUrl)
-    .then(res => res.json())
-    .then(json =>{
-      var randomFriendLinks = getArrayItems(json,3);
   
-      var htmlText = '';
-      for (let i = 0; i < randomFriendLinks.length; ++i) {
-        var item = randomFriendLinks[i]
-        htmlText += `<a class='footer-item' href='${item.link}'  target="_blank" rel="noopener nofollow">${item.name}</a>`;
-      }
-      htmlText += `<a class='footer-item' href='/link/'>更多</a>`
-      document.getElementById("friend-links-in-footer").innerHTML = htmlText;
-    })
-  },
-
   //禁止图片右键单击
   stopImgRightDrag: function() {
     var img=$("img");
@@ -206,12 +189,12 @@ var heo = {
   // 添加标签
   addTag: function() {
     //添加new标签
-    if (document.querySelector('.heo-tag-new')){
-      $(".heo-tag-new").append(`<sup class="heo-tag heo-tag-new-view">N</sup>`)
+    if (document.querySelector('.sevene-tag-new')){
+      $(".sevene-tag-new").append(`<sup class="sevene-tag sevene-tag-new-view">N</sup>`)
     }
     //添加hot标签
-    if (document.querySelector('.heo-tag-hot')){
-      $(".heo-tag-hot").append(`<sup class="heo-tag heo-tag-hot-view">H</sup>`)
+    if (document.querySelector('.sevene-tag-hot')){
+      $(".sevene-tag-hot").append(`<sup class="sevene-tag sevene-tag-hot-view">H</sup>`)
     }
   },
 
@@ -278,8 +261,10 @@ var heo = {
       btf.snackbarShow('有正在进行中的下载，请稍后再试');
     }
   },
+  // 切换热评
   switchCommentBarrage: function  () {
     let flag = window.localStorage.getItem('commentBarrageDisplay') // undefined || false
+    console.log(flag)
     document.getElementById('comment-barrage').style.display = flag === 'false' ? 'block' : 'none'
     // 本地缓存一天，刷新或切换页面时仍 隐藏或显示 热评。
     window.localStorage.setItem('commentBarrageDisplay', flag === 'false' ? 'undefined' : 'false', 86400000)
@@ -290,7 +275,7 @@ var heo = {
 
   //隐藏cookie窗口
   hidecookie: function() {
-    heo_cookiesTime = setTimeout(()=>{
+    sevene_cookiesTime = setTimeout(()=>{
       document.getElementById("cookies-window").classList.add('cw-hide');
       setTimeout(()=>{
         $('#cookies-window').hide()
@@ -314,20 +299,20 @@ var heo = {
 
   //自适应主题色
   initThemeColor: function() {
-    if (heo.is_Post()) {
+    if (sevene.is_Post()) {
       const currentTop = window.scrollY || document.documentElement.scrollTop
       if (currentTop > 0) {
-        let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--heo-card-bg');
-        heo.changeThemeColor(themeColor);
+        let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sevene-card-bg');
+        sevene.changeThemeColor(themeColor);
       }else {
         if (currentTop === 0) {
-          let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--heo-main');
-          heo.changeThemeColor(themeColor);
+          let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sevene-main');
+          sevene.changeThemeColor(themeColor);
         }
       }
     }else {
-      let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--heo-card-bg');
-      heo.changeThemeColor(themeColor);
+      let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sevene-card-bg');
+      sevene.changeThemeColor(themeColor);
     }
   },
 
@@ -343,8 +328,8 @@ var heo = {
   //显示加载动画
   showLoading: function() {
     document.querySelector("#loading-box").classList.remove("loaded");
-    let cardColor = getComputedStyle(document.documentElement).getPropertyValue('--heo-card-bg');
-    heo.changeThemeColor(cardColor);
+    let cardColor = getComputedStyle(document.documentElement).getPropertyValue('--sevene-card-bg');
+    sevene.changeThemeColor(cardColor);
   },
 
   //隐藏加载动画
@@ -356,17 +341,17 @@ var heo = {
   musicToggle: function() {
     let msgPlay = '<i class="fa-solid fa-play"></i><span>播放音乐</span>' // 此處可以更改為你想要顯示的文字
     let msgPause = '<i class="fa-solid fa-pause"></i><span>暂停音乐</span>' // 同上，但兩處均不建議更改
-    if (heo_musicPlaying) {
+    if (sevene_musicPlaying) {
       document.querySelector("#nav-music").classList.remove("playing");
       document.getElementById("menu-music-toggle").innerHTML = msgPlay;
       document.getElementById("nav-music-hoverTips").innerHTML = "音乐已暂停";
       document.querySelector("#consoleMusic").classList.remove("on");
-      heo_musicPlaying = false;
+      sevene_musicPlaying = false;
     }else {
       document.querySelector("#nav-music").classList.add("playing");
       document.getElementById("menu-music-toggle").innerHTML = msgPause;
       document.querySelector("#consoleMusic").classList.add("on");
-      heo_musicPlaying = true;
+      sevene_musicPlaying = true;
     }
     document.querySelector('meting-js').aplayer.toggle();
     rm.hideRightMenu();
@@ -402,7 +387,7 @@ var heo = {
   //显示中控台
   showConsole: function() {
     document.querySelector("#console").classList.add("show");
-    heo.initConsoleState();
+    sevene.initConsoleState();
   },
 
   //隐藏中控台
@@ -412,12 +397,12 @@ var heo = {
 
   //快捷键功能开关
   keyboardToggle: function() {
-    if (heo_keyboard) {
-      heo_keyboard = false;
+    if (sevene_keyboard) {
+      sevene_keyboard = false;
       document.querySelector("#consoleKeyboard").classList.remove("on");
       localStorage.setItem('keyboardToggle', 'false');
     }else {
-      heo_keyboard = true;
+      sevene_keyboard = true;
       document.querySelector("#consoleKeyboard").classList.add("on");
       localStorage.setItem('keyboardToggle', 'true');
     }
@@ -482,13 +467,13 @@ var heo = {
 },
   //显示帧率
   FPSToggle: function() {
-    if (heo_showFPS) {
-      heo_showFPS = false;
+    if (sevene_showFPS) {
+      sevene_showFPS = false;
       document.querySelector("#fps-group").classList.remove("show");
       document.querySelector("#consoleFPS").classList.remove("on");
       localStorage.setItem('showFPS', 'false');
     }else {
-      heo_showFPS = true;
+      sevene_showFPS = true;
       document.querySelector("#fps-group").classList.add("show");
       document.querySelector("#consoleFPS").classList.add("on");
       localStorage.setItem('showFPS', 'true');

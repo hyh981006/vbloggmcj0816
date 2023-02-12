@@ -1,0 +1,16 @@
+# hexo robots.txt
+User-agent: *
+Allow: /
+Allow: /posts/
+
+Disallow: /img/
+Disallow: /css/
+Disallow: /js/
+Disallow: /*.css
+Disallow: /*.js
+Disallow: /archives/
+Disallow: /categories/
+Disallow: /tags/
+
+Sitemap: https://blog.gmcj0816.top/sitemap.xml
+Sitemap: https://blog.gmcj0816.top/baidusitemap.xml

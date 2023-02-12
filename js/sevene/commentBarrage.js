@@ -88,10 +88,10 @@ function popCommentBarrage(data){
 	barrage.className = 'comment-barrage-item'
 	barrage.innerHTML = `
 		<div class="barrageHead">
-      <a class="barrageTitle" href="javascript:heo.scrollTo('#post-comment')"">热评</a>
+      <a class="barrageTitle" href="javascript:sevene.scrollTo('#post-comment')"">热评</a>
 			<div class="barrageNick">${data.nick}</div>
 			<img class="barrageAvatar" src="https://cravatar.cn/avatar/${data.mailMd5}"/>
-			<a class="comment-barrage-close" href="javascript:heo.switchCommentBarrage()"><i class="fa-solid fa-xmark"></i></a>
+			<a class="comment-barrage-close" href="javascript:sevene.switchCommentBarrage()"><i class="fa-solid fa-xmark"></i></a>
 		</div>
 		<a class="barrageContent" href="#${data.id}">${data.comment}</a>
 	`
