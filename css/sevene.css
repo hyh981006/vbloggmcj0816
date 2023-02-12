@@ -14100,7 +14100,14 @@ figure.gallery-group:hover .gallery-group-name::after {
   background: var(--sevene-green);
   box-shadow: var(--sevene-shadow-green);
 }
-
+.site-card-tag.study {
+  background: var(--sevene-red);
+  box-shadow: var(--sevene-shadow-green);
+}
+.site-card-tag.life {
+  background: var(--sevene-blue);
+  box-shadow: var(--sevene-shadow-green);
+}
 .flink#article-container .site-card:hover .site-card-tag {
   left: -50px;
 }
