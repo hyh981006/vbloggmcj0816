@@ -15506,7 +15506,7 @@ span.hexo-douban-pagenum {
 /* 关于页面地图 */
 
 .author-content-item.map {
-  background: url(https://p.zhheo.com/20236e7bad79a90213e1cac9e8b48a6c2e17081002.png!cover) no-repeat center;
+  background: url(https://pic3.40017.cn/poi/2016/01/28/13/kf88aR_640x320_00.jpg) no-repeat center;
   min-height: 160px;
   max-height: 400px;
   position: relative;
@@ -15518,7 +15518,7 @@ span.hexo-douban-pagenum {
 }
 
 [data-theme=dark] .author-content-item.map {
-  background: url(https://p.zhheo.com/202343336aadb3d9142a306b007148e2f960081702.png!cover) no-repeat center;
+  background: url(https://img1.qunarzz.com/travel/poi/1412/15/156906f6edcdd5d6cdb.jpg_r_720x400x95_cbb62b19.jpg) no-repeat center;
   background-size: 100%;
 }
 
@@ -16120,7 +16120,7 @@ span.hexo-douban-pagenum {
 
 /* 喜欢的游戏 lol */
 .author-content-item.game-lol {
-  background: url(https://p.zhheo.com/2023788ba3b8739936f844e64f483faacaf1085602.png!cover) no-repeat top;
+  background: url(https://media.9game.cn/gamebase/2021/4/16/226891026_.jpg) no-repeat top;
   background-size: cover;
   min-height: 300px;
   overflow: hidden;
@@ -16185,7 +16185,7 @@ span.hexo-douban-pagenum {
 /* 喜欢的游戏 狼人杀 */
 .author-content-item.game-wolf {
   width: 39%;
-  background: url(https://p.zhheo.com/2023ff56a55649cf81989b9e1f4efc836907085102.png!cover) no-repeat top;
+  background: url(https://ts1.cn.mm.bing.net/th/id/R-C.0681f9b9fa64fe82c319748dc99c80b8?rik=g3IXuKqGJvBIrg&riu=http%3a%2f%2fcdn.vip.qq.com%2fclub%2fgamecenter%2fcms%2f2018-02-09%2f1518137329_594_750x400.jpg&ehk=htckMDX07QJdX75uURajbr4olYRCrjQkNsU2SRVbqi4%3d&risl=&pid=ImgRaw&r=0&sres=1&sresct=1) no-repeat top;
   background-size: cover;
   min-height: 300px;
   overflow: hidden;
@@ -16204,7 +16204,7 @@ span.hexo-douban-pagenum {
 
 /* 关注领域 */
 .author-content-item.like-technology {
-  background: url(https://p.zhheo.com/202368597fd09d2ea6cc01c4f7367f91c1dc080302.png!cover) no-repeat;
+  background: url(https://img.zcool.cn/community/01e79e580d97e9a84a0d304f183499.JPG@1280w_1l_2o_100sh.jpg) no-repeat;
   background-size: cover;
   min-height: 230px;
   color: var(--sevene-white);
@@ -16212,7 +16212,7 @@ span.hexo-douban-pagenum {
 
 /* 喜欢音乐 */
 .author-content-item.like-music {
-  background: url(https://p.zhheo.com/20234b85d57c9f9701b49c9cd7747c4ccd8d081202.png!cover) no-repeat top;
+  background: url(https://ts1.cn.mm.bing.net/th/id/R-C.255bc2cc1ea1412d25d5572af83ae946?rik=pcH5%2bmAzrgT6Kw&riu=http%3a%2f%2fsingerimg.kugou.com%2fuploadpic%2fsofthead%2f400%2f20210628%2f20210628131534688.jpg&ehk=qZWmi0Sy2A2pIXaSTqtTWeFlflITC3qSMR%2bgQWFrEiE%3d&risl=&pid=ImgRaw&r=0) no-repeat top;
   background-size: cover;
   min-height: 400px;
   color: var(--sevene-white);
@@ -16292,7 +16292,7 @@ span.hexo-douban-pagenum {
 /* 豆瓣电影页面 */
 .author-content-item.single.like-movie {
   height: 19rem;
-  background: url(https://p.zhheo.com/202391f23ec6a5aea2a7ca8bd5ad79d0e9b5082502.png!cover) no-repeat top;
+  background: url(/img/202391f23ec6a5aea2a7ca8bd5ad79d0e9b5082502.png!cover) no-repeat top;
   background-size: cover;
   color: var(--sevene-white);
   overflow: hidden;
