@@ -1,0 +1,197 @@
+<h1 id="hexo-fs"><a href="#hexo-fs" class="headerlink" title="hexo-fs"></a>hexo-fs</h1><p><a href="https://github.com/hexojs/hexo-fs/actions?query=workflow%3ATester"><img src="https://github.com/hexojs/hexo-fs/workflows/Tester/badge.svg" alt="Build Status"></a><br><a href="https://www.npmjs.com/package/hexo-fs"><img src="https://badge.fury.io/js/hexo-fs.svg" alt="NPM version"></a><br><a href="https://coveralls.io/r/hexojs/hexo-fs?branch=master"><img src="https://img.shields.io/coveralls/hexojs/hexo-fs.svg" alt="Coverage Status"></a></p>
+<p>File system module for <a href="https://hexo.io/">Hexo</a>.</p>
+<h2 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h2><ul>
+<li>Support for both Promise and callback interface.</li>
+<li>Use <a href="https://github.com/isaacs/node-graceful-fs">graceful-fs</a> to avoid EMFILE error and various improvements.</li>
+<li>Use <a href="https://github.com/paulmillr/chokidar">chokidar</a> for consistent file watching.</li>
+</ul>
+<h2 id="Installation"><a href="#Installation" class="headerlink" title="Installation"></a>Installation</h2><pre><code class="lang-bash">$ npm install hexo-fs --save
+</code></pre>
+<h2 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h2><pre><code class="lang-js">const fs = require(&#39;hexo-fs&#39;);
+</code></pre>
+<blockquote>
+<p>Some methods in the original fs module are not listed below, but they’re available in hexo-fs.</p>
+</blockquote>
+<h3 id="exists-path"><a href="#exists-path" class="headerlink" title="exists(path)"></a>exists(path)</h3><p>Test whether or not the given <code>path</code> exists by checking with the file system.</p>
+<h3 id="existsSync-path"><a href="#existsSync-path" class="headerlink" title="existsSync(path)"></a>existsSync(path)</h3><p>Synchronous version of <code>fs.exists</code>.</p>
+<h3 id="mkdirs-path"><a href="#mkdirs-path" class="headerlink" title="mkdirs(path)"></a>mkdirs(path)</h3><p>Creates a directory and its parent directories if they does not exist.</p>
+<h3 id="mkdirsSync-path"><a href="#mkdirsSync-path" class="headerlink" title="mkdirsSync(path)"></a>mkdirsSync(path)</h3><p>Synchronous version of <code>fs.mkdirs</code>.</p>
+<h3 id="writeFile-path-data-options"><a href="#writeFile-path-data-options" class="headerlink" title="writeFile(path, data, [options])"></a>writeFile(path, data, [options])</h3><p>Writes data to a file.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>encoding</code></td>
+<td>File encoding</td>
+<td>utf8</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td>Mode</td>
+<td>438 (0666 in octal)</td>
+</tr>
+<tr>
+<td><code>flag</code></td>
+<td>Flag</td>
+<td>w</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="writeFileSync-path-data-options"><a href="#writeFileSync-path-data-options" class="headerlink" title="writeFileSync(path, data, [options])"></a>writeFileSync(path, data, [options])</h3><p>Synchronous version of <code>fs.writeFile</code>.</p>
+<h3 id="appendFile-path-data-options"><a href="#appendFile-path-data-options" class="headerlink" title="appendFile(path, data, [options])"></a>appendFile(path, data, [options])</h3><p>Appends data to a file.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>encoding</code></td>
+<td>File encoding</td>
+<td>utf8</td>
+</tr>
+<tr>
+<td><code>mode</code></td>
+<td>Mode</td>
+<td>438 (0666 in octal)</td>
+</tr>
+<tr>
+<td><code>flag</code></td>
+<td>Flag</td>
+<td>w</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="appendFileSync-path-data-options"><a href="#appendFileSync-path-data-options" class="headerlink" title="appendFileSync(path, data, [options])"></a>appendFileSync(path, data, [options])</h3><p>Synchronous version of <code>fs.appendFile</code>.</p>
+<h3 id="copyFile-src-dest-callback"><a href="#copyFile-src-dest-callback" class="headerlink" title="copyFile(src, dest, [callback])"></a>copyFile(src, dest, [callback])</h3><p>Copies a file from <code>src</code> to <code>dest</code>.</p>
+<h3 id="copyDir-src-dest-options"><a href="#copyDir-src-dest-options" class="headerlink" title="copyDir(src, dest, [options])"></a>copyDir(src, dest, [options])</h3><p>Copies a directory from <code>src</code> to <code>dest</code>. It returns an array of copied files.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ignoreHidden</code></td>
+<td>Ignore hidden files</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>ignorePattern</code></td>
+<td>Ignore files which pass the regular expression</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="listDir-path-options"><a href="#listDir-path-options" class="headerlink" title="listDir(path, [options])"></a>listDir(path, [options])</h3><p>Lists files in a directory.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ignoreHidden</code></td>
+<td>Ignore hidden files</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>ignorePattern</code></td>
+<td>Ignore files which pass the regular expression</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="listDirSync-path-options"><a href="#listDirSync-path-options" class="headerlink" title="listDirSync(path, [options])"></a>listDirSync(path, [options])</h3><p>Synchronous version of <code>fs.listDir</code>.</p>
+<h3 id="readFile-path-options"><a href="#readFile-path-options" class="headerlink" title="readFile(path, [options])"></a>readFile(path, [options])</h3><p>Reads the entire contents of a file.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>encoding</code></td>
+<td>File encoding</td>
+<td>utf8</td>
+</tr>
+<tr>
+<td><code>flag</code></td>
+<td>Flag</td>
+<td>r</td>
+</tr>
+<tr>
+<td><code>escape</code></td>
+<td>Escape UTF BOM and line ending in the content</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="readFileSync-path-options"><a href="#readFileSync-path-options" class="headerlink" title="readFileSync(path, [options])"></a>readFileSync(path, [options])</h3><p>Synchronous version of <code>fs.readFile</code>.</p>
+<h3 id="emptyDir-path-options"><a href="#emptyDir-path-options" class="headerlink" title="emptyDir(path, [options])"></a>emptyDir(path, [options])</h3><p>Deletes all files in a directory. It returns an array of deleted files.</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ignoreHidden</code></td>
+<td>Ignore hidden files</td>
+<td>true</td>
+</tr>
+<tr>
+<td><code>ignorePattern</code></td>
+<td>Ignore files which pass the regular expression</td>
+<td></td>
+</tr>
+<tr>
+<td><code>exclude</code></td>
+<td>Ignore files in the array</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="emptyDirSync-path-options"><a href="#emptyDirSync-path-options" class="headerlink" title="emptyDirSync(path, [options])"></a>emptyDirSync(path, [options])</h3><p>Synchronous version of <code>fs.emptyDir</code>.</p>
+<h3 id="rmdir-path"><a href="#rmdir-path" class="headerlink" title="rmdir(path)"></a>rmdir(path)</h3><p>Removes a directory and all files in it.</p>
+<h3 id="rmdirSync-path"><a href="#rmdirSync-path" class="headerlink" title="rmdirSync(path)"></a>rmdirSync(path)</h3><p>Synchronous version of <code>fs.rmdir</code>.</p>
+<h3 id="watch-path-options"><a href="#watch-path-options" class="headerlink" title="watch(path, [options])"></a>watch(path, [options])</h3><p>Watches changes of a file or a directory.</p>
+<p>See <a href="https://github.com/paulmillr/chokidar#api">Chokidar API</a> for more info.</p>
+<h3 id="ensurePath-path"><a href="#ensurePath-path" class="headerlink" title="ensurePath(path)"></a>ensurePath(path)</h3><p>Ensures the given path is available to use or appends a number to the path.</p>
+<h3 id="ensurePathSync-path"><a href="#ensurePathSync-path" class="headerlink" title="ensurePathSync(path)"></a>ensurePathSync(path)</h3><p>Synchronous version of <code>fs.ensurePath</code>.</p>
+<h3 id="ensureWriteStream-path-options"><a href="#ensureWriteStream-path-options" class="headerlink" title="ensureWriteStream(path, [options])"></a>ensureWriteStream(path, [options])</h3><p>Creates the parent directories if they does not exist and returns a writable stream.</p>
+<h3 id="ensureWriteStreamSync-path-options"><a href="#ensureWriteStreamSync-path-options" class="headerlink" title="ensureWriteStreamSync(path, [options])"></a>ensureWriteStreamSync(path, [options])</h3><p>Synchronous version of <code>fs.ensureWriteStream</code>.</p>
+<h2 id="License"><a href="#License" class="headerlink" title="License"></a>License</h2><p>MIT</p>

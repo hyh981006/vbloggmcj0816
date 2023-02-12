@@ -2146,12 +2146,6 @@ figure.highlight pre .javascript .function {
   margin-left: 8px;
   color: #858585;
 }
-.category-lists .category-list .category-list-count:before {
-  content: '(';
-}
-.category-lists .category-list .category-list-count:after {
-  content: ')';
-}
 .category-lists ul {
   padding: 0 0 0 20px;
 }

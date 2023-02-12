@@ -364,7 +364,7 @@ document.addEventListener('DOMContentLoaded', function () {
           }
         }
         $header.classList.add('nav-fixed')
-        //$cookies_window.classList.add('cw-hide')
+        $cookies_window.classList.add('cw-hide')
         if (window.getComputedStyle($rightside).getPropertyValue('opacity') === '0') {
           $rightside.style.cssText = 'opacity: 1; transform: translateX(-38px)'
         }

@@ -195,9 +195,8 @@ var heo = {
     }
   },
 
-  
+  //作者卡片问好
   sayhi: function() {
-    console.log("作者卡片问好")
     if (document.querySelector('#author-info__sayhi')){
       document.getElementById("author-info__sayhi").innerHTML = getTimeState() + "！我是";
     }
@@ -278,25 +277,15 @@ var heo = {
       btf.snackbarShow('有正在进行中的下载，请稍后再试');
     }
   },
-
-  //控制评论弹幕
-  switchCommentBarrage: function() {
-    let commentBarrage = document.querySelector('.comment-barrage');
-    if(commentBarrage){
-        if($(".comment-barrage").is(":visible")) {
-          $(".comment-barrage").hide();
-          $(".menu-commentBarrage-text").text("显示热评");
-          document.querySelector("#consoleCommentBarrage").classList.remove("on");
-          localStorage.setItem('commentBarrageSwitch', 'false');
-        }else if ($(".comment-barrage").is(":hidden")) {
-          $(".comment-barrage").show();
-          $(".menu-commentBarrage-text").text("关闭热评");
-          document.querySelector("#consoleCommentBarrage").classList.add("on");
-          localStorage.removeItem('commentBarrageSwitch');
-        }
-    }
+  switchCommentBarrage: function  () {
+    let flag = window.localStorage.getItem('commentBarrageDisplay') // undefined || false
+    document.getElementById('comment-barrage').style.display = flag === 'false' ? 'block' : 'none'
+    // 本地缓存一天，刷新或切换页面时仍 隐藏或显示 热评。
+    window.localStorage.setItem('commentBarrageDisplay', flag === 'false' ? 'undefined' : 'false', 86400000)
     rm.hideRightMenu();
+    btf.snackbarShow('热评显示切换成功',false,2000);
   },
+
 
   //隐藏cookie窗口
   hidecookie: function() {
@@ -414,30 +403,7 @@ var heo = {
     document.querySelector("#console").classList.add("show");
     heo.initConsoleState();
   },
-// 函数
-photos: function () {
-  fetch('https://memos.gmcj0816.top/api/memo?creatorId=1&tag=相册').then(res => res.json()).then(data => { // 记得修改memos地址
-      let html='', imgs = [];
-      data.data.forEach(item => { imgs = imgs.concat(item.content.match(/\!\[.*?\]\(.*?\)/g)) });
-      imgs.forEach(item => {
-          let img = item.replace(/!\[.*?\]\((.*?)\)/g, '$1'),
-              time, title, tat = item.replace(/!\[(.*?)\]\(.*?\)/g, '$1');
-          if (tat.indexOf(' ') != -1) {
-              time = tat.split(' ')[0];
-              title = tat.split(' ')[1];
-          } else title = tat
 
-          html += `<div class="gallery-photo"><a href="${img}" data-fancybox="gallery" class="fancybox" data-thumb="${img}"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
-          title ? html += `<span class="photo-title">${title}</span>` : '';
-          time ? html += `<span class="photo-time">${time}</span>` : '';
-          html += `</div>`;
-      });
-
-      document.querySelector('.gallery-photos.page').innerHTML = html
-      imgStatus.watch('.photo-img', () => { waterfall('.gallery-photos'); });
-      window.Lately && Lately.init({ target: '.photo-time' });
-  }).catch()
-},
   //隐藏中控台
   hideConsole: function() {
     document.querySelector("#console").classList.remove("show");
@@ -488,7 +454,31 @@ photos: function () {
     $('body').removeClass()
     $('body').addClass('pace-done')
   },
+  //photos相册墙
+  // 函数
+  photos: function () {
+  fetch('https://memos.gmcj0816.top//api/memo?creatorId=1&tag=相册').then(res => res.json()).then(data => { // 记得修改memos地址
+      let html='', imgs = [];
+      data.data.forEach(item => { imgs = imgs.concat(item.content.match(/\!\[.*?\]\(.*?\)/g)) });
+      imgs.forEach(item => {
+          let img = item.replace(/!\[.*?\]\((.*?)\)/g, '$1'),
+              time, title, tat = item.replace(/!\[(.*?)\]\(.*?\)/g, '$1');
+          if (tat.indexOf(' ') != -1) {
+              time = tat.split(' ')[0];
+              title = tat.split(' ')[1];
+          } else title = tat
 
+          html += `<div class="gallery-photo"><a href="${img}" data-fancybox="gallery" class="fancybox" data-thumb="${img}"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
+          title ? html += `<span class="photo-title">${title}</span>` : '';
+          time ? html += `<span class="photo-time">${time}</span>` : '';
+          html += `</div>`;
+      });
+
+      document.querySelector('.gallery-photos.page').innerHTML = html
+      imgStatus.watch('.photo-img', () => { waterfall('.gallery-photos'); });
+      window.Lately && Lately.init({ target: '.photo-time' });
+  }).catch()
+},
   //显示帧率
   FPSToggle: function() {
     if (heo_showFPS) {

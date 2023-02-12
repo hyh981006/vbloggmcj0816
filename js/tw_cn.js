@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
     saveToLocal.set(targetEncodingCookie, targetEncoding, 2)
     setLang()
     translateBody()
+    
   }
 
   function JTPYStr () {
