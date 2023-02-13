@@ -20,7 +20,7 @@ var flink_random = {
             let t = document.querySelectorAll("#friend-links-in-footer .footer-item");
             if (!t.length)
                 return;
-            for (let n = 0; n < 5; n++) {
+            for (let n = 0; n < 3; n++) {
                 let o = parseInt(Math.random() * e.length);
                 t[n].innerText = e[o].name,
                 t[n].href = e[o].link,
