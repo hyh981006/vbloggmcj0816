@@ -5982,7 +5982,7 @@ html {
   }
 
   #nav #site-name:after {
-    background: url(https://p.zhsevene.com/202388b530b7801ff55787e4dde0799df8d8083602.png!cover) no-repeat 50% 50%;
+    background: url(/img/202388b530b7801ff55787e4dde0799df8d8083602.png) no-repeat 50% 50%;
     opacity: 0;
     position: absolute;
     display: flex;
