@@ -6144,7 +6144,7 @@ html {
 }
 
 #nav-music.playing {
-  box-shadow: 0 0px 12px -3px var(--sevene-none);
+  box-shadow: 0 0px 12px -3px var(--sevene-blue);
   -webkit-animation: playingShadow 5s linear infinite;
 }
 
@@ -11542,7 +11542,7 @@ blockquote p {
 }
 
 #article-container img.error {
-  content: url("https://img.zhsevene.com/i/2022/08/31/630efd3d82799.webp");
+  content: url("https://cdnimage.gmcj0816.top/630efd3d82799.webp");
 }
 
 /* 文章视频 */
@@ -11654,7 +11654,7 @@ figure {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('https://img.zhsevene.com/i/2022/08/31/630efd3d82799.webp') 50%;
+  background: url('https://cdnimage.gmcj0816.top/630efd3d82799.webp') 50%;
   background-size: cover;
 }
 
