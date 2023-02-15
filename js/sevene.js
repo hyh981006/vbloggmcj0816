@@ -143,7 +143,9 @@ var sevene = {
     }
   },
 
-  
+  logInfo: ()=>{
+    console.log(`Welcome to:\n%c七鳄学习格 :%c https://blog.gmcj0816.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2021/10/15 00:00:00").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
+  },
   //禁止图片右键单击
   stopImgRightDrag: function() {
     var img=$("img");

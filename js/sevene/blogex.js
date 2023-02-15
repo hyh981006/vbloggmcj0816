@@ -2,7 +2,7 @@
 // if (full_page.length != 0) {
 //   full_page[0].style.background = "transparent";
 // }
-console.log("测试");
+
 
 function checkOpen() {}
 checkOpen.toString = function () {
@@ -701,6 +701,7 @@ function whenDoMReady(){
   addRightMenuClickEvent()
   navTitle()
   percent()
+  sevene.logInfo()
   sevene.topPostScroll()
   sevene.topCategoriesBarScroll()
   sevene.sayhi()

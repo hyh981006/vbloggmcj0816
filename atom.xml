@@ -6,7 +6,7 @@
   <link href="https://blog.gmcj0816.top/atom.xml" rel="self"/>
   
   <link href="https://blog.gmcj0816.top/"/>
-  <updated>2023-02-15T03:31:53.315Z</updated>
+  <updated>2023-02-15T12:16:53.501Z</updated>
   <id>https://blog.gmcj0816.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.gmcj0816.top/posts/7beb5b01/"/>
     <id>https://blog.gmcj0816.top/posts/7beb5b01/</id>
     <published>2023-02-14T04:12:29.000Z</published>
-    <updated>2023-02-15T03:31:53.315Z</updated>
+    <updated>2023-02-15T12:16:53.501Z</updated>
     
     <content type="html"><![CDATA[<p>其实热更新的原理比较简单，就是本地的客户端与资源服务器进行比对相关信息与文件，然后从资源服务器获取到需要更新的资源与代码逻辑，从而完成热更新,效果图如下:</p><p><img src="https://cdnimage.gmcj0816.top/hotupdate_yuanli.png" alt=""></p><div class="tip bolt"><p>我的博客即将同步至腾讯云开发者社区，邀请大家一同入驻：<a href="https://cloud.tencent.com/developer/support-plan?invite_code=2hc8e6q8fxa8w">https://cloud.tencent.com/developer/support-plan?invite_code=2hc8e6q8fxa8w</a></p></div>]]></content>
     
@@ -46,9 +46,9 @@
     <link href="https://blog.gmcj0816.top/posts/88470508/"/>
     <id>https://blog.gmcj0816.top/posts/88470508/</id>
     <published>2023-02-03T13:07:49.000Z</published>
-    <updated>2023-02-12T09:21:07.455Z</updated>
+    <updated>2023-02-15T12:17:03.739Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="网络简述"><a href="#网络简述" class="headerlink" title="网络简述"></a>网络简述</h1><h2 id="网络的概念"><a href="#网络的概念" class="headerlink" title="网络的概念"></a>网络的概念</h2><p>网络是由如果敢设备和连接这些设备的链路构成，各种设备间接或者直接通过介质相连</p><p>当设备之间想要信息传递时，将想要传递的数据编码为2进制数值便更可以被有效的传输（二进制中1是通过产生一个正电压来传输的，二进制中0是通过产生一个负电压类传输的）</p><p>简单来说：网络的出现便是让设备之间能够相互通信，最大程度的解决设备之间的相互孤立的弊端</p><h2 id="网络的类型"><a href="#网络的类型" class="headerlink" title="网络的类型"></a>网络的类型</h2><ol><li><mark class="hl-label red">局域网</mark> :</li></ol><p>(简称为LAN)是按照范围划分而来的名称，是指在某一个小区内与多台设备互联成的计算机组（其特点：<emp>分布地区范围有限,其构成可以是家里的两台设备，也可以是学校的多台设备</emp>）</p><p><img src="https://ts1.cn.mm.bing.net/th/id/R-C.2a495ab38c901312efd036b797264850?rik=x0sI2WfO8bnANw&riu=http%3a%2f%2fwww.datatom.com%2fcn%2fuploads%2fallimg%2f200909%2f1-200ZZ940564M.png&ehk=CAftUWZzO78xSdBXC9rrkzuadREt557vyeaeCPsAFvQ%3d&risl=&pid=ImgRaw&r=0" style="zoom:50%;" /></p><ol><li>以太网:</li></ol><p>是一种计算机局域网技术，同样也是应用最普遍的局域网技术，简单来说，以太网就是网络连接的一种规则（协议）</p><ol><li>城域网</li></ol><ol><li>广域网</li></ol><ol><li>互联网(因特网)</li></ol><hr><center>未完待续</center>]]></content>
+    <content type="html"><![CDATA[<h1 id="网络简述"><a href="#网络简述" class="headerlink" title="网络简述"></a>网络简述</h1><h2 id="网络的概念"><a href="#网络的概念" class="headerlink" title="网络的概念"></a>网络的概念</h2><p>网络是由如果敢设备和连接这些设备的链路构成，各种设备间接或者直接通过介质相连</p><p>当设备之间想要信息传递时，将想要传递的数据编码为2进制数值便更可以被有效的传输（二进制中1是通过产生一个正电压来传输的，二进制中0是通过产生一个负电压类传输的）</p><p>简单来说：网络的出现便是让设备之间能够相互通信，最大程度的解决设备之间的相互孤立的弊端</p><h2 id="网络的类型"><a href="#网络的类型" class="headerlink" title="网络的类型"></a>网络的类型</h2><ol><li><mark class="hl-label red">局域网</mark> :</li></ol><p>(简称为LAN)是按照范围划分而来的名称，是指在某一个小区内与多台设备互联成的计算机组（其特点：<emp>分布地区范围有限,其构成可以是家里的两台设备，也可以是学校的多台设备</emp>）</p><p><img src="https://ts1.cn.mm.bing.net/th/id/R-C.2a495ab38c901312efd036b797264850?rik=x0sI2WfO8bnANw&riu=http%3a%2f%2fwww.datatom.com%2fcn%2fuploads%2fallimg%2f200909%2f1-200ZZ940564M.png&ehk=CAftUWZzO78xSdBXC9rrkzuadREt557vyeaeCPsAFvQ%3d&risl=&pid=ImgRaw&r=0" style="zoom:50%;" /></p><ol><li>以太网:</li></ol><p>是一种计算机局域网技术，同样也是应用最普遍的局域网技术，简单来说，以太网就是网络连接的一种规则（协议）</p><ol><li>城域网</li></ol><ol><li>广域网</li></ol><ol><li>互联网(因特网)</li></ol><hr><center>未完待续</center><details class="folding-tag" ><summary> 查看图片测试 </summary>              <div class='content'>              <p><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-wallpaper/abstract/41F215B9-261F-48B4-80B5-4E86E165259E.jpeg" alt="测试图片"></p>              </div>            </details><details class="folding-tag" cyan open><summary> 查看默认打开的折叠框 </summary>              <div class='content'>              <p>这是一个默认打开的折叠框。</p>              </div>            </details><details class="folding-tag" green><summary> 查看代码测试 </summary>              <div class='content'>              <p>假装这里有代码块（代码块没法嵌套代码块）</p>              </div>            </details><details class="folding-tag" yellow><summary> 查看列表测试 </summary>              <div class='content'>              <ul><li>haha</li><li>hehe</li></ul>              </div>            </details><details class="folding-tag" red><summary> 查看嵌套测试 </summary>              <div class='content'>              <details class="folding-tag" blue><summary> 查看嵌套测试2 </summary>              <div class='content'>              <details class="folding-tag" ><summary> 查看嵌套测试3 </summary>              <div class='content'>              <p>hahaha <span><img src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-emoji/tieba/%E6%BB%91%E7%A8%BD.png' style='height:24px'></span></p>              </div>            </details>              </div>            </details>              </div>            </details>]]></content>
     
     
       
