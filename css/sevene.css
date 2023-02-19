@@ -14357,7 +14357,7 @@ figure.gallery-group:hover .gallery-group-name::after {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  max-width: 800px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -17832,13 +17832,14 @@ a.categoryButton:hover {
 
 
 
-#page:has(#anMusic-page) {
+/* 导航栏 */
+#page:has(#seveneMusic-page) {
   border: 0;
   box-shadow: none !important;
   padding: 0 !important;
   background: transparent !important;
 }
-#an_music_bg {
+#sevene_music_bg {
   display: none;
   filter: blur(63px);
   opacity: 0.6;
@@ -17854,15 +17855,15 @@ a.categoryButton:hover {
   left: -50%;
   transform: rotate(0deg);
 }
-body:has(#anMusic-page) #an_music_bg {
+body:has(#seveneMusic-page) #sevene_music_bg {
   display: block;
 }
 
-body:has(#anMusic-page) {
+body:has(#seveneMusic-page) {
   background: rgb(13, 13, 13);
 }
 
-#anMusic-page meting-js .aplayer {
+#seveneMusic-page meting-js .aplayer {
   display: flex;
   flex-direction: row-reverse;
   background: rgba(0, 0, 0, 0);
@@ -17870,24 +17871,24 @@ body:has(#anMusic-page) {
   box-shadow: none;
 }
 
-body:has(#anMusic-page) #web_bg {
+body:has(#seveneMusic-page) #web_bg {
   display: none;
 }
-body:has(#anMusic-page) #footer,
-body:has(#anMusic-page) #nav-music {
+body:has(#seveneMusic-page) #footer,
+body:has(#seveneMusic-page) #nav-music {
   display: none;
 }
 
-#anMusic-page .aplayer-body {
+#seveneMusic-page .aplayer-body {
   width: 40%;
   height: 75vh;
 }
 
-#anMusic-page ol > li:hover {
+#seveneMusic-page ol > li:hover {
   background: #ffffff33;
   border-radius: 6px;
 }
-#anMusic-page .aplayer-pic {
+#seveneMusic-page .aplayer-pic {
   float: none;
   width: 180px;
   height: 180px;
@@ -17897,40 +17898,40 @@ body:has(#anMusic-page) #nav-music {
   right: 0;
 }
 
-#anMusic-page .aplayer-info {
+#seveneMusic-page .aplayer-info {
   margin: 0 20px 0 20px;
   border-bottom: none;
 }
 
-#anMusic-page .aplayer-info .aplayer-music {
+#seveneMusic-page .aplayer-info .aplayer-music {
   text-align: center;
   height: auto;
   margin: 15px;
 }
 
-#anMusic-page .aplayer-info .aplayer-music .aplayer-author,
-#anMusic-page .aplayer-info .aplayer-music .aplayer-title {
+#seveneMusic-page .aplayer-info .aplayer-music .aplayer-author,
+#seveneMusic-page .aplayer-info .aplayer-music .aplayer-title {
   font-size: 2rem;
   font-weight: 700;
   color: #fff;
 }
 
-#anMusic-page .aplayer-info .aplayer-lrc {
+#seveneMusic-page .aplayer-info .aplayer-lrc {
   height: 800%;
   margin-top: 80px;
   mask-image: linear-gradient(to bottom, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #0000, #0000);
 }
-#anMusic-page .aplayer-info .aplayer-lrc p {
+#seveneMusic-page .aplayer-info .aplayer-lrc p {
   font-size: 14px;
   color: #fff;
 }
-#anMusic-page .aplayer .aplayer-lrc:after,
-#anMusic-page .aplayer .aplayer-lrc:before {
+#seveneMusic-page .aplayer .aplayer-lrc:after,
+#seveneMusic-page .aplayer .aplayer-lrc:before {
   display: none;
 }
 
 /* 控制器 */
-#anMusic-page .aplayer-info .aplayer-controller {
+#seveneMusic-page .aplayer-info .aplayer-controller {
   position: fixed;
   max-width: 1500px;
   margin: auto;
@@ -17938,24 +17939,24 @@ body:has(#anMusic-page) #nav-music {
   right: 0;
   bottom: 50px;
 }
-#anMusic-page .aplayer-info .aplayer-controller .aplayer-bar-wrap {
+#seveneMusic-page .aplayer-info .aplayer-controller .aplayer-bar-wrap {
   margin: 0 160px 0 150px;
 }
-#anMusic-page .aplayer-info .aplayer-controller .aplayer-played {
+#seveneMusic-page .aplayer-info .aplayer-controller .aplayer-played {
   background: var(--sevene-white) !important;
 }
-#anMusic-page .aplayer-info .aplayer-controller .aplayer-thumb {
+#seveneMusic-page .aplayer-info .aplayer-controller .aplayer-thumb {
   -webkit-transform: none;
   transform: none;
   background: #fff !important;
 }
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon-back,
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward,
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-back,
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward,
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
   display: inline;
   position: fixed;
 }
-#anMusic-page .aplayer-info .aplayer-time {
+#seveneMusic-page .aplayer-info .aplayer-time {
   position: absolute;
   width: 100%;
   bottom: 21px;
@@ -17963,102 +17964,102 @@ body:has(#anMusic-page) #nav-music {
   display: flex;
   justify-content: flex-end;
 }
-#anMusic-page .aplayer-info .aplayer-time .aplayer-time-inner {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-time-inner {
   margin-right: 18px;
   margin-top: -8px;
 }
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon-back {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-back {
   position: absolute;
   left: 0;
 }
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
   position: absolute;
   left: 40px;
 }
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward {
   position: absolute;
   left: 80px;
 }
 
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon {
-  width: 1.75rem;
-  height: 1.75rem;
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon {
+  width: 1.5rem;
+  height: 1.5rem;
   margin-left: 15px;
 }
 
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {
   display: none;
 }
 
-#anMusic-page .aplayer-info .aplayer-time .aplayer-icon path {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon path {
   fill: var(--sevene-white);
   opacity: 0.8;
 }
 
-#anMusic-page .aplayer-list {
+#seveneMusic-page .aplayer-list {
   width: 60%;
   max-height: none !important;
   height: 100%;
 }
-#anMusic-page ol {
+#seveneMusic-page ol {
   max-height: 75vh !important;
   padding-right: 25px;
 }
-#anMusic-page ol > li {
+#seveneMusic-page ol > li {
   border-top: 1px solid transparent;
   font-size: 14px;
 }
-#anMusic-page ol > li.aplayer-list-light {
+#seveneMusic-page ol > li.aplayer-list-light {
   background: rgb(255 255 255 / 20%);
   border-radius: 6px;
 }
 
-#anMusic-page ol > li span {
+#seveneMusic-page ol > li span {
   color: var(--sevene-white);
 }
 
-#anMusic-page ol > li.aplayer-list-light .aplayer-list-cur {
+#seveneMusic-page ol > li.aplayer-list-light .aplayer-list-cur {
   display: none;
 }
-#anMusic-page ol > li span.aplayer-list-author {
+#seveneMusic-page ol > li span.aplayer-list-author {
   opacity: 0.6;
 }
 
 /* 导航栏 */
-.page:has(#anMusic-page) #nav {
+.page:has(#seveneMusic-page) #nav {
   backdrop-filter: none !important;
   background: 0 0 !important;
   border-bottom: none !important;
 }
 
-.page:has(#anMusic-page) #page-header.not-top-img #nav a,
-.page:has(#anMusic-page) #page-header #nav .back-home-button {
+.page:has(#seveneMusic-page) #page-header.not-top-img #nav a,
+.page:has(#seveneMusic-page) #page-header #nav .back-home-button {
   color: var(--sevene-white);
 }
 
-body:has(#anMusic-page) .s-sticker div {
+body:has(#seveneMusic-page) .s-sticker div {
   color: var(--sevene-white) !important;
 }
 
-body:has(#anMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
+body:has(#seveneMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
   margin-right: 15px;
 }
 
-[data-theme="dark"] .page:has(#anMusic-page) #page-header:before {
+[data-theme="dark"] .page:has(#seveneMusic-page) #page-header:before {
   background-color: transparent;
 }
 
 /* **** 移动端样式 ***** */
 @media screen and (max-width: 768px) {
-  body:has(#anMusic-page) #rightside {
+  body:has(#seveneMusic-page) #rightside {
     display: none;
   }
-  body:has(#anMusic-page) #content-inner,
-  body:has(#anMusic-page) #page {
+  body:has(#seveneMusic-page) #content-inner,
+  body:has(#seveneMusic-page) #page {
     z-index: auto;
   }
   /* 歌曲列表 */
-  #anMusic-page .aplayer-list {
+  #seveneMusic-page .aplayer-list {
     position: fixed;
     z-index: 1002;
     width: 100%;
@@ -18069,32 +18070,32 @@ body:has(#anMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time
     border-radius: 15px 15px 0px 0px;
     padding: 15px 0px;
   }
-  #anMusic-page .aplayer-list.aplayer-list-hide {
+  #seveneMusic-page .aplayer-list.aplayer-list-hide {
     bottom: 0% !important;
   }
-  #anMusic-page ol {
+  #seveneMusic-page ol {
     max-height: 60vh !important;
     padding-right: 0px;
   }
-  #anMusic-page ol > li {
+  #seveneMusic-page ol > li {
     display: flex;
     margin: 0 10px;
   }
-  #anMusic-page ol > li span {
+  #seveneMusic-page ol > li span {
     color: var(--font-color);
   }
-  #anMusic-page ol > li span.aplayer-list-title {
+  #seveneMusic-page ol > li span.aplayer-list-title {
     width: 30%;
   }
-  #anMusic-page ol > li.aplayer-list-light {
+  #seveneMusic-page ol > li.aplayer-list-light {
     background: #33a673;
     padding: 5px 20px;
     border-radius: 10px;
   }
-  #anMusic-page ol > li.aplayer-list-light span {
+  #seveneMusic-page ol > li.aplayer-list-light span {
     color: #fff;
   }
-  #anMusic-page ol > li span.aplayer-list-title {
+  #seveneMusic-page ol > li span.aplayer-list-title {
     max-width: 55%;
     width: auto;
     display: -webkit-box;
@@ -18102,7 +18103,7 @@ body:has(#anMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time
     overflow: hidden;
     -webkit-box-orient: vertical;
   }
-  #anMusic-page ol > li span.aplayer-list-author {
+  #seveneMusic-page ol > li span.aplayer-list-author {
     position: absolute;
     right: 10px;
     width: auto;
@@ -18112,11 +18113,11 @@ body:has(#anMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time
     overflow: hidden;
     -webkit-box-orient: vertical;
   }
-  #anMusic-page ol > li.aplayer-list-light span.aplayer-list-author {
+  #seveneMusic-page ol > li.aplayer-list-light span.aplayer-list-author {
     right: 15px;
   }
   /* 歌词信息 */
-  #anMusic-page .aplayer-body {
+  #seveneMusic-page .aplayer-body {
     width: 100%;
 
     position: fixed;
@@ -18125,74 +18126,74 @@ body:has(#anMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time
     right: 0;
     top: 100px;
   }
-  #anMusic-page .aplayer-info .aplayer-lrc {
+  #seveneMusic-page .aplayer-info .aplayer-lrc {
     margin-top: 40px;
     height: auto;
     max-height: 200%;
     min-height: 100%;
     mask-image: linear-gradient(to bottom, #000, #000, #000, #000, #0000, #0000);
   }
-  #anMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current {
+  #seveneMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current {
     color: #33a673;
   }
   /* 控制按键和进度条 */
-  #anMusic-page .aplayer-info .aplayer-controller {
+  #seveneMusic-page .aplayer-info .aplayer-controller {
     width: 100%;
     bottom: 100px;
   }
-  #anMusic-page .aplayer-info .aplayer-controller .aplayer-bar-wrap {
+  #seveneMusic-page .aplayer-info .aplayer-controller .aplayer-bar-wrap {
     margin: 0 30px;
   }
-  #anMusic-page .aplayer-info .aplayer-time {
+  #seveneMusic-page .aplayer-info .aplayer-time {
     bottom: -40px;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-time-inner {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-time-inner {
     position: absolute;
     width: 100%;
     margin-right: 0;
     margin-top: -33px;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-time-inner .aplayer-dtime {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-time-inner .aplayer-dtime {
     position: absolute;
     right: 30px;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-time-inner .aplayer-ptime {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-time-inner .aplayer-ptime {
     position: absolute;
     left: 35px;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-icon-back {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-back {
     margin: auto;
     right: 110px;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
     margin: auto;
     right: 0;
     left: 0;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward {
     margin: auto;
     left: 110px;
     right: 0;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-icon-order {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-order {
     position: absolute;
     left: 22px;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-icon-loop {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-loop {
     position: absolute;
     right: 25px;
   }
-  #anMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {
     display: inline;
     position: absolute;
     right: 25px;
     top: -90px;
   }
-  #anMusic-page .aplayer-volume-bar-wrap {
+  #seveneMusic-page .aplayer-volume-bar-wrap {
     bottom: 0px;
     right: 7px;
   }
-  #anMusic-page .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap {
+  #seveneMusic-page .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap {
     left: -66px;
   }
 }
