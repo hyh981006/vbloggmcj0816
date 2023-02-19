@@ -17832,67 +17832,17 @@ a.categoryButton:hover {
 
 
 
-body[data-type=music] {
-  background: #0d0d0d
-}
-
-body[data-type=music] .layout {
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -o-box-orient: horizontal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row
-}
-
-body[data-type=music] #page {
+/* 导航栏 */
+#page:has(#seveneMusic-page) {
   border: 0;
-  -webkit-box-shadow: none!important;
-  box-shadow: none!important;
-  padding: 0!important;
-  background: 0 0!important
+  box-shadow: none !important;
+  padding: 0 !important;
+  background: transparent !important;
 }
-
-body[data-type=music] #page .page-title {
-  display: none
-}
-
-body[data-type=music] #page-header #nav {
-  backdrop-filter: none!important;
-  background: 0 0!important;
-  border-bottom: none!important
-}
-
-body[data-type=music] #page-header #nav .back-home-button,body[data-type=music] #page-header #nav a {
-  color: var(--sevene-white)
-}
-
-body[data-type=music] #footer,body[data-type=music] #nav-music {
-  display: none
-}
-
-body[data-type=music] #an_music_bg {
-  display: block
-}
-
-body[data-type=music] #web_bg {
-  display: none
-}
-
-body[data-type=music] .s-sticker div {
-  color: var(--sevene-white)!important
-}
-
-[data-theme=dark] body[data-type=music] .page #page-header:before {
-  background-color: transparent
-}
-
-#an_music_bg {
+#sevene_music_bg {
   display: none;
   filter: blur(63px);
-  opacity: .6;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: alpha(opacity=60);
+  opacity: 0.6;
   position: fixed;
   z-index: -999;
   background-attachment: local;
@@ -17903,127 +17853,42 @@ body[data-type=music] .s-sticker div {
   height: 200%;
   top: -50%;
   left: -50%;
-  -webkit-transform: rotate(0);
-  -moz-transform: rotate(0);
-  -o-transform: rotate(0);
-  -ms-transform: rotate(0);
-  transform: rotate(0);
-  -webkit-transition: .3s;
-  -moz-transition: .3s;
-  -o-transition: .3s;
-  -ms-transition: .3s;
-  transition: .3s
+  transform: rotate(0deg);
+}
+body:has(#seveneMusic-page) #sevene_music_bg {
+  display: block;
 }
 
-@media screen and (max-width: 1400px) {
-  body #seveneMusic-page #seveneMusicBtnGetSong,body #seveneMusic-page #seveneMusicRefreshBtn,body #seveneMusic-page #seveneMusicSwitching {
-      right:7vw
-  }
-
-  body #seveneMusic-page #seveneMusicSwitching {
-      bottom: 100px
-  }
-
-  body #seveneMusic-page #seveneMusicRefreshBtn {
-      bottom: 160px
-  }
-
-  body #seveneMusic-page #seveneMusicBtnGetSong {
-      bottom: 220px
-  }
-}
-
-#seveneMusic-page #seveneMusicBtnGetSong,#seveneMusic-page #seveneMusicRefreshBtn,#seveneMusic-page #seveneMusicSwitching {
-  position: fixed;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
-  display: flex;
-  width: 50px;
-  height: 50px;
-  bottom: 100px;
-  padding: 5px;
-  background: var(--anzhiyu-white-op);
-  backdrop-filter: saturate(180%) blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-radius: 50%;
-  color: #fff;
-  text-align: center;
-  -webkit-box-pack: center;
-  -moz-box-pack: center;
-  -o-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -moz-box-align: center;
-  -o-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
-  align-items: center;
-  cursor: url(/img/x2.cur),auto;
-  z-index: 2
-}
-
-#seveneMusic-page #seveneMusicBtnGetSong {
-  right: 11vw
-}
-
-#seveneMusic-page #seveneMusicRefreshBtn {
-  right: 7vw
-}
-
-#seveneMusic-page #seveneMusicSwitching {
-  right: 15vw
-}
-
-@media screen and (max-width: 768px) {
-  #seveneMusic-page #seveneMusicBtnGetSong {
-      right:80px;
-      bottom: 150px
-  }
-
-  #seveneMusic-page #seveneMusicRefreshBtn {
-      right: 20px;
-      bottom: 150px
-  }
-
-  #seveneMusic-page #seveneMusicSwitching {
-      right: 140px;
-      bottom: 150px
-  }
+body:has(#seveneMusic-page) {
+  background: rgb(13, 13, 13);
 }
 
 #seveneMusic-page meting-js .aplayer {
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
   display: flex;
-  -webkit-box-direction: reverse;
-  -moz-box-direction: reverse;
-  -o-box-direction: reverse;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  -o-box-orient: horizontal;
-  -webkit-flex-direction: row-reverse;
-  -ms-flex-direction: row-reverse;
   flex-direction: row-reverse;
-  background: rgba(0,0,0,0);
+  background: rgba(0, 0, 0, 0);
   border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none
+  box-shadow: none;
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-body {
+body:has(#seveneMusic-page) #web_bg {
+  display: none;
+}
+body:has(#seveneMusic-page) #footer,
+body:has(#seveneMusic-page) #nav-music {
+  display: none;
+}
+
+#seveneMusic-page .aplayer-body {
   width: 40%;
-  height: 75vh
+  height: 75vh;
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-pic {
+#seveneMusic-page ol > li:hover {
+  background: #ffffff33;
+  border-radius: 6px;
+}
+#seveneMusic-page .aplayer-pic {
   float: none;
   width: 180px;
   height: 180px;
@@ -18031,379 +17896,305 @@ body[data-type=music] .s-sticker div {
   margin: auto;
   left: 0;
   right: 0;
-  -webkit-transition: background-image .5s ease-in-out;
-  -moz-transition: background-image .5s ease-in-out;
-  -o-transition: background-image .5s ease-in-out;
-  -ms-transition: background-image .5s ease-in-out;
-  transition: background-image .5s ease-in-out;
-  background-size: cover;
-  background-color: transparent!important
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info {
+#seveneMusic-page .aplayer-info {
   margin: 0 20px 0 20px;
-  border-bottom: none
+  border-bottom: none;
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-music {
+#seveneMusic-page .aplayer-info .aplayer-music {
   text-align: center;
   height: auto;
-  margin: 15px
+  margin: 15px;
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-music .aplayer-author,#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-music .aplayer-title {
+#seveneMusic-page .aplayer-info .aplayer-music .aplayer-author,
+#seveneMusic-page .aplayer-info .aplayer-music .aplayer-title {
   font-size: 2rem;
   font-weight: 700;
-  color: #fff
+  color: #fff;
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc {
+#seveneMusic-page .aplayer-info .aplayer-lrc {
   height: 800%;
   margin-top: 80px;
-  mask-image: linear-gradient(to bottom,#000,#000,#000,#000,#000,#000,#000,#000,#000,#000,rgba(0,0,0,0),rgba(0,0,0,0))
+  mask-image: linear-gradient(to bottom, #000, #000, #000, #000, #000, #000, #000, #000, #000, #000, #0000, #0000);
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc p {
+#seveneMusic-page .aplayer-info .aplayer-lrc p {
   font-size: 14px;
-  color: #fff
+  color: #fff;
+}
+#seveneMusic-page .aplayer .aplayer-lrc:after,
+#seveneMusic-page .aplayer .aplayer-lrc:before {
+  display: none;
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc::after,#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc::before {
-  display: none
-}
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller {
+/* 控制器 */
+#seveneMusic-page .aplayer-info .aplayer-controller {
   position: fixed;
   max-width: 1500px;
   margin: auto;
   left: 0;
   right: 0;
-  bottom: 50px
+  bottom: 50px;
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-bar-wrap {
-  margin: 0 160px 0 150px
+#seveneMusic-page .aplayer-info .aplayer-controller .aplayer-bar-wrap {
+  margin: 0 160px 0 150px;
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar {
-  height: 6px;
-  border-radius: 4px
+#seveneMusic-page .aplayer-info .aplayer-controller .aplayer-played {
+  background: var(--sevene-white) !important;
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played {
-  height: 6px;
-  border-radius: 4px;
-  background: var(--sevene-white)!important
-}
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-played .aplayer-thumb {
-  width: 20px;
-  height: 20px;
-  margin-top: -7px;
+#seveneMusic-page .aplayer-info .aplayer-controller .aplayer-thumb {
   -webkit-transform: none;
-  -moz-transform: none;
-  -o-transform: none;
-  -ms-transform: none;
   transform: none;
-  background: #fff!important
+  background: #fff !important;
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-bar-wrap .aplayer-bar .aplayer-loaded {
-  height: 6px;
-  border-radius: 4px
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-back,
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward,
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
+  display: inline;
+  position: fixed;
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time {
+#seveneMusic-page .aplayer-info .aplayer-time {
   position: absolute;
   width: 100%;
   bottom: 21px;
   height: 0;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: box;
   display: flex;
-  -webkit-box-pack: end;
-  -moz-box-pack: end;
-  -o-box-pack: end;
-  -ms-flex-pack: end;
-  -webkit-justify-content: flex-end;
-  justify-content: flex-end
+  justify-content: flex-end;
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-volume-wrap .aplayer-volume-bar-wrap {
-  bottom: 0;
-  right: -5px
-}
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon {
-  width: 2rem;
-  height: 2rem;
-  margin-left: 15px
-}
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon path {
-  fill: var(--sevene-white);
-  opacity: .8;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-  filter: alpha(opacity=80)
-}
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
-  margin-right: 15px
-}
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-time-inner {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-time-inner {
   margin-right: 18px;
-  margin-top: -8px
+  margin-top: -8px;
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-back {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-back {
   position: absolute;
   left: 0;
-  display: inline
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-play {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
   position: absolute;
   left: 40px;
-  display: inline
 }
-
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-forward {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward {
   position: absolute;
   left: 80px;
-  display: inline
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-menu {
-  display: none
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  margin-left: 15px;
 }
 
-#seveneMusic-page meting-js .aplayer .aplayer-list {
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {
+  display: none;
+}
+
+#seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon path {
+  fill: var(--sevene-white);
+  opacity: 0.8;
+}
+
+#seveneMusic-page .aplayer-list {
   width: 60%;
-  max-height: none!important;
-  height: 100%
+  max-height: none !important;
+  height: 100%;
 }
-
-#seveneMusic-page meting-js .aplayer ol {
-  max-height: 75vh!important;
-  padding-right: 25px
+#seveneMusic-page ol {
+  max-height: 75vh !important;
+  padding-right: 25px;
 }
-
-#seveneMusic-page meting-js .aplayer ol>li {
+#seveneMusic-page ol > li {
   border-top: 1px solid transparent;
-  font-size: 14px
+  font-size: 14px;
 }
-
-#seveneMusic-page meting-js .aplayer ol>li:hover {
-  background: rgba(255,255,255,.2);
-  border-radius: 6px
-}
-
-#seveneMusic-page meting-js .aplayer ol>li.aplayer-list-light {
-  background: rgba(255,255,255,.2);
+#seveneMusic-page ol > li.aplayer-list-light {
+  background: rgb(255 255 255 / 20%);
   border-radius: 6px;
-  padding: 20px 15px
 }
 
-#seveneMusic-page meting-js .aplayer ol>li.aplayer-list-light span.aplayer-list-title {
-  font-weight: bolder
+#seveneMusic-page ol > li span {
+  color: var(--sevene-white);
 }
 
-#seveneMusic-page meting-js .aplayer ol>li.aplayer-list-light .aplayer-list-cur {
-  display: none
+#seveneMusic-page ol > li.aplayer-list-light .aplayer-list-cur {
+  display: none;
+}
+#seveneMusic-page ol > li span.aplayer-list-author {
+  opacity: 0.6;
 }
 
-#seveneMusic-page meting-js .aplayer ol>li span {
-  color: var(--sevene-white)
+/* 导航栏 */
+.page:has(#seveneMusic-page) #nav {
+  backdrop-filter: none !important;
+  background: 0 0 !important;
+  border-bottom: none !important;
 }
 
-#seveneMusic-page meting-js .aplayer ol>li span.aplayer-list-author {
-  opacity: .6;
-  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
-  filter: alpha(opacity=60)
+.page:has(#seveneMusic-page) #page-header.not-top-img #nav a,
+.page:has(#seveneMusic-page) #page-header #nav .back-home-button {
+  color: var(--sevene-white);
 }
 
+body:has(#seveneMusic-page) .s-sticker div {
+  color: var(--sevene-white) !important;
+}
+
+body:has(#seveneMusic-page) .aplayer .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon.aplayer-icon-loop {
+  margin-right: 15px;
+}
+
+[data-theme="dark"] .page:has(#seveneMusic-page) #page-header:before {
+  background-color: transparent;
+}
+
+/* **** 移动端样式 ***** */
 @media screen and (max-width: 768px) {
-  body[data-type=music] #rightside {
-      display:none
+  body:has(#seveneMusic-page) #rightside {
+    display: none;
   }
-
-  body[data-type=music] #content-inner,body[data-type=music] #page {
-      z-index: auto
+  body:has(#seveneMusic-page) #content-inner,
+  body:has(#seveneMusic-page) #page {
+    z-index: auto;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list {
-      position: fixed;
-      z-index: 1002;
-      width: 100%;
-      bottom: -76%;
-      left: 0;
-      background: var(--sidebar-bg);
-      height: auto;
-      border-radius: 15px 15px 0 0;
-      padding: 15px 0
+  /* 歌曲列表 */
+  #seveneMusic-page .aplayer-list {
+    position: fixed;
+    z-index: 1002;
+    width: 100%;
+    bottom: -76%;
+    left: 0;
+    background: var(--sidebar-bg);
+    height: auto;
+    border-radius: 15px 15px 0px 0px;
+    padding: 15px 0px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list.aplayer-list-hide {
-      bottom: 0!important
+  #seveneMusic-page .aplayer-list.aplayer-list-hide {
+    bottom: 0% !important;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list ol {
-      max-height: 60vh!important;
-      padding-right: 0
+  #seveneMusic-page ol {
+    max-height: 60vh !important;
+    padding-right: 0px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list ol>li {
-      display: -webkit-box;
-      display: -moz-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: box;
-      display: flex;
-      margin: 0 10px
+  #seveneMusic-page ol > li {
+    display: flex;
+    margin: 0 10px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list ol>li span {
-      color: var(--font-color)
+  #seveneMusic-page ol > li span {
+    color: var(--font-color);
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list ol>li span.aplayer-list-title {
-      width: 30%;
-      max-width: 55%;
-      width: auto;
-      display: -webkit-box;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-      -webkit-box-orient: vertical
+  #seveneMusic-page ol > li span.aplayer-list-title {
+    width: 30%;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list ol>li span.aplayer-list-author {
-      position: absolute;
-      right: 10px;
-      width: auto;
-      max-width: 35%;
-      display: -webkit-box;
-      -webkit-line-clamp: 1;
-      overflow: hidden;
-      -webkit-box-orient: vertical
+  #seveneMusic-page ol > li.aplayer-list-light {
+    background: #33a673;
+    padding: 5px 20px;
+    border-radius: 10px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list ol>li.aplayer-list-light {
-      background: #33a673;
-      padding: 5px 20px;
-      border-radius: 10px
+  #seveneMusic-page ol > li.aplayer-list-light span {
+    color: #fff;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list ol>li.aplayer-list-light span {
-      color: #fff
+  #seveneMusic-page ol > li span.aplayer-list-title {
+    max-width: 55%;
+    width: auto;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-list ol>li.aplayer-list-light span.aplayer-list-author {
-      right: 15px
+  #seveneMusic-page ol > li span.aplayer-list-author {
+    position: absolute;
+    right: 10px;
+    width: auto;
+    max-width: 35%;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body {
-      width: 100%;
-      position: fixed;
-      margin: auto;
-      left: 0;
-      right: 0;
-      top: 100px
+  #seveneMusic-page ol > li.aplayer-list-light span.aplayer-list-author {
+    right: 15px;
   }
+  /* 歌词信息 */
+  #seveneMusic-page .aplayer-body {
+    width: 100%;
 
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc {
-      margin-top: 40px;
-      height: auto;
-      max-height: 200%;
-      min-height: 100%;
-      mask-image: linear-gradient(to bottom,#000,#000,#000,#000,rgba(0,0,0,0),rgba(0,0,0,0))
+    position: fixed;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 100px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc p {
-      font-size: 20px;
-      line-height: 20px!important;
-      height: 20px!important;
-      margin-bottom: 25px
+  #seveneMusic-page .aplayer-info .aplayer-lrc {
+    margin-top: 40px;
+    height: auto;
+    max-height: 200%;
+    min-height: 100%;
+    mask-image: linear-gradient(to bottom, #000, #000, #000, #000, #0000, #0000);
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-lrc p.aplayer-lrc-current {
-      color: #33a673
+  #seveneMusic-page .aplayer-info .aplayer-lrc p.aplayer-lrc-current {
+    color: #33a673;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller {
-      width: 100%;
-      bottom: 100px
+  /* 控制按键和进度条 */
+  #seveneMusic-page .aplayer-info .aplayer-controller {
+    width: 100%;
+    bottom: 100px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-volume-wrap {
-      left: -66px
+  #seveneMusic-page .aplayer-info .aplayer-controller .aplayer-bar-wrap {
+    margin: 0 30px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-volume-wrap .aplayer-volume-bar-wrap {
-      bottom: 0;
-      right: 7px
+  #seveneMusic-page .aplayer-info .aplayer-time {
+    bottom: -40px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-bar-wrap {
-      margin: 0 30px
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-time-inner {
+    position: absolute;
+    width: 100%;
+    margin-right: 0;
+    margin-top: -33px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time {
-      bottom: -40px
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-time-inner .aplayer-dtime {
+    position: absolute;
+    right: 30px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-time-inner {
-      position: absolute;
-      width: 100%;
-      margin-right: 0;
-      margin-top: -33px
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-time-inner .aplayer-ptime {
+    position: absolute;
+    left: 35px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-time-inner .aplayer-dtime {
-      position: absolute;
-      right: 30px
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-back {
+    margin: auto;
+    right: 110px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-time-inner .aplayer-ptime {
-      position: absolute;
-      left: 35px
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-play {
+    margin: auto;
+    right: 0;
+    left: 0;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-back {
-      margin: auto;
-      right: 110px
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-forward {
+    margin: auto;
+    left: 110px;
+    right: 0;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-play {
-      margin: auto;
-      right: 0;
-      left: 0
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-order {
+    position: absolute;
+    left: 22px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-forward {
-      margin: auto;
-      left: 110px;
-      right: 0
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-loop {
+    position: absolute;
+    right: 25px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-order {
-      position: absolute;
-      left: 22px
+  #seveneMusic-page .aplayer-info .aplayer-time .aplayer-icon-menu {
+    display: inline;
+    position: absolute;
+    right: 25px;
+    top: -90px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-loop {
-      position: absolute;
-      right: 25px
+  #seveneMusic-page .aplayer-volume-bar-wrap {
+    bottom: 0px;
+    right: 7px;
   }
-
-  #seveneMusic-page meting-js .aplayer .aplayer-body .aplayer-info .aplayer-controller .aplayer-time .aplayer-icon-menu {
-      display: inline;
-      position: absolute;
-      right: 25px;
-      top: -90px
+  #seveneMusic-page .aplayer .aplayer-info .aplayer-controller .aplayer-volume-wrap {
+    left: -66px;
   }
 }
 /* 热评 */
