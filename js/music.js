@@ -31,10 +31,10 @@ var anzhiyu = {
     }
   },
   addEventListenerChangeMusicBg: function () {
-    const anMusicPage = document.getElementById("seveneMusic-page");
-    const aplayerIconMenu = anMusicPage.querySelector(".aplayer-info .aplayer-time .aplayer-icon-menu");
+    const seveneMusicPage = document.getElementById("seveneMusic-page");
+    const aplayerIconMenu = seveneMusicPage.querySelector(".aplayer-info .aplayer-time .aplayer-icon-menu");
 
-    anMusicPage.querySelector("meting-js").aplayer.on('loadeddata', function () {
+    seveneMusicPage.querySelector("meting-js").aplayer.on('loadeddata', function () {
       anzhiyu.changeMusicBg();
       console.info('player loadeddata');
     });
@@ -46,7 +46,7 @@ var anzhiyu = {
 
     document.getElementById('menu-mask').addEventListener("click", function () {
       if (window.location.pathname != "/music/") return;
-      anMusicPage.querySelector('.aplayer-list').classList.remove("aplayer-list-hide");
+      seveneMusicPage.querySelector('.aplayer-list').classList.remove("aplayer-list-hide");
     })
   },
 }

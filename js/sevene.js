@@ -481,5 +481,22 @@ var sevene = {
       localStorage.setItem('showFPS', 'true');
     }
     
+  },
+  changeSayHelloText: function() {
+    // 定义数组存储可选内容
+    const contentArray = ['🤖️ 数码科技爱好者', '🔍 分享与热心帮助', '🏠 智能家居小能手', '🔨 设计开发一条龙', '🤝 专修交互与设计','🏃 脚踏实地行动派',"🧱 团队小组发动机","💢 壮汉人狠话不多"];
+    // 获取要更改内容的元素
+    const contentElement = document.getElementById('author-info__sayhi');
+    // 从数组中随机选择一个新内容
+    let newContent = contentArray[Math.floor(Math.random() * contentArray.length)];
+    // 如果新内容与上一个重复，重新选择
+    while (newContent === lastSayHello) {
+      newContent = contentArray[Math.floor(Math.random() * contentArray.length)];
+    }
+    // 将新内容赋值给元素的文本内容
+    contentElement.textContent = newContent;
+
+    // 更新上一个内容的变量
+    lastSayHello = newContent;
   }
 }
