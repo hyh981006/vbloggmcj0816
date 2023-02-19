@@ -701,7 +701,6 @@ function whenDoMReady(){
   addRightMenuClickEvent()
   navTitle()
   percent()
-  eo.addEventListenerChangeMusicBg()
   sevene.logInfo()
   sevene.topPostScroll()
   sevene.topCategoriesBarScroll()

@@ -4,21 +4,21 @@ var anzhiyu = {
     if (window.location.pathname != "/music/") {
       return;
     }
-    const seveneMusicBg = document.getElementById("sevene_music_bg")
+    const anMusicBg = document.getElementById("an_music_bg")
 
     if (isChangeBg) {
       // player listswitch 会进入此处
-      const musiccover = document.querySelector("#seveneMusic-page .aplayer-pic");
-      seveneMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
+      const musiccover = document.querySelector("#anMusic-page .aplayer-pic");
+      anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
     } else {
       // 第一次进入，绑定事件，改背景
       let timer = setInterval(()=>{
-        const musiccover = document.querySelector("#seveneMusic-page .aplayer-pic");
+        const musiccover = document.querySelector("#anMusic-page .aplayer-pic");
         // 确保player加载完成
-        console.info(seveneMusicBg);
+        console.info(anMusicBg);
         if (musiccover) {
           clearInterval(timer)
-          seveneMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
+          anMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
           // 绑定事件
           anzhiyu.addEventListenerChangeMusicBg();
           
@@ -31,7 +31,7 @@ var anzhiyu = {
     }
   },
   addEventListenerChangeMusicBg: function () {
-    const anMusicPage = document.getElementById("seveneMusic-page");
+    const anMusicPage = document.getElementById("anMusic-page");
     const aplayerIconMenu = anMusicPage.querySelector(".aplayer-info .aplayer-time .aplayer-icon-menu");
 
     anMusicPage.querySelector("meting-js").aplayer.on('loadeddata', function () {
