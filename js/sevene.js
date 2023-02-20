@@ -298,6 +298,20 @@ var sevene = {
       document.querySelector('meta[name="theme-color"]').setAttribute('content', color)
     }
   },
+  commentText: function (e) {
+    if (e == "undefined" || e == "null") e = "好棒！";
+    var n = document.getElementsByClassName("el-textarea__inner")[0],
+      t = document.createEvent("HTMLEvents");
+    if (!n) return;
+    t.initEvent("input", !0, !0);
+    var o = replaceAll(e, "\n", "\n> ");
+    (n.value = "> " + o + "\n\n"), n.dispatchEvent(t);
+    var i = document.querySelector("#post-comment").offsetTop;
+    window.scrollTo(0, i - 80),
+      n.focus(),
+      n.setSelectionRange(-1, -1),
+      document.getElementById("comment-tips") && document.getElementById("comment-tips").classList.add("show");
+  },
 
   //自适应主题色
   initThemeColor: function() {
