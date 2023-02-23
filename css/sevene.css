@@ -17492,8 +17492,8 @@ a.categoryButton:hover {
 
 #bber .bber-content .datacont {
   order: 0;
-  font-size: 0.8rem;
-  font-weight: 700;
+  font-size: 0.65rem;
+  font-weight: 550;
   color: var(--sevene-fontcolor);
   width: 100%;
   line-height: 1.38;
