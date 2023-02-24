@@ -2831,7 +2831,7 @@ blockquote footer cite::before {
 
 @media screen and (min-width: 768px) {
   #post-info #post-meta>.meta-secondline>span:first-child {
-    display: none;
+    /*display: none;*/
   }
 }
 
@@ -10584,6 +10584,9 @@ a.extend.prev {
   display: flex;
   align-items: center;
   line-height: 1;
+}
+span.post-meta-date {
+  opacity: 0.6;
 }
 
 @media screen and (max-width: 768px) {
