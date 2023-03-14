@@ -6,7 +6,7 @@
   <link href="https://blog.gmcj0816.top/atom.xml" rel="self"/>
   
   <link href="https://blog.gmcj0816.top/"/>
-  <updated>2023-02-26T06:37:11.110Z</updated>
+  <updated>2023-03-14T13:31:03.605Z</updated>
   <id>https://blog.gmcj0816.top/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Unity不挂载到物体上也可执行的方法</title>
+    <link href="https://blog.gmcj0816.top/posts/d3af7e5d/"/>
+    <id>https://blog.gmcj0816.top/posts/d3af7e5d/</id>
+    <published>2023-03-14T12:24:12.000Z</published>
+    <updated>2023-03-14T13:31:03.605Z</updated>
+    
+    <content type="html"><![CDATA[<p>本来想着直接写之前学到的一些东西的，但是我在想，这万一有人问我啥是Unity可咋办，所以呢，就在后面关于Unity3D的文章开头呢，写上什么是Unity</p><div class="note red no-icon flat"><p>Unity是 实时3D互动内容创作和运营平台 。包括游戏开发、美术、建筑、汽车设计、影视在内的所有创作者，借助 Unity 将创意变成现实。Unity 平台提供一整套完善的软件解决方案，可用于创作、运营和变现任何实时互动的2D和3D内容，支持平台包括手机、平板电脑、PC、游戏主机、增强现实和虚拟现实设备。简单来说，Unity3D不单单可以做游戏，还可以通过相关接口与API来进行设备的交互【例如虚拟仿真】</p></div><p>🎬 博客主页：<a href="https://blog.gmcj0816.top">https://blog.gmcj0816.top</a></p><p>🏅 欢迎点赞 👍 收藏 ⭐留言 📝 如有错误敬请指正！ </p><p>📆 此文章为原创，并通过Typora编辑器撰写✨</p><p>🌲 开发工具：Unity3D 2019.4.40f1(个人版)   Rider2022.2.4(教育版)</p><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>之前也是没太注意如何不挂载到GameObject物体身上也能够执行相关方法，这个确实是自己的知识盲区，过去自己能想到的都基本需要挂载到物体身上，才能够执行，或者通过脚本来调用不继承MonoBehavior的类中的方法。</p><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="ONE"><a href="#ONE" class="headerlink" title="ONE"></a>ONE</h2><p>如果在脚本中的方法标记为<code>[RuntimeInitializeOnLoadMethod]</code> ，则允许在运行时加载游戏时不通过用户操作 初始化一个运行时类方法，这里需要注意的便是<font color=red>调用标记为 <code>[RuntimeInitializeOnLoadMethod]</code> 的 方法。这是在调用 <code>Awake</code> 方法后进行的,而且标记为 <code>[RuntimeInitializeOnLoadMethod]</code> 的方法的执行顺序是不确定的</font>，那该如何去写呢，其实有两种方式，一种是[RuntimeInitializeOnLoadMethod]，另一种是[RuntimeInitializeOnLoadMethod([RuntimeInitializeOnLoadMethod])]</p><ul><li>[RuntimeInitializeOnLoadMethod]（这里也是写了一个比较简单的实例，无需挂载到物体身上，点击Play按钮即可发现其执行了）</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[RuntimeInitializeOnLoadMethod]</span><br><span class="line">static void OnRuntimeMethodLoad()</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(&quot;这是一个不需要挂载到GameObject身上就能够执行的方法&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://bu.dusays.com/2023/03/14/6410716ad967b.jpg" alt="运行结果"></p><ul><li>[RuntimeInitializeOnLoadMethod([RuntimeInitializeOnLoadMethod])]</li></ul><p>这里RuntimeInitializeOnLoadMethod提供了五个类型</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RuntimeInitializeLoadType.AfterSceneLoad // 加载场景后</span><br><span class="line">RuntimeInitializeLoadType.BeforeSceneLoad // 在加载场景之前</span><br><span class="line">RuntimeInitializeLoadType.AfterAssembliesLoaded // 加载所有程序集并初始化预加载的资源时进行回调</span><br><span class="line">RuntimeInitializeLoadType.BeforeSplashScreen // 在显示启动屏幕之前。</span><br><span class="line">RuntimeInitializeLoadType.SubsystemRegistration //用于注册子系统的回调</span><br></pre></td></tr></table></figure><h2 id="TWO"><a href="#TWO" class="headerlink" title="TWO"></a>TWO</h2><ul><li>InitializeOnLoadMethod</li></ul><p>允许在 Unity 加载时初始化编辑器类方法，无需用户操作。<font color=red>方法记得也需要是static静态方法哦</font></p><p><img src="https://bu.dusays.com/2023/03/14/641074a75ae4f.jpg" alt="运行结果"></p><p>完事，基本就是这些，还是比较好理解的</p><p>记得常来看看哦</p><p><img src="https://bu.dusays.com/2023/03/07/6406885e03d2b.jpeg" alt="首次爆照-黄宇涵"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;本来想着直接写之前学到的一些东西的，但是我在想，这万一有人问我啥是Unity可咋办，所以呢，就在后面关于Unity3D的文章开头呢，写上什么是Unity&lt;/p&gt;
+&lt;div class=&quot;note red no-icon flat&quot;&gt;&lt;p&gt;Unity是 实时3D互动内容创作和</summary>
+      
+    
+    
+    
+    <category term="UnityAPI" scheme="https://blog.gmcj0816.top/categories/UnityAPI/"/>
+    
+    
+    <category term="Unity" scheme="https://blog.gmcj0816.top/tags/Unity/"/>
+    
+    <category term="U3D" scheme="https://blog.gmcj0816.top/tags/U3D/"/>
+    
+    <category term="C#" scheme="https://blog.gmcj0816.top/tags/C/"/>
+    
+  </entry>
   
   <entry>
     <title>Unity3d热更新之xLua热更新[Lua调用C#]</title>
