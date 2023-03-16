@@ -6,7 +6,7 @@
   <link href="https://blog.gmcj0816.top/atom.xml" rel="self"/>
   
   <link href="https://blog.gmcj0816.top/"/>
-  <updated>2023-03-15T03:57:41.939Z</updated>
+  <updated>2023-03-15T03:14:52.138Z</updated>
   <id>https://blog.gmcj0816.top/</id>
   
   <author>
@@ -15,27 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Unity3D接入安卓QQ登录</title>
-    <link href="https://blog.gmcj0816.top/posts/86150551/"/>
-    <id>https://blog.gmcj0816.top/posts/86150551/</id>
-    <published>2023-03-15T03:46:00.000Z</published>
-    <updated>2023-03-15T03:57:41.939Z</updated>
-    
-    <content type="html"><![CDATA[<p>本来想着直接写之前学到的一些东西的，但是我在想，这万一有人问我啥是Unity可咋办，所以呢，就在后面关于Unity3D的文章开头呢，写上什么是Unity</p><div class="note red no-icon flat"><p>Unity是 实时3D互动内容创作和运营平台 。包括游戏开发、美术、建筑、汽车设计、影视在内的所有创作者，借助 Unity 将创意变成现实。Unity 平台提供一整套完善的软件解决方案，可用于创作、运营和变现任何实时互动的2D和3D内容，支持平台包括手机、平板电脑、PC、游戏主机、增强现实和虚拟现实设备。简单来说，Unity3D不单单可以做游戏，还可以通过相关接口与API来进行设备的交互【例如虚拟仿真】</p></div><p>🎬 博客主页：<a href="https://blog.gmcj0816.top">https://blog.gmcj0816.top</a></p><p>🏅 欢迎点赞 👍 收藏 ⭐留言 📝 如有错误敬请指正！ </p><p>📆 此文章为原创，并通过Typora编辑器撰写✨</p><p>🌲 开发工具：Unity3D 2019.4.40f1(个人版)   Rider2022.2.4(教育版)，Android Studio开发工具，QQ登录的原生SDK</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;本来想着直接写之前学到的一些东西的，但是我在想，这万一有人问我啥是Unity可咋办，所以呢，就在后面关于Unity3D的文章开头呢，写上什么是Unity&lt;/p&gt;
-&lt;div class=&quot;note red no-icon flat&quot;&gt;&lt;p&gt;Unity是 实时3D互动内容创作和</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>Unity不挂载到物体上也可执行的方法</title>
