@@ -71,6 +71,7 @@
   --style-border-hover-always: 1px solid var(--sevene-main);
   --style-border-dashed: 1px dashed var(--sevene-theme-op);
   --style-border-forever: 2px solid var(--sevene-main);
+  --todo-border: 1px solid #f7a796;
 }
 
 [data-theme=dark] {
@@ -113,6 +114,7 @@
   --style-border-hover-always: 1px solid var(--sevene-theme);
   --style-border-dashed: 1px dashed var(--sevene-theme-op);
   --style-border-forever: 2px solid var(--sevene-lighttext);
+  --todo-border: 1px solid #008d3b;
 }
 
 @media screen and (max-width: 768px) {
@@ -18481,5 +18483,79 @@ i.iconfont.icon-sevene {
       top: 35%;
       line-height: 21px;
       font-weight: 700
+  }
+}
+/*TODO*/
+#todolist-box {
+  margin: 0 10px
+}
+
+#todolist-main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 16px 0 10px
+}
+
+#todolist-main li {
+  list-style: none;
+  font-size: 17px;
+  color: white;
+}
+
+#todolist-main ul {
+  margin: 0;
+  padding: 0
+}
+
+#todolist-left {
+  width: 50%;
+  padding: 0 8px 0 0
+}
+
+#todolist-right {
+  width: 50%;
+  padding: 0 0 0 8px
+}
+
+.todolist-item {
+  position: relative;
+  border-radius: 12px;
+  background-color: #FF3CAC;
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+  padding: 10px 1rem 1.2rem;
+  border: 2px dashed #f7a796;
+  margin-bottom: 1rem
+}
+
+[data-theme=dark] .todolist-item {
+  background: #242424;
+  border: 2px dashed #51908b
+}
+
+li.todolist-li i {
+  margin-left: 10px
+}
+
+h3.todolist-title {
+  margin: 0!important;
+  border-bottom: var(--todo-border);
+  color: white;
+}
+
+li.todolist-li {
+  border-bottom: var(--todo-border);
+  font-weight: 400
+}
+
+.todolist-li span {
+  margin-left: 5px
+}
+
+@media screen and (max-width: 700px) {
+  #todolist-left,#todolist-right {
+      width:100%;
+      padding: 0
   }
 }

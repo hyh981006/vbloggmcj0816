@@ -15,7 +15,7 @@ var anzhiyu = {
       let timer = setInterval(()=>{
         const musiccover = document.querySelector("#seveneMusic-page .aplayer-pic");
         // 确保player加载完成
-        console.info(seveneMusicBg);
+       // console.info(seveneMusicBg);
         if (musiccover) {
           clearInterval(timer)
           seveneMusicBg.style.backgroundImage = musiccover.style.backgroundImage;
