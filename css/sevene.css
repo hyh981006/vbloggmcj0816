@@ -7081,7 +7081,27 @@ a.console_switchbutton {
   display: flex;
   flex-direction: column;
 }
-
+.post div#heo-footer-banner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 16px;
+}
+div#heo-footer-banner .footer-banner-description {
+  color: var(--sevene-secondtext);
+  font-weight: bold;
+}
+div#heo-footer-banner a.footer-banner-link {
+  padding: 4px 16px;
+  background: var(--sevene-secondbg);
+  border-radius: 20px;
+  cursor: pointer;
+  margin-top: 8px;
+  font-size: 14px;
+}
+div#heo-footer-banner {
+  display: none;
+}
 @media screen and (max-width: 768px) {
   #footer {
     background: linear-gradient(180deg, var(--sevene-background) 0%, var(--sevene-card-bg) 25%);
