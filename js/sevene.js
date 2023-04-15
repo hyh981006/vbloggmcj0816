@@ -351,6 +351,7 @@ var sevene = {
   //隐藏加载动画
   hideLoading: function() {
     document.querySelector("#loading-box").classList.add("loaded");
+    sevene.aiExplanation();
   },
 
   //切换音乐播放状态
@@ -450,7 +451,57 @@ var sevene = {
       ? document.querySelector("#consoleHideAside").classList.add("on")
       : document.querySelector("#consoleHideAside").classList.remove("on")
   },
+  aiExplanation: function() {
+      const element = document.querySelector(".ai-explanation");
+      if (!element) {
+         console.log("不在文章页面");
+          return;
+      }
+      const text = element.innerText;
+      const delay = 1000 / 50; // 1秒50个字
+      const waitingTime = 2000; // 等待2秒后开始打字
+      // 保存原始文本内容
+      const originalText = text;
+      // 显示等待文本
+      element.innerText = "AI生成摘要中....";
+      element.style.display = "block";
 
+      const type = (i) => {
+          setTimeout(() => {
+              const letter = text.slice(i, i + 1);
+              element.innerText = text.slice(0, i + 1);
+              if (i === text.length - 1) {
+                  console.log(i);
+                  // 显示原始文本内容
+                  element.innerText = originalText;
+                  element.style.display = "block";
+              } else {
+                  if (
+                      letter === "," ||
+                      letter === "，" ||
+                      letter === "." ||
+                      letter === "。" ||
+                      letter === "!" ||
+                      letter === "！" ||
+                      letter === "?" ||
+                      letter === "？"
+                  ) {
+                      // 遇到标点符号时略微延迟
+                      setTimeout(() => {
+                          type(i + 1);
+                      }, delay * 5);
+                  } else {
+                      type(i + 1);
+                  }
+              }
+          }, delay);
+      };
+
+      // 在等待 2 秒后开始逐字显示
+      setTimeout(() => {
+          type(0);
+      }, waitingTime);
+  },
   //删除多余的class
   removeBodyPaceClass: function() {
     $('body').removeClass()

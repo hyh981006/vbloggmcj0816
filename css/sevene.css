@@ -5984,7 +5984,7 @@ html {
   }
 
   #nav #site-name:after {
-    background: url(/img/202388b530b7801ff55787e4dde0799df8d8083602.png) no-repeat 50% 50%;
+    /*background: url(/img/202388b530b7801ff55787e4dde0799df8d8083602.png) no-repeat 50% 50%;*/
     opacity: 0;
     position: absolute;
     display: flex;
@@ -7088,7 +7088,7 @@ a.console_switchbutton {
   margin-top: 16px;
 }
 div#heo-footer-banner .footer-banner-description {
-  color: var(--sevene-secondtext);
+  color: var(--sevene-fontcolor);
   font-weight: bold;
 }
 div#heo-footer-banner a.footer-banner-link {
@@ -18600,3 +18600,58 @@ li.todolist-li {
 canvas#universe {
   display: none;
 }
+
+
+/* gpt 摘要 */
+
+
+/* AI */
+
+.post-ai {
+  background: var(--sevene-secondbg);
+  border-radius: 12px;
+  padding: 20px;
+  padding-top: 16px;
+  line-height: 1.3;
+  border: var(--style-border);
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+.ai-title {
+  display: flex;
+  color: var(--sevene-fontcolor);
+  border-radius: 8px;
+  align-items: center;
+}
+
+.ai-title-text {
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.ai-explanation {
+  margin-top: 16px;
+}
+
+.ai-tag {
+  font-size: 12px;
+  background-color: var(--sevene-fontcolor);
+  color: var(--sevene-card-bg);
+  border-radius: 4px;
+  margin-left: auto;
+  line-height: 1;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* gpt 摘要 */
+/**/
+span.spanname {
+  font-weight: bolder;
+  font-style: oblique;
+}
+/**/
