@@ -1,410 +1,567 @@
-let sevene_cookiesTime = null
-  , sevene_musicPlaying = !1
-  , sevene_keyboard = !1
-  , sevene_intype = !1;
-heogpt = null;
-let sevene_showFPS = !1;
-heogpt = null;
-let lastSayHello = "";
+let sevene_cookiesTime = null;
+let sevene_musicPlaying = false;
+let sevene_keyboard = false;
+let sevene_intype = false;
+let sevene_showFPS = false;
+// 私有函数
 var sevene = {
-    darkModeStatus: function() {
-        "light" == ("dark" === document.documentElement.getAttribute("data-theme") ? "dark" : "light") ? $(".menu-darkmode-text").text("深色模式") : $(".menu-darkmode-text").text("浅色模式")
-    },
-    changeTimeInEssay: function() {
-        for (var e = document.getElementsByTagName("time"), t = 0; t < e.length; t++) {
-            var o, n = e[t].getAttribute("datetime"), a = new Date(n), l = (new Date).getTime() - a.getTime(), c = Math.floor(l / 864e5);
-            o = 0 === c ? "最近" : 1 === c ? "昨天" : 2 === c ? "前天" : c <= 7 ? c + "天前" : a.getFullYear() !== (new Date).getFullYear() ? a.getFullYear() + "/" + (a.getMonth() + 1) + "/" + a.getDate() : a.getMonth() + 1 + "/" + a.getDate(),
-            e[t].textContent = o
-        }
-    },
-    initIndexEssay: function() {
-        if (document.querySelector("#bber-talk"))
-            new Swiper(".swiper-container",{
-                direction: "vertical",
-                loop: !0,
-                autoplay: {
-                    delay: 3e3,
-                    pauseOnMouseEnter: !0
-                }
-            })
-    },
-    onlyHome: function() {
-        var e = window.location.pathname;
-        "/" == (e = decodeURIComponent(e)) ? $(".only-home").attr("style", "display: flex") : $(".only-home").attr("style", "display: none")
-    },
-    is_Post: function() {
-        return window.location.href.indexOf("/posts/") >= 0
-    },
-    addNavBackgroundInit: function() {
-        var e = 0
-          , t = 0;
-        document.body && (e = document.body.scrollTop),
-        document.documentElement && (t = document.documentElement.scrollTop),
-        0 != (e - t > 0 ? e : t) && (document.getElementById("page-header").classList.add("nav-fixed"),
-        document.getElementById("page-header").classList.add("nav-visible"),
-        $("#cookies-window").hide())
-    },
-    tagPageActive: function() {
-        var e = window.location.pathname;
-        e = decodeURIComponent(e);
-        if (/\/tags\/.*?\//.test(e)) {
-            var t = e.split("/")[2];
-            document.querySelector("#tag-page-tags") && ($("a").removeClass("select"),
-            document.getElementById(t).classList.add("select"))
-        }
-    },
-    categoriesBarActive: function() {
-        document.querySelector("#category-bar") && $(".category-bar-item").removeClass("select");
-        var e = window.location.pathname;
-        if ("/" == (e = decodeURIComponent(e)))
-            document.querySelector("#category-bar") && document.getElementById("category-bar-home").classList.add("select");
-        else {
-            if (/\/categories\/.*?\//.test(e)) {
-                var t = e.split("/")[2];
-                document.querySelector("#category-bar") && document.getElementById(t).classList.add("select")
-            }
-        }
-    },
-    addFriendLinksInFooter: function() {
-        fetch("/mx/friendlink.json").then((e=>e.json())).then((e=>{
-            var t = []
-              , o = -1;
-            for (const n of e) {
-                const e = n.link_list;
-                for (let n = 0; n < Math.min(e.length, 1); n++) {
-                    let n = Math.floor(Math.random() * e.length);
-                    for (; n === o && e.length > 1; )
-                        n = Math.floor(Math.random() * e.length);
-                    o = n,
-                    t.push({
-                        name: e[n].name,
-                        link: e[n].link
-                    }),
-                    e.splice(n, 1)
-                }
-            }
-            t.pop();
-            var n = "";
-            for (let e = 0; e < t.length; ++e) {
-                var a = t[e];
-                n += `<a class='footer-item' href='${a.link}'  target="_blank" rel="noopener nofollow">${a.name}</a>`
-            }
-            n += "<a class='footer-item' href='/link/'>更多</a>",
-            document.getElementById("friend-links-in-footer").innerHTML = n
-        }
-        ))
-    },
-    stopImgRightDrag: function() {
-        $("img").on("dragstart", (function() {
-            return !1
-        }
-        ))
-    },
-    topPostScroll: function() {
-        if (document.getElementById("recent-post-top")) {
-            let e = document.getElementById("recent-post-top");
-            e.addEventListener("mousewheel", (function(t) {
-                let o = -t.wheelDelta / 2;
-                e.scrollLeft += o,
-                document.body.clientWidth < 1300 && t.preventDefault()
-            }
-            ), !1)
-        }
-    },
-    topCategoriesBarScroll: function() {
-        if (document.getElementById("category-bar-items")) {
-            let e = document.getElementById("category-bar-items");
-            e.addEventListener("mousewheel", (function(t) {
-                let o = -t.wheelDelta / 2;
-                e.scrollLeft += o,
-                t.preventDefault()
-            }
-            ), !1)
-        }
-    },
-    sayhi: function() {
-        document.querySelector("#author-info__sayhi") && (document.getElementById("author-info__sayhi").innerHTML = "👋" + getTimeState() + "！我是")
-    },
-    changeSayHelloText: function() {
-        const e = ["🤖️ 数码科技爱好者", "🔍 分享与热心帮助", "🏠 智能家居小能手", "🔨 全栈开发一条龙", "🤝 专修JAVA开发", "🏃 脚踏实地行动派", "🧱 团队小组发动机", "💢 少说话多做事"]
-          , t = document.getElementById("author-info__sayhi");
-        let o = e[Math.floor(Math.random() * e.length)];
-        for (; o === lastSayHello; )
-            o = e[Math.floor(Math.random() * e.length)];
-        t.textContent = o,
-        lastSayHello = o
-    },
-    scrollCategoryBarToRight: function() {
-        var e = document.getElementById("category-bar-items")
-          , t = document.getElementById("category-bar-next")
-          , o = e.clientWidth;
-        e && (e.scrollWidth - e.scrollLeft === e.clientWidth ? (e.scroll({
-            left: 0,
-            behavior: "smooth"
-        }),
-        t.innerHTML = '<i class="mxfont icon-youxiangshuangjiantou"></i>') : e.scrollBy({
-            left: o,
-            behavior: "smooth"
-        }))
-    },
-    addRandomCommentInfo: function() {
-        const e = `${adjectives[Math.floor(Math.random() * adjectives.length)]}${vegetablesAndFruits[Math.floor(Math.random() * vegetablesAndFruits.length)]}`;
-        !function() {
-            for (var t = ["#author", "input[name='comname']", "#inpName", "input[name='author']", "#ds-dialog-name", "#name", "input[name='nick']", "#comment_author"], o = ["#mail", "#email", "input[name='commail']", "#inpEmail", "input[name='email']", "#ds-dialog-email", "input[name='mail']", "#comment_email"], n = 0; n < t.length; n++) {
-                var a = document.querySelector(t[n]);
-                if (null != a) {
-                    a.value = e,
-                    a.dispatchEvent(new Event("input")),
-                    a.dispatchEvent(new Event("change"));
-                    break
-                }
-            }
-            for (var l = 0; l < o.length; l++) {
-                var c = document.querySelector(o[l]);
-                if (null != c) {
-                    c.value = "visitor@lovelu.com",
-                    c.dispatchEvent(new Event("input")),
-                    c.dispatchEvent(new Event("change"));
-                    break
-                }
-            }
-        }();
-        var t = document.getElementsByClassName("el-textarea__inner")[0];
-        t.focus(),
-        t.setSelectionRange(-1, -1)
-    },
-    addTag: function() {
-        document.querySelector(".sevene-tag-new") && $(".sevene-tag-new").append('<sup class="sevene-tag sevene-tag-new-view">N</sup>'),
-        document.querySelector(".sevene-tag-hot") && $(".sevene-tag-hot").append('<sup class="sevene-tag sevene-tag-hot-view">H</sup>')
-    },
-    qrcodeCreate: function() {
-        if (document.getElementById("qrcode")) {
-            document.getElementById("qrcode").innerHTML = "";
-            new QRCode(document.getElementById("qrcode"),{
-                text: window.location.href,
-                width: 250,
-                height: 250,
-                colorDark: "#000",
-                colorLight: "#ffffff",
-                correctLevel: QRCode.CorrectLevel.H
-            })
-        }
-    },
-    addWaterfallJS: function() {
-        var e = document.createElement("script");
-        e.src = "https://img.lovelu.top/hexo-blog/js/waterfall.min.js",
-        document.body.appendChild(e)
-    },
-    reflashEssayWaterFall: function() {
-        document.querySelector("#waterfall") && setTimeout((function() {
-            waterfall("#waterfall"),
-            document.getElementById("waterfall").classList.add("show")
-        }
-        ), 500)
-    },
-    downloadImage: function(e, t) {
-        rm.hideRightMenu(),
-        0 == rm.downloadimging ? (rm.downloadimging = !0,
-        btf.snackbarShow("正在下载中，请稍后", !1, 1e4),
-        setTimeout((function() {
-            let o = new Image;
-            o.setAttribute("crossOrigin", "anonymous"),
-            o.onload = function() {
-                let e = document.createElement("canvas");
-                e.width = o.width,
-                e.height = o.height,
-                e.getContext("2d").drawImage(o, 0, 0, o.width, o.height);
-                let n = e.toDataURL("image/png")
-                  , a = document.createElement("a")
-                  , l = new MouseEvent("click");
-                a.download = t || "photo",
-                a.href = n,
-                a.dispatchEvent(l)
-            }
-            ,
-            o.src = e,
-            btf.snackbarShow("图片已添加盲水印，请遵守版权协议"),
-            rm.downloadimging = !1
-        }
-        ), "10000")) : btf.snackbarShow("有正在进行中的下载，请稍后再试")
-    },
-    switchCommentBarrage: function() {
-        document.querySelector(".comment-barrage") && ($(".comment-barrage").is(":visible") ? ($(".comment-barrage").hide(),
-        $(".menu-commentBarrage-text").text("显示热评"),
-        document.querySelector("#consoleCommentBarrage").classList.remove("on"),
-        localStorage.setItem("commentBarrageSwitch", "false")) : $(".comment-barrage").is(":hidden") && ($(".comment-barrage").show(),
-        $(".menu-commentBarrage-text").text("关闭热评"),
-        document.querySelector("#consoleCommentBarrage").classList.add("on"),
-        localStorage.removeItem("commentBarrageSwitch"))),
-        rm.hideRightMenu()
-    },
-    hidecookie: function() {
-        sevene_cookiesTime = setTimeout((()=>{
-            document.getElementById("cookies-window").classList.add("cw-hide"),
-            setTimeout((()=>{
-                $("#cookies-window").hide()
-            }
-            ), 1e3)
-        }
-        ), 3e3)
-    },
-    hideTodayCard: function() {
-        document.getElementById("todayCard") && document.getElementById("todayCard").classList.add("hide")
-    },
-    changeThemeColor: function(e) {
-        null !== document.querySelector('meta[name="theme-color"]') && document.querySelector('meta[name="theme-color"]').setAttribute("content", e)
-    },
-    initThemeColor: function() {
-        const e = window.scrollY || document.documentElement.scrollTop;
-        if (sevene.is_Post()) {
-            if (e > 0) {
-                let e = getComputedStyle(document.documentElement).getPropertyValue("--sevene-card-bg");
-                sevene.changeThemeColor(e)
-            } else if (0 === e) {
-                let e = getComputedStyle(document.documentElement).getPropertyValue("--sevene-main");
-                sevene.changeThemeColor(e)
-            }
-        } else if (e > 0) {
-            let e = getComputedStyle(document.documentElement).getPropertyValue("--sevene-card-bg");
-            sevene.changeThemeColor(e)
-        } else if (0 === e) {
-            let e = getComputedStyle(document.documentElement).getPropertyValue("--sevene-background");
-            sevene.changeThemeColor(e)
-        }
-    },
-    jumpTo: function(e) {
-        $(document).ready((function() {
-            $("html,body").animate({
-                scrollTop: $(e).eq(i).offset().top
-            }, 500)
-        }
-        ))
-    },
-    showLoading: function() {
-        document.querySelector("#loading-box").classList.remove("loaded");
-        let e = getComputedStyle(document.documentElement).getPropertyValue("--sevene-card-bg");
-        sevene.changeThemeColor(e)
-    },
-    hideLoading: function() {
-        document.querySelector("#loading-box").classList.add("loaded"),
-        heoGPT.aiExplanation()
-    },
-    musicToggle: function() {
-        sevene_musicPlaying ? (document.querySelector("#nav-music").classList.remove("playing"),
-        document.getElementById("menu-music-toggle").innerHTML = '<i class="mxfont icon-play-fill"></i><span>播放音乐</span>',
-        document.getElementById("nav-music-hoverTips").innerHTML = "音乐已暂停",
-        document.querySelector("#consoleMusic").classList.remove("on"),
-        sevene_musicPlaying = !1) : (document.querySelector("#nav-music").classList.add("playing"),
-        document.getElementById("menu-music-toggle").innerHTML = '<i class="mxfont icon-pause-fill"></i><span>暂停音乐</span>',
-        document.querySelector("#consoleMusic").classList.add("on"),
-        sevene_musicPlaying = !0),
-        document.querySelector("meting-js").aplayer.toggle(),
-        rm.hideRightMenu()
-    },
-    musicSkipBack: function() {
-        document.querySelector("meting-js").aplayer.skipBack(),
-        rm.hideRightMenu()
-    },
-    musicSkipForward: function() {
-        document.querySelector("meting-js").aplayer.skipForward(),
-        rm.hideRightMenu()
-    },
-    musicGetName: function() {
-        for (var e = $(".aplayer-title"), t = [], o = e.length - 1; o >= 0; o--)
-            t[o] = e[o].innerText;
-        return t[0]
-    },
-    showConsole: function() {
-        document.querySelector("#console").classList.add("show"),
-        sevene.initConsoleState()
-    },
-    hideConsole: function() {
-        document.querySelector("#console").classList.remove("show")
-    },
-    removeBodyPaceClass: function() {
-        $("body").removeClass(),
-        $("body").addClass("pace-done")
-    },
-    keyboardToggle: function() {
-        sevene_keyboard ? (sevene_keyboard = !1,
-        document.querySelector("#consoleKeyboard").classList.remove("on"),
-        localStorage.setItem("keyboardToggle", "false")) : (sevene_keyboard = !0,
-        document.querySelector("#consoleKeyboard").classList.add("on"),
-        localStorage.setItem("keyboardToggle", "true"))
-    },
-    scrollTo: function(e) {
-        const t = document.getElementById(e);
-        if (t) {
-            const e = t.getBoundingClientRect().top + window.pageYOffset - 80
-              , o = window.pageYOffset
-              , n = e - o;
-            let a = null;
-            window.requestAnimationFrame((function e(t) {
-                a || (a = t);
-                const l = t - a
-                  , c = Math.min(l / 0, 1)
-                  , i = (r = c) < .5 ? 2 * r * r : (4 - 2 * r) * r - 1;
-                var r;
-                window.scrollTo(0, o + n * i),
-                l < 600 && window.requestAnimationFrame(e)
-            }
-            ))
-        }
-    },
-    hideAsideBtn: ()=>{
-        const e = document.documentElement.classList;
-        e.contains("hide-aside") ? saveToLocal.set("aside-status", "show", 2) : saveToLocal.set("aside-status", "hide", 2),
-        e.toggle("hide-aside"),
-        e.contains("hide-aside") ? document.querySelector("#consoleHideAside").classList.add("on") : document.querySelector("#consoleHideAside").classList.remove("on")
+  
+  // 检测显示模式
+  darkModeStatus: function () {
+    let theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light'
+    if (theme == 'light') {
+      $(".menu-darkmode-text").text("深色模式");
+    }else {
+      $(".menu-darkmode-text").text("浅色模式");
     }
-    ,
-    initConsoleState: function() {
-        document.documentElement.classList.contains("hide-aside") ? document.querySelector("#consoleHideAside").classList.add("on") : document.querySelector("#consoleHideAside").classList.remove("on")
-    },
-    FPSToggle: function() {
-        sevene_showFPS ? (sevene_showFPS = !1,
-        document.querySelector("#fps-group").classList.remove("show"),
-        document.querySelector("#consoleFPS").classList.remove("on"),
-        localStorage.setItem("showFPS", "false")) : (sevene_showFPS = !0,
-        document.querySelector("#fps-group").classList.add("show"),
-        document.querySelector("#consoleFPS").classList.add("on"),
-        localStorage.setItem("showFPS", "true"))
-    },
-    toPage: function() {
-        console.log("执行跳转");
-        var e = document.querySelectorAll(".page-number")
-          , t = e[e.length - 1].innerHTML
-          , o = Number(t)
-          , n = document.getElementById("toPageText")
-          , a = Number(n.value);
-        if ("" != a && !isNaN(a) && a % 1 == 0)
-            if (1 == a)
-                document.getElementById("toPageButton").href = "/";
-            else if (a > o) {
-                var l = "/page/" + o + "/";
-                document.getElementById("toPageButton").href = l
-            } else
-                l = "/page/" + n.value + "/",
-                document.getElementById("toPageButton").href = l
+  },
+
+  //bb添加时间
+  changeTimeInEssay: function() {
+    const relativeDate = function (selector) {
+      selector.forEach(item => {
+        const $this = item
+        const timeVal = $this.getAttribute('datetime')
+        $this.innerText = btf.diffDate(timeVal, true)
+        $this.style.display = 'inline'
+      })
     }
-};
-const adjectives = ["美丽的", "英俊的", "聪明的", "勇敢的", "可爱的", "慷慨的", "善良的", "可靠的", "开朗的", "成熟的", "稳重的", "真诚的", "幽默的", "豁达的", "有趣的", "活泼的", "优雅的", "敏捷的", "温柔的", "温暖的", "敬业的", "细心的", "耐心的", "深沉的", "朴素的", "含蓄的", "率直的", "开放的", "务实的", "坚强的", "自信的", "谦虚的", "文静的", "深刻的", "纯真的", "朝气蓬勃的", "慎重的", "大方的", "顽强的", "迷人的", "机智的", "善解人意的", "富有想象力的", "有魅力的", "独立的", "好奇的", "干净的", "宽容的", "尊重他人的", "体贴的", "守信的", "有耐性的", "有责任心的", "有担当的", "有远见的", "有智慧的", "有眼光的", "有冒险精神的", "有爱心的", "有同情心的", "喜欢思考的", "喜欢学习的", "具有批判性思维的", "善于表达的", "善于沟通的", "善于合作的", "善于领导的", "有激情的", "有幽默感的", "有思想的", "有个性的", "有正义感的", "有责任感的", "有创造力的", "有想象力的", "有艺术细胞的", "有团队精神的", "有协调能力的", "有决策能力的", "有组织能力的", "有学习能力的", "有执行能力的", "有分析能力的", "有逻辑思维的", "有创新能力的", "有专业素养的", "有商业头脑的"]
-  , vegetablesAndFruits = ["萝卜", "白菜", "芹菜", "生菜", "青椒", "辣椒", "茄子", "豆角", "黄瓜", "西红柿", "洋葱", "大蒜", "土豆", "南瓜", "豆腐", "韭菜", "花菜", "西兰花", "蘑菇", "金针菇", "苹果", "香蕉", "橙子", "柠檬", "猕猴桃", "草莓", "葡萄", "桃子", "杏子", "李子", "石榴", "西瓜", "哈密瓜", "蜜瓜", "樱桃", "蓝莓", "柿子", "橄榄", "柚子", "火龙果"];
-$(document).ready((function() {
-    initBlog()
+
+    if (document.querySelector('#bber')) {
+      relativeDate(document.querySelectorAll('#bber time'))
+    }
+  },
+
+  // 首页bb
+  initIndexEssay: function() {
+    if (document.querySelector('#bber-talk')) {
+      var swiper = new Swiper('.swiper-container', {
+        direction: 'vertical', // 垂直切换选项
+        loop: true,
+        autoplay: {
+        delay: 3000,
+        pauseOnMouseEnter: true
+      },
+      });
+    }
+  },
+
+
+  // 只在首页显示
+  onlyHome: function() {
+    var urlinfo = window.location.pathname;
+    urlinfo = decodeURIComponent(urlinfo);
+    if (urlinfo == '/'){
+      $('.only-home').attr('style','display: flex');
+    }else{
+      $('.only-home').attr('style','display: none');
+    }
+  },
+
+  //是否在首页
+  is_Post: function() {
+    var url=window.location.href;  //获取url
+  if(url.indexOf("/p/") >= 0 ) { //判断url地址中是否包含code字符串
+      return true;
+    }else {
+      return false;
+     }
+  },
+
+
+  //监测是否在页面开头
+  addNavBackgroundInit: function() {
+    var scrollTop = 0, bodyScrollTop = 0, documentScrollTop = 0;
+      if(document.body){
+        bodyScrollTop = document.body.scrollTop;
+      }
+      if(document.documentElement){
+        documentScrollTop = document.documentElement.scrollTop;
+      }
+      scrollTop = (bodyScrollTop - documentScrollTop > 0) ? bodyScrollTop : documentScrollTop;
+      // console.log("滚动高度"+ scrollTop)
+    
+      if (scrollTop != 0) {
+        document.getElementById("page-header").classList.add("nav-fixed");
+        document.getElementById("page-header").classList.add("nav-visible");
+        $('#cookies-window').hide()
+        console.log("已添加class")
+      }
+  },
+
+  // 标签页面
+  //分类条
+  tagPageActive: function() {
+    var urlinfo = window.location.pathname;
+    urlinfo = decodeURIComponent(urlinfo)
+    // console.log(urlinfo);
+    // 验证是否是分类链接
+    var pattern = /\/tags\/.*?\//;
+    var patbool = pattern.test(urlinfo);
+    // console.log(patbool);
+    // 获取当前的分类
+    if (patbool) {
+      var valuegroup = urlinfo.split("/");
+      // console.log(valuegroup[2]);
+      // 获取当前分类
+      var nowCategorie = valuegroup[2];
+      if (document.querySelector('#tag-page-tags')){
+        $('a').removeClass('select')
+        document.getElementById(nowCategorie).classList.add("select");
+      }
+    }
+  },
+
+  //分类条
+  categoriesBarActive: function() {
+    if (document.querySelector('#category-bar')){
+      $(".category-bar-item").removeClass("select")
+    }
+    var urlinfo = window.location.pathname;
+    urlinfo = decodeURIComponent(urlinfo);
+    // console.log(urlinfo);
+    //判断是否是首页
+    if (urlinfo == '/'){
+      if (document.querySelector('#category-bar')){
+        document.getElementById('category-bar-home').classList.add("select");
+      }
+    }else {
+      // 验证是否是分类链接
+      var pattern = /\/categories\/.*?\//;
+      var patbool = pattern.test(urlinfo);
+      // console.log(patbool);
+      // 获取当前的分类
+      if (patbool) {
+        var valuegroup = urlinfo.split("/");
+        // console.log(valuegroup[2]);
+        // 获取当前分类
+        var nowCategorie = valuegroup[2];
+        if (document.querySelector('#category-bar')){
+          document.getElementById(nowCategorie).classList.add("select");
+        }
+      }
+    }
+  },
+
+  logInfo: ()=>{
+    console.log(`Welcome to:\n%c七鳄学习格 :%c https://blog.gmcj0816.top%c\nThis site has been running stably for %c${Math.round(((new Date).getTime() - new Date("2021/10/15 00:00:00").getTime()) / 864e5)} %c days`, "border:1px #888 solid;border-right:0;border-radius:5px 0 0 5px;padding: 5px 10px;color:white;background:#4976f5;margin:10px 0", "border:1px #888 solid;border-left:0;border-radius:0 5px 5px 0;padding: 5px 10px;", "", "color:#4976f5", "")
+  },
+  //禁止图片右键单击
+  stopImgRightDrag: function() {
+    var img=$("img");
+    img.on("dragstart",function(){return false;});
+  },
+
+  //置顶文章横向滚动
+  topPostScroll: function() {
+    if (document.getElementById("recent-post-top")){
+      let xscroll = document.getElementById("recent-post-top");
+      xscroll.addEventListener("mousewheel", function (e) {
+      //计算鼠标滚轮滚动的距离
+      let v = -e.wheelDelta / 2;
+      xscroll.scrollLeft += v;
+      //阻止浏览器默认方法
+      if(document.body.clientWidth < 1300){
+        e.preventDefault();
+      }
+      }, false);
+    }
+  },
+
+  topCategoriesBarScroll: function() {
+    if (document.getElementById("category-bar-items")){
+        let xscroll = document.getElementById("category-bar-items");
+        xscroll.addEventListener("mousewheel", function (e) {
+        //计算鼠标滚轮滚动的距离
+        let v = -e.wheelDelta / 2;
+        xscroll.scrollLeft += v;
+        //阻止浏览器默认方法
+        e.preventDefault();
+      }, false);
+    }
+  },
+
+  //作者卡片问好
+  sayhi: function() {
+    if (document.querySelector('#author-info__sayhi')){
+      document.getElementById("author-info__sayhi").innerHTML = getTimeState() + "！我是";
+    }
+  },
+
+  // 添加标签
+  addTag: function() {
+    //添加new标签
+    if (document.querySelector('.sevene-tag-new')){
+      $(".sevene-tag-new").append(`<sup class="sevene-tag sevene-tag-new-view">N</sup>`)
+    }
+    //添加hot标签
+    if (document.querySelector('.sevene-tag-hot')){
+      $(".sevene-tag-hot").append(`<sup class="sevene-tag sevene-tag-hot-view">H</sup>`)
+    }
+  },
+
+  // 二维码
+  qrcodeCreate: function() {
+    if (document.getElementById('qrcode')){
+      document.getElementById("qrcode").innerHTML = "";
+      var qrcode = new QRCode(document.getElementById("qrcode"), {
+        text: window.location.href,
+        width: 250,
+        height: 250,
+        colorDark : "#000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+      });
+    }
+  },
+
+  // 刷新即刻短文瀑布流
+  reflashEssayWaterFall: function() {
+    if (document.querySelector('#waterfall')) {
+      setTimeout(function(){
+          waterfall('#waterfall');
+          document.getElementById("waterfall").classList.add('show'); 
+      },500);
+    }
+  },
+
+  // 即刻短文添加灯箱
+  addMediumInEssay: function() {
+    if (document.querySelector('#waterfall')) {
+      mediumZoom(document.querySelectorAll('[data-zoomable]'))
+    }
+  },
+
+  // 下载图片
+  downloadImage: function(imgsrc, name) { //下载图片地址和图片名
+    rm.hideRightMenu();
+    if (rm.downloadimging == false) {
+      rm.downloadimging = true;
+      btf.snackbarShow('正在下载中，请稍后',false,10000)
+      setTimeout(function(){
+        let image = new Image();
+        // 解决跨域 Canvas 污染问题
+        image.setAttribute("crossOrigin", "anonymous");
+        image.onload = function() {
+          let canvas = document.createElement("canvas");
+          canvas.width = image.width;
+          canvas.height = image.height;
+          let context = canvas.getContext("2d");
+          context.drawImage(image, 0, 0, image.width, image.height);
+          let url = canvas.toDataURL("image/png"); //得到图片的base64编码数据
+          let a = document.createElement("a"); // 生成一个a元素
+          let event = new MouseEvent("click"); // 创建一个单击事件
+          a.download = name || "photo"; // 设置图片名称
+          a.href = url; // 将生成的URL设置为a.href属性
+          a.dispatchEvent(event); // 触发a的单击事件
+        };
+        image.src = imgsrc;
+        btf.snackbarShow('图片已添加盲水印，请遵守版权协议');
+        rm.downloadimging = false;
+      }, "10000");
+    }else{
+      btf.snackbarShow('有正在进行中的下载，请稍后再试');
+    }
+  },
+  // 切换热评
+  switchCommentBarrage: function  () {
+    let flag = window.localStorage.getItem('commentBarrageDisplay') // undefined || false
+    console.log(flag)
+    document.getElementById('comment-barrage').style.display = flag === 'false' ? 'block' : 'none'
+    // 本地缓存一天，刷新或切换页面时仍 隐藏或显示 热评。
+    window.localStorage.setItem('commentBarrageDisplay', flag === 'false' ? 'undefined' : 'false', 86400000)
+    rm.hideRightMenu();
+    btf.snackbarShow('热评显示切换成功',false,2000);
+  },
+
+
+  //隐藏cookie窗口
+  hidecookie: function() {
+    sevene_cookiesTime = setTimeout(()=>{
+      document.getElementById("cookies-window").classList.add('cw-hide');
+      setTimeout(()=>{
+        $('#cookies-window').hide()
+      },1000)
+    },3000)
+  },
+
+  //隐藏今日推荐
+  hideTodayCard: function() {
+    if (document.getElementById("todayCard")) {
+      document.getElementById("todayCard").classList.add('hide');
+    }
+  },
+
+  //更改主题色
+  changeThemeColor: function(color) {
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', color)
+    }
+  },
+  commentText: function (e) {
+    if (e == "undefined" || e == "null") e = "好棒！";
+    var n = document.getElementsByClassName("el-textarea__inner")[0],
+      t = document.createEvent("HTMLEvents");
+    if (!n) return;
+    t.initEvent("input", !0, !0);
+    var o = replaceAll(e, "\n", "\n> ");
+    (n.value = "> " + o + "\n\n"), n.dispatchEvent(t);
+    var i = document.querySelector("#post-comment").offsetTop;
+    window.scrollTo(0, i - 80),
+      n.focus(),
+      n.setSelectionRange(-1, -1),
+      document.getElementById("comment-tips") && document.getElementById("comment-tips").classList.add("show");
+  },
+
+  //自适应主题色
+  initThemeColor: function() {
+    if (sevene.is_Post()) {
+      const currentTop = window.scrollY || document.documentElement.scrollTop
+      if (currentTop > 0) {
+        let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sevene-card-bg');
+        sevene.changeThemeColor(themeColor);
+      }else {
+        if (currentTop === 0) {
+          let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sevene-main');
+          sevene.changeThemeColor(themeColor);
+        }
+      }
+    }else {
+      let themeColor = getComputedStyle(document.documentElement).getPropertyValue('--sevene-card-bg');
+      sevene.changeThemeColor(themeColor);
+    }
+  },
+
+  //跳转到指定位置
+  jumpTo: function(dom) {
+    $(document).ready(function () {
+      $("html,body").animate({
+        scrollTop: $(dom).eq(i).offset().top
+      }, 500 /*scroll实现定位滚动*/ ); /*让整个页面可以滚动*/
+    });
+  },
+
+  //显示加载动画
+  showLoading: function() {
+    document.querySelector("#loading-box").classList.remove("loaded");
+    let cardColor = getComputedStyle(document.documentElement).getPropertyValue('--sevene-card-bg');
+    sevene.changeThemeColor(cardColor);
+  },
+
+  //隐藏加载动画
+  hideLoading: function() {
+    document.querySelector("#loading-box").classList.add("loaded");
+    sevene.aiExplanation();
+  },
+
+  //切换音乐播放状态
+  musicToggle: function() {
+    let msgPlay = '<i class="fa-solid fa-play"></i><span>播放音乐</span>' // 此處可以更改為你想要顯示的文字
+    let msgPause = '<i class="fa-solid fa-pause"></i><span>暂停音乐</span>' // 同上，但兩處均不建議更改
+    if (sevene_musicPlaying) {
+      document.querySelector("#nav-music").classList.remove("playing");
+      document.getElementById("menu-music-toggle").innerHTML = msgPlay;
+      document.getElementById("nav-music-hoverTips").innerHTML = "音乐已暂停";
+      document.querySelector("#consoleMusic").classList.remove("on");
+      sevene_musicPlaying = false;
+    }else {
+      document.querySelector("#nav-music").classList.add("playing");
+      document.getElementById("menu-music-toggle").innerHTML = msgPause;
+      document.querySelector("#consoleMusic").classList.add("on");
+      sevene_musicPlaying = true;
+    }
+    document.querySelector('meting-js').aplayer.toggle();
+    rm.hideRightMenu();
+  },
+
+  //音乐上一曲
+  musicSkipBack: function() {
+    document.querySelector('meting-js').aplayer.skipBack();
+    rm.hideRightMenu();
+  },
+
+  //音乐下一曲
+  musicSkipForward: function() {
+    document.querySelector('meting-js').aplayer.skipForward();
+    rm.hideRightMenu();
+  },
+
+  //获取音乐中的名称
+  musicGetName: function() {
+    var x = $('.aplayer-title')
+		// var x = document.getElementsByClassName('txt');
+		// for (var i = x.length - 1; i >= 0; i--) {
+		// console.log(x[i].innerText)
+		// }
+		var arr = []
+		for (var i = x.length - 1; i >= 0; i--) {
+			arr[i] = x[i].innerText
+			// console.log(x[i].innerText)
+		}
+		return arr[0]
+  },
+
+  //显示中控台
+  showConsole: function() {
+    document.querySelector("#console").classList.add("show");
+    sevene.initConsoleState();
+  },
+
+  //隐藏中控台
+  hideConsole: function() {
+    document.querySelector("#console").classList.remove("show");
+  },
+
+  //快捷键功能开关
+  keyboardToggle: function() {
+    if (sevene_keyboard) {
+      sevene_keyboard = false;
+      document.querySelector("#consoleKeyboard").classList.remove("on");
+      localStorage.setItem('keyboardToggle', 'false');
+    }else {
+      sevene_keyboard = true;
+      document.querySelector("#consoleKeyboard").classList.add("on");
+      localStorage.setItem('keyboardToggle', 'true');
+    }
+  },
+
+  //滚动到指定id
+  scrollTo:function(id){
+    var domTop = document.querySelector(id).offsetTop;
+    window.scrollTo(0,domTop - 80);
+  },
+
+  //隐藏侧边栏
+  hideAsideBtn: () => { // Hide aside
+    const $htmlDom = document.documentElement.classList
+    $htmlDom.contains('hide-aside')
+      ? saveToLocal.set('aside-status', 'show', 2)
+      : saveToLocal.set('aside-status', 'hide', 2)
+    $htmlDom.toggle('hide-aside')
+    $htmlDom.contains('hide-aside')
+      ? document.querySelector("#consoleHideAside").classList.add("on")
+      : document.querySelector("#consoleHideAside").classList.remove("on")
+  },
+
+  //初始化console图标
+  initConsoleState: function() {
+    //初始化隐藏边栏
+    const $htmlDom = document.documentElement.classList
+    $htmlDom.contains('hide-aside')
+      ? document.querySelector("#consoleHideAside").classList.add("on")
+      : document.querySelector("#consoleHideAside").classList.remove("on")
+  },
+  aiExplanation: function() {
+      const element = document.querySelector(".ai-explanation");
+      if (!element) {
+         console.log("不在文章页面");
+          return;
+      }
+      const text = element.innerText;
+      const delay = 1000 / 50; // 1秒50个字
+      const waitingTime = 2000; // 等待2秒后开始打字
+      // 保存原始文本内容
+      const originalText = text;
+      // 显示等待文本
+      element.innerText = "AI生成摘要中....";
+      element.style.display = "block";
+
+      const type = (i) => {
+          setTimeout(() => {
+              const letter = text.slice(i, i + 1);
+              element.innerText = text.slice(0, i + 1);
+              if (i === text.length - 1) {
+                  console.log(i);
+                  // 显示原始文本内容
+                  element.innerText = originalText;
+                  element.style.display = "block";
+              } else {
+                  if (
+                      letter === "," ||
+                      letter === "，" ||
+                      letter === "." ||
+                      letter === "。" ||
+                      letter === "!" ||
+                      letter === "！" ||
+                      letter === "?" ||
+                      letter === "？"
+                  ) {
+                      // 遇到标点符号时略微延迟
+                      setTimeout(() => {
+                          type(i + 1);
+                      }, delay * 5);
+                  } else {
+                      type(i + 1);
+                  }
+              }
+          }, delay);
+      };
+
+      // 在等待 2 秒后开始逐字显示
+      setTimeout(() => {
+          type(0);
+      }, waitingTime);
+  },
+  //删除多余的class
+  removeBodyPaceClass: function() {
+    $('body').removeClass()
+    $('body').addClass('pace-done')
+  },
+  //photos相册墙
+  // 函数
+  photos: function () {
+  fetch('https://memos.gmcj0816.top//api/memo?creatorId=1&tag=相册').then(res => res.json()).then(data => { // 记得修改memos地址
+      let html='', imgs = [];
+      data.data.forEach(item => { imgs = imgs.concat(item.content.match(/\!\[.*?\]\(.*?\)/g)) });
+      imgs.forEach(item => {
+          let img = item.replace(/!\[.*?\]\((.*?)\)/g, '$1'),
+              time, title, tat = item.replace(/!\[(.*?)\]\(.*?\)/g, '$1');
+          if (tat.indexOf(' ') != -1) {
+              time = tat.split(' ')[0];
+              title = tat.split(' ')[1];
+          } else title = tat
+
+          html += `<div class="gallery-photo"><a href="${img}" data-fancybox="gallery" class="fancybox" data-thumb="${img}"><img class="photo-img" loading='lazy' decoding="async" src="${img}"></a>`;
+          title ? html += `<span class="photo-title">${title}</span>` : '';
+          time ? html += `<span class="photo-time">${time}</span>` : '';
+          html += `</div>`;
+      });
+
+      document.querySelector('.gallery-photos.page').innerHTML = html
+      imgStatus.watch('.photo-img', () => { waterfall('.gallery-photos'); });
+      window.Lately && Lately.init({ target: '.photo-time' });
+  }).catch()
+},
+  //显示帧率
+  FPSToggle: function() {
+    if (sevene_showFPS) {
+      sevene_showFPS = false;
+      document.querySelector("#fps-group").classList.remove("show");
+      document.querySelector("#consoleFPS").classList.remove("on");
+      localStorage.setItem('showFPS', 'false');
+    }else {
+      sevene_showFPS = true;
+      document.querySelector("#fps-group").classList.add("show");
+      document.querySelector("#consoleFPS").classList.add("on");
+      localStorage.setItem('showFPS', 'true');
+    }
+    
+  },
+  changeSayHelloText: function() {
+    // 定义数组存储可选内容
+    const contentArray = ['🤖️ 数码科技爱好者', '🔍 分享与热心帮助', '🏠 智能家居小能手', '🔨 设计开发一条龙', '🤝 专修交互与设计','🏃 脚踏实地行动派',"🧱 团队小组发动机","💢 壮汉人狠话不多"];
+    // 获取要更改内容的元素
+    const contentElement = document.getElementById('author-info__sayhi');
+    // 从数组中随机选择一个新内容
+    let newContent = contentArray[Math.floor(Math.random() * contentArray.length)];
+    // 如果新内容与上一个重复，重新选择
+    while (newContent === lastSayHello) {
+      newContent = contentArray[Math.floor(Math.random() * contentArray.length)];
+    }
+    // 将新内容赋值给元素的文本内容
+    contentElement.textContent = newContent;
+
+    // 更新上一个内容的变量
+    lastSayHello = newContent;
+  }
 }
-)),
-document.addEventListener("pjax:complete", (function() {
-    heoGPTIsRunning = !1,
-    heo_aiPostExplanation = "",
-    aiTalkMode = !1,
-    heoGPTModel = "HrnGPT",
-    initBlog()
-}
-)),
-document.addEventListener("pjax:click", (function() {
-    console.log("pjax:click"),
-    heoGPT_timeoutId && clearTimeout(heoGPT_timeoutId),
-    heoGPT_observer && heoGPT_observer.disconnect()
-}
-));
