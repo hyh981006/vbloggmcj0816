@@ -3,7 +3,6 @@ let sevene_musicPlaying = false;
 let sevene_keyboard = false;
 let sevene_intype = false;
 let sevene_showFPS = false;
-let sevenegpt = null
 // 私有函数
 var sevene = {
   
@@ -352,7 +351,7 @@ var sevene = {
   //隐藏加载动画
   hideLoading: function() {
     document.querySelector("#loading-box").classList.add("loaded");
-    seveneGPT.aiExplanation();
+    sevene.aiExplanation();
   },
 
   //切换音乐播放状态
@@ -565,19 +564,4 @@ var sevene = {
     // 更新上一个内容的变量
     lastSayHello = newContent;
   }
-  
 }
-document.addEventListener("pjax:complete", (function() {
-  seveneGPTIsRunning = !1,
-  sevene_aiPostExplanation = "",
-  aiTalkMode = !1,
-  seveneGPTModel = "HeoGPT",
-  initBlog()
-}
-)),
-document.addEventListener("pjax:click", (function() {
-  console.log("pjax:click"),
-  seveneGPT_timeoutId && clearTimeout(sevneGPT_timeoutId),
-  seveneoGPT_observer && seveneGPT_observer.disconnect()
-}
-))
