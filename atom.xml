@@ -6,7 +6,7 @@
   <link href="https://blog.gmcj0816.top/atom.xml" rel="self"/>
   
   <link href="https://blog.gmcj0816.top/"/>
-  <updated>2023-04-30T11:54:40.330Z</updated>
+  <updated>2023-04-27T13:31:58.296Z</updated>
   <id>https://blog.gmcj0816.top/</id>
   
   <author>
@@ -15,35 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Unity接入TapTap完成移动端的登录等功能</title>
-    <link href="https://blog.gmcj0816.top/posts/c537217a/"/>
-    <id>https://blog.gmcj0816.top/posts/c537217a/</id>
-    <published>2023-04-30T11:14:26.000Z</published>
-    <updated>2023-04-30T11:54:40.330Z</updated>
-    
-    <content type="html"><![CDATA[<p>其实在Unity手机端开发过程中，一般特别是游戏类型的开发，都会用到登录模块，现在目前成熟且常见的无外乎QQ登录，微信登录，以及第三方登录（TapTap登录，系统账户登录），这篇文章主要以TapTap为例进行介绍。</p><div class="note red no-icon flat"><p>Unity是 实时3D互动内容创作和运营平台 。包括游戏开发、美术、建筑、汽车设计、影视在内的所有创作者，借助 Unity 将创意变成现实。Unity 平台提供一整套完善的软件解决方案，可用于创作、运营和变现任何实时互动的2D和3D内容，支持平台包括手机、平板电脑、PC、游戏主机、增强现实和虚拟现实设备。简单来说，Unity3D不单单可以做游戏，还可以通过相关接口与API来进行设备的交互【例如虚拟仿真】</p></div><p>🎬 博客主页：<a href="https://blog.gmcj0816.top">https://blog.gmcj0816.top</a></p><p>🏅 欢迎点赞 👍 收藏 ⭐留言 📝 如有错误敬请指正！ </p><p>📆 此文章为原创，并通过Typora编辑器撰写✨</p><p>🌲 开发工具：Unity3D 2021.3.21f1(个人版)   Rider2022.2.4(教育版)</p><div class="note green no-icon flat"><p>本篇全部以U3D为准，如果接入UE4，安卓等，可以参考自官方开发文档：<a href="https://developer.taptap.cn/docs/sdk/taptap-login/guide/start/">接入 TapTap 登录 | TapTap 开发者文档</a></p></div><h1 id="登录模块"><a href="#登录模块" class="headerlink" title="登录模块"></a>登录模块</h1><p>接入 TapTap 登录有两种方式：</p><ol><li>基于[内建账户系统]接入 TapTap 登录（此方式是博主和官方都比较推荐的）；</li><li>[单纯 TapTap 用户认证]登录；</li></ol><h2 id="环境准备"><a href="#环境准备" class="headerlink" title="环境准备"></a>环境准备</h2><p>使用TapTap需要符合以下要求：</p><ul><li>Unity2019.4或者更高版本（博主使用的是Unity2021.3.21f1，如果担心配置过程中有问题，可以使用与博主类似的版本）</li><li>iOS 10 或更高版本</li><li>Android 5.0（API level 21）或更高版本</li></ul><h2 id="集成准备"><a href="#集成准备" class="headerlink" title="集成准备"></a>集成准备</h2><p>其实这一步就需要到TapTao开发者官方网站上去操作（主要作用便是获取到 Client ID和Client Token等信息，后面接入需要用到）</p><p>地址为：<a href="https://developer.taptap.cn/">https://developer.taptap.cn/</a></p><div class="note blue no-icon flat"><p>这里需要注意的是需要成为认证开发者，这一步还是比较容易的，选择个人开发者然后填写详细地信息后等待审核就可以了，一般五个工作日差不多就会审核完</p></div><p>TODO：这一块先留着，到时候补图就行</p><h2 id="SDK获取"><a href="#SDK获取" class="headerlink" title="SDK获取"></a>SDK获取</h2><p>其实这一步呢，SDK 可以<strong>通过 Unity Package Manager 导入或手动导入</strong>，但博主感觉第二种比较稳妥且容易一些，不过都会列入的，如下</p><h3 id="使用UPM导入"><a href="#使用UPM导入" class="headerlink" title="使用UPM导入"></a>使用UPM导入</h3><p>这一步需要去项目的根路径下找到Packages/manifest.json文件打开添加以下依赖信息：</p><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">&quot;dependencies&quot;</span><span class="punctuation">:</span><span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;com.taptap.tds.login&quot;</span><span class="punctuation">:</span><span class="string">&quot;https://github.com/TapTap/TapLogin-Unity.git#3.18.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;com.taptap.tds.common&quot;</span><span class="punctuation">:</span><span class="string">&quot;https://github.com/TapTap/TapCommon-Unity.git#3.18.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;com.taptap.tds.bootstrap&quot;</span><span class="punctuation">:</span><span class="string">&quot;https://github.com/TapTap/TapBootstrap-Unity.git#3.18.5&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;com.leancloud.realtime&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://github.com/leancloud/csharp-sdk-upm.git#realtime-1.0.2&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;com.leancloud.storage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;https://github.com/leancloud/csharp-sdk-upm.git#storage-1.0.2&quot;</span><span class="punctuation">,</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure><p>之后就可以到在 Unity 顶部菜单中选择 <strong>Window &gt; Package Manager</strong> 可查看已经安装在项目中的包了。</p><h3 id="手动导入（博主较为推荐）"><a href="#手动导入（博主较为推荐）" class="headerlink" title="手动导入（博主较为推荐）"></a>手动导入（博主较为推荐）</h3><p>这种方式与第一种的区别就在于所有依赖都是自己去导入进来，不会出现包体丢失问题，加之如果是新手用第一种出错误难以自行解决，下面就详细介绍一下这种方式</p><p>点击<a href="https://developer.taptap.cn/docs/tap-download/">资源下载 | TapTap 开发者文档</a>找到 <strong>TapSDK Unity</strong> 和 <strong>LeanCloud C# SDK</strong> 下载地址，下载 并在本地解压这两个压缩包<code>TapSDK-UnityPackage.zip</code> 和 <code>LeanCloud-SDK-Realtime-Unity.zip</code></p><p>对于<code>TapSDK-UnityPackage.zip</code>这个压缩包基本上东西还是特别多的，但是一般登录这一模块我们主要就用三个：</p><ul><li><code>TapTap_Bootstrap.unitypackage</code> TapSDK 启动器，必选。</li><li><code>TapTap_Common.unitypackage</code> TapSDK 基础库，必选。</li><li><code>TapTap_Login.unitypackage</code> TapTap 登录，必选。</li></ul><p>对于 <code>LeanCloud-SDK-Realtime-Unity.zip</code> 为 Plugins 文件夹。解压后拖拽至 Unity 即可</p><h2 id="SDK-初始化"><a href="#SDK-初始化" class="headerlink" title="SDK 初始化"></a>SDK 初始化</h2><p>初始化 TapSDK 时需传入 <code>Client ID</code>、区域等应用配置信息。</p><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> TapTap.Bootstrap; <span class="comment">// 命名空间</span></span><br><span class="line"><span class="keyword">using</span> TapTap.Common; <span class="comment">// 命名空间</span></span><br><span class="line"><span class="keyword">var</span> config =  <span class="keyword">new</span> TapConfig.Builder()</span><br><span class="line">    .ClientID(<span class="string">&quot;your_client_id&quot;</span>) <span class="comment">// 必须，开发者中心对应 Client ID</span></span><br><span class="line">    .ClientToken(<span class="string">&quot;your_client_token&quot;</span>) <span class="comment">// 必须，开发者中心对应 Client Token</span></span><br><span class="line">    .ServerURL(<span class="string">&quot;https://your_server_url&quot;</span>) <span class="comment">// 必须，开发者中心 &gt; 你的游戏 &gt; 游戏服务 &gt; 基本信息 &gt; 域名配置 &gt; API</span></span><br><span class="line">    .RegionType(RegionType.CN) <span class="comment">// 非必须，CN 表示中国大陆，IO 表示其他国家或地区</span></span><br><span class="line">    .ConfigBuilder();</span><br><span class="line">TapBootstrap.Init(config);</span><br></pre></td></tr></table></figure><p>初始化的时候，<strong>必须填入</strong> <code>client_id</code>、<code>client_token</code> 和 <code>server_url</code>，其中：</p><ul><li><code>client_id</code>、<code>client_token</code> 信息可在 <strong>开发者中心 &gt; 你的游戏 &gt; 游戏服务 &gt; 应用配置</strong> 查看。</li><li><code>server_url</code> 请<strong>使用 HTTPS 协议</strong>，参考文档关于 <strong><a href="https://developer.taptap.cn/docs/sdk/start/get-ready/#域名">域名</a></strong> 的说明。</li></ul>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;其实在Unity手机端开发过程中，一般特别是游戏类型的开发，都会用到登录模块，现在目前成熟且常见的无外乎QQ登录，微信登录，以及第三方登录（TapTap登录，系统账户登录），这篇文章主要以TapTap为例进行介绍。&lt;/p&gt;
-&lt;div class=&quot;note red no-i</summary>
-      
-    
-    
-    
-    <category term="🕍UnityAPI" scheme="https://blog.gmcj0816.top/categories/%F0%9F%95%8DUnityAPI/"/>
-    
-    
-    <category term="Unity3D" scheme="https://blog.gmcj0816.top/tags/Unity3D/"/>
-    
-    <category term="TapTap" scheme="https://blog.gmcj0816.top/tags/TapTap/"/>
-    
-    <category term="安卓" scheme="https://blog.gmcj0816.top/tags/%E5%AE%89%E5%8D%93/"/>
-    
-  </entry>
   
   <entry>
     <title>创造属于自己的Unity3d小框架(SeveneFramework)</title>
@@ -72,32 +43,6 @@
     <category term="框架" scheme="https://blog.gmcj0816.top/tags/%E6%A1%86%E6%9E%B6/"/>
     
     <category term="Sevene" scheme="https://blog.gmcj0816.top/tags/Sevene/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity FishNet游戏网络库随笔</title>
-    <link href="https://blog.gmcj0816.top/posts/4c410e74/"/>
-    <id>https://blog.gmcj0816.top/posts/4c410e74/</id>
-    <published>2023-03-25T13:47:06.000Z</published>
-    <updated>2023-04-30T11:50:00.115Z</updated>
-    
-    <content type="html"><![CDATA[<div class="note red no-icon flat"><p>Unity是 实时3D互动内容创作和运营平台 。包括游戏开发、美术、建筑、汽车设计、影视在内的所有创作者，借助 Unity 将创意变成现实。Unity 平台提供一整套完善的软件解决方案，可用于创作、运营和变现任何实时互动的2D和3D内容，支持平台包括手机、平板电脑、PC、游戏主机、增强现实和虚拟现实设备。简单来说，Unity3D不单单可以做游戏，还可以通过相关接口与API来进行设备的交互【例如虚拟仿真】</p></div><p>🎬 博客主页：<a href="https://blog.gmcj0816.top">https://blog.gmcj0816.top</a></p><p>🏅 欢迎点赞 👍 收藏 ⭐留言 📝 如有错误敬请指正！ </p><p>📆 此文章为原创，并通过Typora编辑器撰写✨</p><p>🌲 开发工具：Unity3D 2019.4.40f1(个人版)   Rider2022.2.4(教育版)</p><h1 id="前序"><a href="#前序" class="headerlink" title="前序"></a>前序</h1><p>其实网络游戏只要玩过游戏的都知道，可以说，网络游戏不仅仅突破的空间的限制，让和好友娱乐成了随时开始成为现实，另一方面也推动了技术的发展，Unity实现网络通信的方式还是有很多的，例如：(一般还是比较推荐，主要是相比较符合功能)</p><ul><li>基于C#自带的Socket</li><li>使用第三方插件，比如PUN2，Mirror等</li></ul><h1 id="如何获取"><a href="#如何获取" class="headerlink" title="如何获取"></a>如何获取</h1><p>其实FishNet共有两个版本，分别是FishNet 和FishNet Pro，其中FishNet是免费的，可以在Unity AssetStore 中获取，地址为：<a href="https://assetstore.unity.com/packages/tools/network/fish-net-networking-evolved-207815">Fish-Net: Networking Evolved | 网络 | Unity Asset Store</a>，而Pro版本需要每月支付1美元/一次性60美元，地址为：<a href="https://fish-networking.gitbook.io/docs/">Introduction - Fish-Net: Networking Evolved (gitbook.io)</a></p><hr><center><b style="color:red">后面还得慢慢写，一点点来吧，先起个头,但是插件确实不错</b></center>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;div class=&quot;note red no-icon flat&quot;&gt;&lt;p&gt;Unity是 实时3D互动内容创作和运营平台 。包括游戏开发、美术、建筑、汽车设计、影视在内的所有创作者，借助 Unity 将创意变成现实。Unity 平台提供一整套完善的软件解决方案，可用于创作、运营和</summary>
-      
-    
-    
-    
-    <category term="🦋热更新" scheme="https://blog.gmcj0816.top/categories/%F0%9F%A6%8B%E7%83%AD%E6%9B%B4%E6%96%B0/"/>
-    
-    
-    <category term="Unity3D" scheme="https://blog.gmcj0816.top/tags/Unity3D/"/>
-    
-    <category term="网络开发" scheme="https://blog.gmcj0816.top/tags/%E7%BD%91%E7%BB%9C%E5%BC%80%E5%8F%91/"/>
     
   </entry>
   
@@ -635,9 +580,9 @@
     <category term="📌U3D基础知识" scheme="https://blog.gmcj0816.top/categories/%F0%9F%93%8CU3D%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
     
-    <category term="Unity3D" scheme="https://blog.gmcj0816.top/tags/Unity3D/"/>
-    
     <category term="游戏开发" scheme="https://blog.gmcj0816.top/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Unity3D" scheme="https://blog.gmcj0816.top/tags/Unity3D/"/>
     
   </entry>
   
