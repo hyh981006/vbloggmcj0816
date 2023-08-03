@@ -139,33 +139,6 @@
   </entry>
   
   <entry>
-    <title>Unity不挂载到物体上也可执行的方法</title>
-    <link href="https://blog.gmcj0816.top/posts/d3af7e5d/"/>
-    <id>https://blog.gmcj0816.top/posts/d3af7e5d/</id>
-    <published>2023-03-14T12:24:12.000Z</published>
-    <updated>2023-04-30T11:48:41.347Z</updated>
-    
-    <content type="html"><![CDATA[<p>本来想着直接写之前学到的一些东西的，但是我在想，这万一有人问我啥是Unity可咋办，所以呢，就在后面关于Unity3D的文章开头呢，写上什么是Unity</p><div class="note red no-icon flat"><p>Unity是 实时3D互动内容创作和运营平台 。包括游戏开发、美术、建筑、汽车设计、影视在内的所有创作者，借助 Unity 将创意变成现实。Unity 平台提供一整套完善的软件解决方案，可用于创作、运营和变现任何实时互动的2D和3D内容，支持平台包括手机、平板电脑、PC、游戏主机、增强现实和虚拟现实设备。简单来说，Unity3D不单单可以做游戏，还可以通过相关接口与API来进行设备的交互【例如虚拟仿真】</p></div><p>🎬 博客主页：<a href="https://blog.gmcj0816.top">https://blog.gmcj0816.top</a></p><p>🏅 欢迎点赞 👍 收藏 ⭐留言 📝 如有错误敬请指正！ </p><p>📆 此文章为原创，并通过Typora编辑器撰写✨</p><p>🌲 开发工具：Unity3D 2019.4.40f1(个人版)   Rider2022.2.4(教育版)</p><h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>之前也是没太注意如何不挂载到GameObject物体身上也能够执行相关方法，这个确实是自己的知识盲区，过去自己能想到的都基本需要挂载到物体身上，才能够执行，或者通过脚本来调用不继承MonoBehavior的类中的方法。</p><h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="ONE"><a href="#ONE" class="headerlink" title="ONE"></a>ONE</h2><p>如果在脚本中的方法标记为<code>[RuntimeInitializeOnLoadMethod]</code> ，则允许在运行时加载游戏时不通过用户操作 初始化一个运行时类方法，这里需要注意的便是<font color=red>调用标记为 <code>[RuntimeInitializeOnLoadMethod]</code> 的 方法。这是在调用 <code>Awake</code> 方法后进行的,而且标记为 <code>[RuntimeInitializeOnLoadMethod]</code> 的方法的执行顺序是不确定的</font>，那该如何去写呢，其实有两种方式，一种是[RuntimeInitializeOnLoadMethod]，另一种是[RuntimeInitializeOnLoadMethod([RuntimeInitializeOnLoadMethod])]</p><ul><li>[RuntimeInitializeOnLoadMethod]（这里也是写了一个比较简单的实例，无需挂载到物体身上，点击Play按钮即可发现其执行了）</li></ul><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[RuntimeInitializeOnLoadMethod]</span><br><span class="line">static void OnRuntimeMethodLoad()</span><br><span class="line">&#123;</span><br><span class="line">    Debug.Log(&quot;这是一个不需要挂载到GameObject身上就能够执行的方法&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p><img src="https://bu.dusays.com/2023/03/14/6410716ad967b.jpg" alt="运行结果"></p><ul><li>[RuntimeInitializeOnLoadMethod([RuntimeInitializeOnLoadMethod])]</li></ul><p>这里RuntimeInitializeOnLoadMethod提供了五个类型</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">RuntimeInitializeLoadType.AfterSceneLoad // 加载场景后</span><br><span class="line">RuntimeInitializeLoadType.BeforeSceneLoad // 在加载场景之前</span><br><span class="line">RuntimeInitializeLoadType.AfterAssembliesLoaded // 加载所有程序集并初始化预加载的资源时进行回调</span><br><span class="line">RuntimeInitializeLoadType.BeforeSplashScreen // 在显示启动屏幕之前。</span><br><span class="line">RuntimeInitializeLoadType.SubsystemRegistration //用于注册子系统的回调</span><br></pre></td></tr></table></figure><h2 id="TWO"><a href="#TWO" class="headerlink" title="TWO"></a>TWO</h2><ul><li>InitializeOnLoadMethod</li></ul><p>允许在 Unity 加载时初始化编辑器类方法，无需用户操作。<font color=red>方法记得也需要是static静态方法哦</font></p><p><img src="https://bu.dusays.com/2023/03/14/641074a75ae4f.jpg" alt="运行结果"></p><p>完事，基本就是这些，还是比较好理解的</p><p>记得常来看看哦</p><p><img src="https://bu.dusays.com/2023/03/07/6406885e03d2b.jpeg" alt="首次爆照-黄宇涵"></p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;本来想着直接写之前学到的一些东西的，但是我在想，这万一有人问我啥是Unity可咋办，所以呢，就在后面关于Unity3D的文章开头呢，写上什么是Unity&lt;/p&gt;
-&lt;div class=&quot;note red no-icon flat&quot;&gt;&lt;p&gt;Unity是 实时3D互动内容创作和</summary>
-      
-    
-    
-    
-    <category term="🕍UnityAPI" scheme="https://blog.gmcj0816.top/categories/%F0%9F%95%8DUnityAPI/"/>
-    
-    
-    <category term="Unity3D" scheme="https://blog.gmcj0816.top/tags/Unity3D/"/>
-    
-    <category term="C#" scheme="https://blog.gmcj0816.top/tags/C/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Unity3d热更新之xLua热更新[Lua调用C#]</title>
     <link href="https://blog.gmcj0816.top/posts/5b185676/"/>
     <id>https://blog.gmcj0816.top/posts/5b185676/</id>
@@ -292,32 +265,6 @@
   </entry>
   
   <entry>
-    <title>MyBatis-Plus 条件构造器QueryWrapper</title>
-    <link href="https://blog.gmcj0816.top/posts/aa9026d9/"/>
-    <id>https://blog.gmcj0816.top/posts/aa9026d9/</id>
-    <published>2022-12-17T12:52:30.000Z</published>
-    <updated>2023-04-13T10:01:39.670Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="QueryWrapper概念"><a href="#QueryWrapper概念" class="headerlink" title="QueryWrapper概念"></a>QueryWrapper概念</h2><p>简单来说，QueryWrapper就是咱们在使用Mybatis-plus中真实用到的一种技术，也叫作构造器</p><h2 id="QueryWrapper方法"><a href="#QueryWrapper方法" class="headerlink" title="QueryWrapper方法"></a>QueryWrapper方法</h2><ul><li>eq或者ne</li></ul><p>eq，全称equal，主要用于判断等于的</p><p>ne，全称not equal主要用于判断是否不相等（这两个是反义词）</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//新建一个QueryWrapper对象</span><br><span class="line">QueryWrapper&lt;NocvNews&gt; queryWrapper=new QueryWrapper&lt;&gt;();</span><br><span class="line">//eq()相等</span><br><span class="line">queryWrapper.eq(&quot;name&quot;,&quot;七鳄&quot;);==&gt;name=&quot;七鳄&quot;</span><br><span class="line">//ne()不相等</span><br><span class="line">queryWrapper.ne(&quot;name&quot;,&quot;七鳄&quot;);==&gt;name!=&quot;七鳄&quot;</span><br></pre></td></tr></table></figure><ul><li><p>gt，ge，lt，le</p><p>gt：全称为Greater than，用于大于；</p></li></ul><p>ge：全称为Greater than or equal to，用于大于等于；</p><p>lt：全称为Less than，用于小于；</p><p>le：全称为Less than or equal to，用于小于等于</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//新建一个QueryWrapper对象</span><br><span class="line">QueryWrapper&lt;NocvNews&gt; queryWrapper=new QueryWrapper&lt;&gt;();</span><br><span class="line">queryWrapper.gt(&quot;age&quot;,18);</span><br><span class="line">queryWrapper.ge(&quot;age&quot;,18);</span><br><span class="line">queryWrapper.lt(&quot;age&quot;,18);</span><br><span class="line">queryWrapper.le(&quot;age&quot;,18);</span><br></pre></td></tr></table></figure><ul><li>between、notBetween</li></ul><p>between 是在某个范围内</p><p>notBetween 是不在某个范围内</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//新建一个QueryWrapper对象</span><br><span class="line">QueryWrapper&lt;NocvNews&gt; queryWrapper=new QueryWrapper&lt;&gt;();</span><br><span class="line">queryWrapper.between(&quot;age&quot;,11,12);</span><br><span class="line">queryWrapper.notBetween(&quot;age&quot;,11,12);</span><br></pre></td></tr></table></figure><hr>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;QueryWrapper概念&quot;&gt;&lt;a href=&quot;#QueryWrapper概念&quot; class=&quot;headerlink&quot; title=&quot;QueryWrapper概念&quot;&gt;&lt;/a&gt;QueryWrapper概念&lt;/h2&gt;&lt;p&gt;简单来说，QueryWrapper就是咱们在</summary>
-      
-    
-    
-    
-    <category term="🎯JavaEE" scheme="https://blog.gmcj0816.top/categories/%F0%9F%8E%AFJavaEE/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://blog.gmcj0816.top/tags/SpringBoot/"/>
-    
-    <category term="Shiro" scheme="https://blog.gmcj0816.top/tags/Shiro/"/>
-    
-  </entry>
-  
-  <entry>
     <title>使用轻量级服务器和Vercel双部署Hexo</title>
     <link href="https://blog.gmcj0816.top/posts/47c1249e/"/>
     <id>https://blog.gmcj0816.top/posts/47c1249e/</id>
@@ -343,56 +290,6 @@
     <category term="魔改教程" scheme="https://blog.gmcj0816.top/tags/%E9%AD%94%E6%94%B9%E6%95%99%E7%A8%8B/"/>
     
     <category term="Nginx" scheme="https://blog.gmcj0816.top/tags/Nginx/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Springboot整合Shiro</title>
-    <link href="https://blog.gmcj0816.top/posts/eb9ae3a0/"/>
-    <id>https://blog.gmcj0816.top/posts/eb9ae3a0/</id>
-    <published>2022-11-09T12:52:21.000Z</published>
-    <updated>2023-04-13T09:59:03.146Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="简述"><a href="#简述" class="headerlink" title="简述"></a>简述</h2><p>Shrio是一款主流的Java安全框架，不依赖任何容器，便可以运行在javaSE和JavaEE项目中，起主要作用便是对访问系统的用户进行身份认证，授权，回话管理，加密等操作。</p><p><img src="https://blog.gmcj0816.top/img/shiro_zhengti.jpg" alt="Shiro基本组成"></p><p>Shiro主要是用来解决安全管理的系统化框架</p><p>需要以下环境依赖</p><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>4.9<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--日志打印包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>commons-logging<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.1.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--shiro依赖包--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.shiro<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>shiro-core<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br></pre></td></tr></table></figure><h2 id="Shiro核心组件"><a href="#Shiro核心组件" class="headerlink" title="Shiro核心组件"></a>Shiro核心组件</h2><ul><li><p>UsernamePasswordToken：Shiro用来封装用户登录信息，使用用户的登录信息来创建令牌Token</p></li><li><p>SecurityManager：Shiro的核心部分，负责安全认证和授权</p></li><li><p>Suject：Shiro的一个抽象概念，包含了用户信息</p></li><li><p>Realm 开发者自定义的模块，根据项目的需求，验证和授权的逻辑全部写在Realm中</p></li><li><p>AuthenticationInfo：用户的角色信息集合，认证时使用</p></li><li><p>AuthorzationInfo：角色的权限信息集合，授权时使用</p></li><li><p>DeaultWebSecurityDManager 安全管理器，开发者自定义的Realm需要注入到DeaultWebSecurityDManager进行管理才能生效</p></li><li><p>ShiroFilterFactoryBean，过滤器工厂，Shiro 的基本运行机制是开发者定制规则，Shiro 去执行，具体的执行操作就是由 ShiroFilterFactoryBean 创建的一个个 Filter 对象来完成。</p><p><img src="https:blog.gmcj0816.top/img/Shiro运行流程图.jpg" alt="Shiro运行流程图"></p><p>这里需要说明一个概念</p><p>权限，角色，用户三者的关系：权限并非是直接给到用户，而是通过将权限首先给到角色，将用户赋为不同的角色，来实现对用户的不同权限。</p></li></ul><hr><center>未完待续</center>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;简述&quot;&gt;&lt;a href=&quot;#简述&quot; class=&quot;headerlink&quot; title=&quot;简述&quot;&gt;&lt;/a&gt;简述&lt;/h2&gt;&lt;p&gt;Shrio是一款主流的Java安全框架，不依赖任何容器，便可以运行在javaSE和JavaEE项目中，起主要作用便是对访问系统的用户进行身份</summary>
-      
-    
-    
-    
-    <category term="🎯JavaEE" scheme="https://blog.gmcj0816.top/categories/%F0%9F%8E%AFJavaEE/"/>
-    
-    
-    <category term="SpringBoot" scheme="https://blog.gmcj0816.top/tags/SpringBoot/"/>
-    
-    <category term="Shiro" scheme="https://blog.gmcj0816.top/tags/Shiro/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Unity3D不可或缺的基础</title>
-    <link href="https://blog.gmcj0816.top/posts/9c3bcc4d/"/>
-    <id>https://blog.gmcj0816.top/posts/9c3bcc4d/</id>
-    <published>2022-10-22T05:47:31.000Z</published>
-    <updated>2023-04-30T11:49:40.364Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="GameObject类"><a href="#GameObject类" class="headerlink" title="GameObject类"></a>GameObject类</h2><h2 id="基本属性"><a href="#基本属性" class="headerlink" title="基本属性"></a>基本属性</h2><h3 id="activeSelf属性"><a href="#activeSelf属性" class="headerlink" title="activeSelf属性"></a>activeSelf属性</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">基本语法：</span><br><span class="line">public  bool activeSelf&#123; get； &#125; </span><br><span class="line">这里需要注意一个知识点：</span><br><span class="line">activeSelf和activeInHierarchy 二者的区别：</span><br><span class="line">-  activeSelf返回的是自身的active值    </span><br><span class="line">-  activeInHierarchy返回的是在Hierarchy内的active效果值</span><br></pre></td></tr></table></figure><h3 id="SetActive设置"><a href="#SetActive设置" class="headerlink" title="SetActive设置"></a>SetActive设置</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">基本语法：</span><br><span class="line">public void SetActive（bool active）</span><br></pre></td></tr></table></figure><h3 id="isStatic属性"><a href="#isStatic属性" class="headerlink" title="isStatic属性"></a>isStatic属性</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">是否是静态物体   </span><br><span class="line">基本语法：</span><br><span class="line">public bool isStatic&#123; get;set; &#125;        </span><br></pre></td></tr></table></figure><h3 id="layer属性；"><a href="#layer属性；" class="headerlink" title="layer属性；"></a>layer属性；</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">获取设置层序号</span><br><span class="line">基本语法：</span><br><span class="line">public  int layer&#123; get;set; &#125; </span><br></pre></td></tr></table></figure><h3 id="tag属性"><a href="#tag属性" class="headerlink" title="tag属性"></a>tag属性</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">获取物体的标签   </span><br><span class="line">基本语法：</span><br><span class="line">public string tag&#123;get;set; &#125;    </span><br></pre></td></tr></table></figure><h3 id="scene属性："><a href="#scene属性：" class="headerlink" title="scene属性："></a>scene属性：</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">获取物体所在的场景    </span><br><span class="line">基本语法：</span><br><span class="line">public Scene scene&#123;get;&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h2 id=&quot;GameObject类&quot;&gt;&lt;a href=&quot;#GameObject类&quot; class=&quot;headerlink&quot; title=&quot;GameObject类&quot;&gt;&lt;/a&gt;GameObject类&lt;/h2&gt;&lt;h2 id=&quot;基本属性&quot;&gt;&lt;a href=&quot;#基本属性&quot; class=&quot;</summary>
-      
-    
-    
-    
-    <category term="📌U3D基础知识" scheme="https://blog.gmcj0816.top/categories/%F0%9F%93%8CU3D%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
-    
-    
-    <category term="Unity3D" scheme="https://blog.gmcj0816.top/tags/Unity3D/"/>
     
   </entry>
   
@@ -580,9 +477,9 @@
     <category term="📌U3D基础知识" scheme="https://blog.gmcj0816.top/categories/%F0%9F%93%8CU3D%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/"/>
     
     
-    <category term="Unity3D" scheme="https://blog.gmcj0816.top/tags/Unity3D/"/>
-    
     <category term="游戏开发" scheme="https://blog.gmcj0816.top/tags/%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"/>
+    
+    <category term="Unity3D" scheme="https://blog.gmcj0816.top/tags/Unity3D/"/>
     
   </entry>
   
